@@ -13,13 +13,7 @@ function ProductCard({ Product }) {
         featured,
         shipping,
     } = Product
-    return (
-        <DivStyled>
-            <h4>{name}</h4>
-            <p>{category}</p>
-            <p>{FormatePrice(price)}</p>
-        </DivStyled>
-    )
+    return <DivStyled></DivStyled>
 }
 const DivStyled = styled.div`
     background: red;

@@ -3,7 +3,7 @@ import ErrorPage from './ErrorPage'
 import CheckOut from './CheckOutPage'
 import Orders from './OrdersPage'
 import Cart from './CartPage'
-import AccountInfo from './AccountInfoPage'
+import UserProfile from './UserProfilePage'
 import About from './AboutPage'
 import Accounts from './AccountsPage'
 import SingleProduct from './SingleProductPage'
@@ -15,7 +15,7 @@ export {
     CheckOut,
     Orders,
     Cart,
-    AccountInfo,
+    UserProfile,
     Accounts,
     About,
     SingleProduct,

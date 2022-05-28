@@ -3,14 +3,14 @@ import {
     CheckOut,
     Orders,
     Cart,
-    AccountInfo,
+    UserProfile,
     Accounts,
     About,
     ErrorPage,
     SingleProduct,
     AdminDashboard,
-} from './pages'
-import { Header, Footer, SideBarNav } from './components'
+} from './Pages'
+import { Header, Footer, SideBarNav } from './Components'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {

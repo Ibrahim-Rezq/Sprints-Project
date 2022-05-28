@@ -1,5 +1,5 @@
-import React from 'react'
-import { Filters, ProductsGridVeiw } from '../components'
+import React, { useEffect } from 'react'
+import { Filters, ProductsGridVeiw } from '../Components'
 
 function HomePage() {
     return <div>HomePage</div>

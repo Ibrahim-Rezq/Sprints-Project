@@ -1,5 +1,5 @@
 import React from 'react'
-import CartAmountButtons from './CartAmountButtons'
+import CartAmountButtons from '../Cart/CartAmountButtons'
 function AddToCartButtons() {
     return <div>AddToCartButtons</div>
 }

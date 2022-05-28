@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductCard from './ProductCard'
-import { Products } from '../Utils/Constant'
+import { Products } from '../../Utils/Constant'
 
 function ProductsGridVeiw() {
     return (

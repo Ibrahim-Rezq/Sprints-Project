@@ -3,7 +3,7 @@ import {
     ProductImagePreview,
     ProductReviews,
     AddToCartButtons,
-} from '../components'
+} from '../Components'
 
 function SingleProductPage() {
     return <div>SingleProductPage</div>
