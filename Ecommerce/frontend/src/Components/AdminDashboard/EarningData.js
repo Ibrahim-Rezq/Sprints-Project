@@ -1,22 +1,22 @@
 import React from 'react'
-import {
-    Tooltip,
-    PieChart,
-    Pie,
-    Sector,
-    Cell,
-    ResponsiveContainer,
-    BarChart,
-    YAxis,
-    XAxis,
-    Bar,
-    Legend,
-    CartesianGrid,
-} from 'recharts'
+// import {
+//     Tooltip,
+//     PieChart,
+//     Pie,
+//     Sector,
+//     Cell,
+//     ResponsiveContainer,
+//     BarChart,
+//     YAxis,
+//     XAxis,
+//     Bar,
+//     Legend,
+//     CartesianGrid,
+// } from 'recharts'
 function EarningData({ revenueArray }) {
     return (
         <div>
-            <BarChart
+            {/* <BarChart
                 width={500}
                 height={300}
                 data={revenueArray}
@@ -33,7 +33,7 @@ function EarningData({ revenueArray }) {
                 <Tooltip />
                 <Legend />
                 <Bar dataKey='profit' fill='#8884d8' />
-            </BarChart>
+            </BarChart> */}
         </div>
     )
 }

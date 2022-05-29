@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react'
-import {
-    Tooltip,
-    PieChart,
-    Pie,
-    Sector,
-    Cell,
-    ResponsiveContainer,
-    BarChart,
-    YAxis,
-    XAxis,
-    Bar,
-    Legend,
-    CartesianGrid,
-} from 'recharts'
+// import {
+//     Tooltip,
+//     PieChart,
+//     Pie,
+//     Sector,
+//     Cell,
+//     ResponsiveContainer,
+//     BarChart,
+//     YAxis,
+//     XAxis,
+//     Bar,
+//     Legend,
+//     CartesianGrid,
+// } from 'recharts'
 
 function Statistics({ revenueArray }) {
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
 
     return (
         <>
-            <PieChart width={800} height={400}>
+            {/* <PieChart width={800} height={400}>
                 <Pie
                     data={revenueArray}
                     cx={120}
@@ -40,7 +40,7 @@ function Statistics({ revenueArray }) {
                 </Pie>
 
                 <Tooltip />
-            </PieChart>
+            </PieChart> */}
         </>
     )
 }
