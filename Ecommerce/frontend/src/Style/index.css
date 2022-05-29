@@ -11,32 +11,38 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
-.mainCont{display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-border: solid 2px black;
-background-color: #eee;
-
+.mainCont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: solid 2px black;
+    background-color: #eee;
 }
-.firstContainer ,.secondCont{ 
-        display: grid;
-        grid-template-columns:45%;
-        background-color: aliceblue;
-        border: solid 2px gray;
-        color: rgb(109, 109, 109);
-        align-content: stretch;
-        justify-content: center;
-        align-items: center;
-        justify-items: center;
-        position: relative;
-        border-radius: 20%;
-        margin: 20px;
+.firstContainer,
+.secondCont {
+    display: grid;
+    grid-template-columns: 45%;
+    background-color: aliceblue;
+    border: solid 2px gray;
+    color: rgb(109, 109, 109);
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    border-radius: 20%;
+    margin: 20px;
 }
 
-
-.firstContainer .submit input ,.secondCont .submit input{
-        background-color: rgb(210, 217, 223);
-        border: 5px solid rgba(225, 230, 210, 0.801);}
-.firstContainer .submit :hover ,.secondCont .submit :hover{
-background-color:#eeee;}
-.firstC .login{text-align: center;}
+.firstContainer .submit input,
+.secondCont .submit input {
+    background-color: rgb(210, 217, 223);
+    border: 5px solid rgba(225, 230, 210, 0.801);
+}
+.firstContainer .submit :hover,
+.secondCont .submit :hover {
+    background-color: #eeee;
+}
+.firstC .login {
+    text-align: center;
+}

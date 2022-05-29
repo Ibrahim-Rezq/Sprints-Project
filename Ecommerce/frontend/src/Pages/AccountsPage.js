@@ -2,7 +2,11 @@ import React from 'react'
 import { SignInForm, SignUpForm } from '../Components'
 
 function AccountsPage() {
-    return <div>AccountsPage</div>
+    return (
+        <div className='mainCont'>
+            <SignInForm /> <SignUpForm />
+        </div>
+    )
 }
 
 export default AccountsPage

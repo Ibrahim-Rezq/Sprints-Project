@@ -1,7 +1,13 @@
 import React from 'react'
-
-function OrdersData() {
-    return <div>OrdersData</div>
+import SingleOrderData from './SingleOrderData'
+function OrdersData({ ordersArray }) {
+    return (
+        <>
+            {ordersArray.map((order) => {
+                return <SingleOrderData key={order.id} order={order} />
+            })}
+        </>
+    )
 }
 
 export default OrdersData

@@ -12,7 +12,9 @@ import ProductReviews from './SingleProduct/ProductReviews'
 import Loading from './Global/Loading'
 import Error from './Global/Error'
 import SideBarNav from './Global/SideBarNav'
+import Dashboard from './AdminDashboard/Dashboard'
 export {
+    Dashboard,
     SideBarNav,
     Loading,
     Error,
