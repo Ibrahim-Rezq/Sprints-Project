@@ -8,7 +8,7 @@ import About from './AboutPage'
 import Accounts from './AccountsPage'
 import SingleProduct from './SingleProductPage'
 import AdminDashboard from './AdminDashboardPage'
-import  Header  from '../Components/Home/Header'
+import  Header  from '../Components/Global/Header'
 
 
 export {

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Filters, ProductsGridVeiw, Featured, Header,Hero } from '../Components'
+import { Filters, ProductsGridVeiw, Featured,Hero } from '../Components'
 
 
 

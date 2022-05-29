@@ -33,7 +33,7 @@ nav{
 }
 nav h1{
     padding:  0 4rem;
-font-size: 3rem;
+font-size: 2.8rem;
  justify-content: flex-start;
  text-shadow: 1px 1px 1px rgb(167, 167, 167);
 }
@@ -46,7 +46,7 @@ nav span{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .nav-center li {

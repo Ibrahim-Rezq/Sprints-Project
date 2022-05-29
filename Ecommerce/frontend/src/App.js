@@ -12,7 +12,7 @@ import {
 } from './Pages'
 import { Header, Footer, SideBarNav } from './Components'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './Style/index.css'
+
 
 function App() {
     return (
