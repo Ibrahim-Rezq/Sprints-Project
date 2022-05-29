@@ -13,15 +13,17 @@ function ProductCard({ Product }) {
         featured,
         shipping,
     } = Product
-    return <DivStyled></DivStyled>
+    return <div className="product">
+ <div className="sale1">
+             <h2> 40%</h2>
+            <img src="https://images.pexels.com/photos/8782574/pexels-photo-8782574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Sale 1" />
+             <p>product.name</p>
+        </div>
+
+    </div>
+
+   
 }
-const DivStyled = styled.div`
-    background: red;
-    border-radius: 3px;
-    border: 2px solid palevioletred;
-    color: palevioletred;
-    margin: 0 1em;
-    padding: 0.25em 1em;
-`
+
 
 export default ProductCard

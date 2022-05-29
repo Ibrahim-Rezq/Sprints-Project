@@ -8,6 +8,8 @@ import About from './AboutPage'
 import Accounts from './AccountsPage'
 import SingleProduct from './SingleProductPage'
 import AdminDashboard from './AdminDashboardPage'
+import  Header  from '../Components/Home/Header'
+
 
 export {
     Home,
@@ -20,4 +22,6 @@ export {
     About,
     SingleProduct,
     AdminDashboard,
+    Header,
+    
 }

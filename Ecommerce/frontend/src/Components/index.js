@@ -12,7 +12,12 @@ import ProductReviews from './SingleProduct/ProductReviews'
 import Loading from './Global/Loading'
 import Error from './Global/Error'
 import SideBarNav from './Global/SideBarNav'
+<<<<<<< HEAD
 import Dashboard from './AdminDashboard/Dashboard'
+=======
+import Featured from './Home/Featured'
+import Hero from './Home/Hero'
+>>>>>>> 86859178bc0ff6540a296c6b901f813a94b87fd0
 export {
     Dashboard,
     SideBarNav,
@@ -29,4 +34,6 @@ export {
     SignUpForm,
     ProductImagePreview,
     ProductReviews,
+    Featured,
+    Hero,
 }
