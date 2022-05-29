@@ -12,6 +12,8 @@ import ProductReviews from './SingleProduct/ProductReviews'
 import Loading from './Global/Loading'
 import Error from './Global/Error'
 import SideBarNav from './Global/SideBarNav'
+import Featured from './Home/Featured'
+import Hero from './Home/Hero'
 export {
     SideBarNav,
     Loading,
@@ -27,4 +29,6 @@ export {
     SignUpForm,
     ProductImagePreview,
     ProductReviews,
+    Featured,
+    Hero,
 }
