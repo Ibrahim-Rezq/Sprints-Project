@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { TotalRevenue } from '../../../Utils/Constant'
 const initialState = {
     totalRevenue: [...TotalRevenue],
-    revenueRange: 0,
 }
 
 export const adminSlice = createSlice({

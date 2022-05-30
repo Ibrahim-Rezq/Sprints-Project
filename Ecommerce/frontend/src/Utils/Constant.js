@@ -1,3 +1,5 @@
+//////////////////////////////// Single Product  ////////////////////////////////
+
 const Product = {
     id: 'recRoQD1w0ItHzafo',
     name: 'Xbox Console',
@@ -8,6 +10,9 @@ const Product = {
     featured: true,
     shipping: true,
 }
+//////////////////////////////// Single Product ////////////////////////////////
+
+//////////////////////////////// Products Array ////////////////////////////////
 const Products = [
     {
         id: 'recrGXTSQghJI9Htq',
@@ -46,6 +51,9 @@ const Products = [
         company: 'microsoft',
     },
 ]
+//////////////////////////////// Products Array ////////////////////////////////
+
+//////////////////////////////// Home Arrays ////////////////////////////////
 const OnSaleProducts = [
     {
         id: 'recrGXTSQghJI9Htq',
@@ -135,22 +143,74 @@ const FeaturedProducts = [
         company: 'microsoft',
     },
 ]
+//////////////////////////////// Home Arrays ////////////////////////////////
 
+//////////////////////////////// Dashboard Arrays ////////////////////////////////
 const TotalRevenue = [
     //mon -> Month fron 1 to 12
     // profite -> price to be formated
-    { id: '964', name: 'Jan', mon: 1, profit: 12354, productsSold: '50' },
-    { id: '563', name: 'Feb', mon: 2, profit: 12934, productsSold: '5' },
-    { id: '524', name: 'March', mon: 3, profit: 16554, productsSold: '150' },
-    { id: '554', name: 'April', mon: 4, profit: 17454, productsSold: '180' },
-    { id: '568', name: 'May', mon: 5, profit: 12654, productsSold: '46' },
-    { id: '568', name: 'June', mon: 5, profit: 20654, productsSold: '46' },
+    { id: '964', name: 'Jan', profit: 12354, productsSold: '50' },
+    { id: '563', name: 'Feb', profit: 12934, productsSold: '5' },
+    { id: '524', name: 'March', profit: 16554, productsSold: '150' },
+    { id: '554', name: 'April', profit: 17454, productsSold: '180' },
+    { id: '568', name: 'May', profit: 12654, productsSold: '46' },
+    { id: '568', name: 'June', profit: 20654, productsSold: '46' },
 ]
 
-const ordersArray = [
-    { id: '563', Num: 1, customer: 'ahmed', orderData: '11 - 12 - 2022' },
-    { id: '558', Num: 1, customer: 'ahmed', orderData: '11 - 12 - 2022' },
+const StatisticsArray = [
+    { id: '563', name: 'sales', value: '350' },
+    { id: '958', name: 'profit', value: '200' },
+    { id: '558', name: 'customers', value: '600' },
+    { id: '548', name: 'products', value: '900' },
 ]
+const ordersDataArray = [
+    { id: '563', Num: 1, customer: 'ahmed', orderData: '11 - 12 - 2022' },
+    { id: '552', Num: 1, customer: 'ahmed', orderData: '11 - 12 - 2022' },
+    { id: '658', Num: 1, customer: 'ahmed', orderData: '11 - 12 - 2022' },
+    { id: '528', Num: 1, customer: 'ahmed', orderData: '11 - 12 - 2022' },
+    { id: '578', Num: 1, customer: 'ahmed', orderData: '11 - 12 - 2022' },
+]
+//////////////////////////////// Dashboard Arrays ////////////////////////////////
+
+//////////////////////////////// Orders Arrays ////////////////////////////////
+const ordersArray = [
+    {
+        id: '563',
+        number: 1,
+        cost: 16500,
+        orderData: '11 - 12 - 2022',
+        statues: 'Shipped',
+    },
+    {
+        id: '552',
+        number: 3,
+        cost: 16500,
+        orderData: '11 - 12 - 2022',
+        statues: 'Shipped',
+    },
+    {
+        id: '658',
+        number: 4,
+        cost: 16500,
+        orderData: '11 - 12 - 2022',
+        statues: 'Shipped',
+    },
+    {
+        id: '528',
+        number: 15,
+        cost: 16500,
+        orderData: '11 - 12 - 2022',
+        statues: 'Dilverd',
+    },
+    {
+        id: '578',
+        number: 19,
+        cost: 16500,
+        orderData: '11 - 12 - 2022',
+        statues: 'Pending',
+    },
+]
+//////////////////////////////// Orders Arrays ////////////////////////////////
 export {
     Product,
     Products,
@@ -159,6 +219,8 @@ export {
     FeaturedProducts,
     TotalRevenue,
     ordersArray,
+    StatisticsArray,
+    ordersDataArray,
 }
 // For Moke Data use these 2 Links
 
