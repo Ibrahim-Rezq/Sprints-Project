@@ -3,9 +3,15 @@ import SingleOrderData from './SingleOrderData'
 function OrdersData({ ordersArray }) {
     return (
         <>
-            {ordersArray.map((order) => {
-                return <SingleOrderData key={order.id} order={order} />
-            })}
+            <section className='container text-light '>
+                <h3 className='text-center display-4'>Recent Orders</h3>
+
+                <section className='bg-dark border rounded border-secondary my-3  container p-0'>
+                    {ordersArray.map((order) => {
+                        return <SingleOrderData key={order.id} order={order} />
+                    })}
+                </section>
+            </section>
         </>
     )
 }
