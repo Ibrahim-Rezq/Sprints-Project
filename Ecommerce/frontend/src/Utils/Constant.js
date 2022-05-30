@@ -136,12 +136,29 @@ const FeaturedProducts = [
     },
 ]
 
+const TotalRevenue = [
+    //mon -> Month fron 1 to 12
+    // profite -> price to be formated
+    { id: '964', name: 'Jan', mon: 1, profit: 12354, productsSold: '50' },
+    { id: '563', name: 'Feb', mon: 2, profit: 12934, productsSold: '5' },
+    { id: '524', name: 'March', mon: 3, profit: 16554, productsSold: '150' },
+    { id: '554', name: 'April', mon: 4, profit: 17454, productsSold: '180' },
+    { id: '568', name: 'May', mon: 5, profit: 12654, productsSold: '46' },
+    { id: '568', name: 'June', mon: 5, profit: 20654, productsSold: '46' },
+]
+
+const ordersArray = [
+    { id: '563', Num: 1, customer: 'ahmed', orderData: '11 - 12 - 2022' },
+    { id: '558', Num: 1, customer: 'ahmed', orderData: '11 - 12 - 2022' },
+]
 export {
     Product,
     Products,
     OnSaleProducts,
     BestSellerProducts,
     FeaturedProducts,
+    TotalRevenue,
+    ordersArray,
 }
 // For Moke Data use these 2 Links
 

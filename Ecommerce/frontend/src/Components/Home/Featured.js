@@ -1,33 +1,24 @@
 import React from 'react'
 import { FeaturedProducts } from '../../Utils/Constant' // Array
+import ProductCard from '../Products/ProductCard'
 
-function Featured() {
+function Featured({}) {
     return (
-        <div className='on-sale'>
-        <h1>On Sale Today</h1>
+        <div className='on-sale '>
+        <h3 className='fw-bold display-4  text-center py-5'>On <span> Sale</span> Today</h3>
+        <div  className='underline'></div>
        <div className="sales">
+        {FeaturedProducts.map((product)=>{
+          return <ProductCard Product={product}/>
+        })}
+       
+    
+    
+        </div>
+        <div className='d-flex justify-content-center py-4 '>
+        <a className='btn-lg  btn-primary my-3' href="">All products</a>
+        </div>
         
-        <div className="sale1">
-             <h2> 40%</h2>
-            <img src="https://images.pexels.com/photos/8782574/pexels-photo-8782574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Sale 1" />
-             <p> Playstation 4 $399.99</p>
-        </div>
-    
-        <div className="sale2">
-              <h2>30%</h2>
-              <img src="https://images.pexels.com/photos/5626726/pexels-photo-5626726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Sale 2" />
-              <p> Xbox Console          $699.99</p>
-        </div>
-    
-        <div className="sale3">
-             <h2>20%</h2>
-             <img src="https://images.pexels.com/photos/4219883/pexels-photo-4219883.jpeg" alt="Sale 3" />
-              <p>Nintendo Switch  $559.99 </p>
-        </div>
-    
-        </div>
-    
-        <button><a href="">All products</a></button>
         </div>
       )
     }

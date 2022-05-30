@@ -22,6 +22,11 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home />}></Route>
                 <Route path='/About' element={<About />}></Route>
+                <Route path='/accounts' element={<Accounts />}></Route>
+                <Route
+                    path='/AdminDashboard'
+                    element={<AdminDashboard />}
+                ></Route>
                 <Route path='/*' element={<ErrorPage />}></Route>
             </Routes>
             <Footer />

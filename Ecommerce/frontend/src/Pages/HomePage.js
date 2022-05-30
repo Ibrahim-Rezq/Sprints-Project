@@ -7,6 +7,7 @@ function HomePage() {
     return <div>
         <Hero/>
         <Featured/>
+       
     </div>
 }
 
