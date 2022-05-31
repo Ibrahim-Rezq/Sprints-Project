@@ -13,20 +13,20 @@ function HomeProductCard({ Product }) {
         shipping,
     } = Product
     return (
-        <div class=' w-25 pb-5 mb-4 '>
-            <div class='card rounded shadow-sm border-0'>
-                <div class='card-body p-0 '>
+        <div className=' w-25 pb-5 mb-4 '>
+            <div className='card rounded shadow-sm border-0'>
+                <div className='card-body p-0 '>
                     <img
                         src={image}
                         alt=''
-                        class='img-fluid d-block mx-auto mb-3'
+                        className='img-fluid d-block mx-auto mb-3'
                     />
                     <h5>
-                        <a href='#' class='text-dark'>
+                        <a href='#' className='text-dark'>
                             Awesome product
                         </a>
                     </h5>
-                    <p class='small text-muted font-italic'>
+                    <p className='small text-muted font-italic'>
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit.
                     </p>

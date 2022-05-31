@@ -13,7 +13,6 @@ import {
 import { Header, Footer, SideBarNav } from './Components'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-
 function App() {
     return (
         <BrowserRouter>
@@ -25,10 +24,13 @@ function App() {
                 <Route path='/accounts' element={<Accounts />}></Route>
                 <Route path='/orders' element={<Orders />}></Route>
                 <Route path='/cart' element={<Cart />}></Route>
-                <Route path='/SingleProduct' element={<SingleProduct />}></Route>
-                
                 <Route
-                    path='/AdminDashboard'
+                    path='/SingleProduct'
+                    element={<SingleProduct />}
+                ></Route>
+
+                <Route
+                    path='/AdminDashboard/*'
                     element={<AdminDashboard />}
                 ></Route>
                 <Route path='/*' element={<ErrorPage />}></Route>

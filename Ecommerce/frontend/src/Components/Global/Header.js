@@ -42,7 +42,7 @@ function Header() {
                 <div className='collapse navbar-collapse ' id='navbarNav'>
                     <ul className='navbar-nav ms-auto fs-5'>
                         {NavLinks.map((link) => {
-                            return <NavLink {...link} />
+                            return <NavLink key={link.name} {...link} />
                         })}
                     </ul>
                     <ul className='navbar-nav ms-auto '>

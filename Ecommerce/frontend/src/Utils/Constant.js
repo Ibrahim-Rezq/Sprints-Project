@@ -77,7 +77,7 @@ const OnSaleProducts = [
         shipping: true,
     },
     {
-        id: 'recRoQD1w0ItHzafo',
+        id: 'recRoQD1w0Itzafo',
         name: 'Xbox Console',
         image: 'https://dl.airtable.com/.attachments/f4cc2a25ca64ee8b9b8c3112552a88ee/8a4885b2/pexels-bryce-carithers-8782574.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=94fbc13cfae062e5',
         price: 69999,
@@ -88,7 +88,7 @@ const OnSaleProducts = [
 ]
 const BestSellerProducts = [
     {
-        id: 'recRoQD1w0ItHzafo',
+        id: 'recRoQD1wItHzafo',
         name: 'Xbox Console',
         image: 'https://dl.airtable.com/.attachments/f4cc2a25ca64ee8b9b8c3112552a88ee/8a4885b2/pexels-bryce-carithers-8782574.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=94fbc13cfae062e5',
         price: 69999,
@@ -106,7 +106,7 @@ const BestSellerProducts = [
         featured: true,
     },
     {
-        id: 'recRoQD1w0ItHzafo',
+        id: 'recRoQD1w0ItHzao',
         name: 'Xbox Console',
         image: 'https://dl.airtable.com/.attachments/f4cc2a25ca64ee8b9b8c3112552a88ee/8a4885b2/pexels-bryce-carithers-8782574.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=94fbc13cfae062e5',
         price: 69999,
@@ -116,7 +116,7 @@ const BestSellerProducts = [
 ]
 const FeaturedProducts = [
     {
-        id: 'recrGXTSQghJI9Htq',
+        id: 'recGXTSQghJI9Htq',
         name: 'Nintendo Switch',
         image: 'https://dl.airtable.com/.attachments/838c50315f31354b64538c6b1340dbcd/8a8ef525/pexels-polina-tankilevitch-4523017.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=a161c7039bc771f7',
         price: 55999,
@@ -126,7 +126,7 @@ const FeaturedProducts = [
         shipping: true,
     },
     {
-        id: 'recrGXTSQghJI9Htq',
+        id: 'recrGXTSQghJI9Hq',
         name: 'Nintendo Switch',
         image: 'https://dl.airtable.com/.attachments/838c50315f31354b64538c6b1340dbcd/8a8ef525/pexels-polina-tankilevitch-4523017.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=a161c7039bc771f7',
         price: 55999,
@@ -135,7 +135,7 @@ const FeaturedProducts = [
         featured: true,
     },
     {
-        id: 'recRoQD1w0ItHzafo',
+        id: 'recRQD1w0ItHzafo',
         name: 'Xbox Console',
         image: 'https://dl.airtable.com/.attachments/f4cc2a25ca64ee8b9b8c3112552a88ee/8a4885b2/pexels-bryce-carithers-8782574.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=94fbc13cfae062e5',
         price: 69999,
@@ -154,7 +154,7 @@ const TotalRevenue = [
     { id: '524', name: 'March', profit: 16554, productsSold: '150' },
     { id: '554', name: 'April', profit: 17454, productsSold: '180' },
     { id: '568', name: 'May', profit: 12654, productsSold: '46' },
-    { id: '568', name: 'June', profit: 20654, productsSold: '46' },
+    { id: '598', name: 'June', profit: 20654, productsSold: '46' },
 ]
 
 const StatisticsArray = [
