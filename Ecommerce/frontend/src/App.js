@@ -9,8 +9,9 @@ import {
     ErrorPage,
     SingleProduct,
     AdminDashboard,
+    
 } from './Pages'
-import { Header, Footer, SideBarNav } from './Components'
+import { Header, Footer,ProductsGridVeiw, } from './Components'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 
@@ -26,6 +27,7 @@ function App() {
                 <Route path='/orders' element={<Orders />}></Route>
                 <Route path='/cart' element={<Cart />}></Route>
                 <Route path='/SingleProduct' element={<SingleProduct />}></Route>
+                <Route path='/ProductsGridVeiw' element={<ProductsGridVeiw/>}></Route>
                 
                 <Route
                     path='/AdminDashboard'
