@@ -25,6 +25,8 @@ function App() {
                 <Route path='/accounts' element={<Accounts />}></Route>
                 <Route path='/orders' element={<Orders />}></Route>
                 <Route path='/cart' element={<Cart />}></Route>
+                <Route path='/SingleProduct' element={<SingleProduct />}></Route>
+                
                 <Route
                     path='/AdminDashboard'
                     element={<AdminDashboard />}
