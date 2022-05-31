@@ -6,12 +6,16 @@ import NavLink from '../Global/NavLink'
 const DashboardNav = () => {
     const NavLinks = [
         {
+            path: '',
+            name: 'Dashboard',
+        },
+        {
             path: 'statistics',
             name: 'Statistics',
         },
         {
-            path: '',
-            name: 'Dashboard',
+            path: 'products',
+            name: 'products',
         },
     ]
     return (
