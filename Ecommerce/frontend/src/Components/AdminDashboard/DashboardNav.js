@@ -25,7 +25,7 @@ const DashboardNav = () => {
             >
                 <span class='fs-4'>Dashboard</span>
             </a>
-            <hr />
+            <hr className='bg-white' />
             <ul class='nav nav-pills flex-column mb-auto'>
                 {NavLinks.map((el) => {
                     return <NavLink {...el} />

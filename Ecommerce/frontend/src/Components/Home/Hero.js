@@ -2,10 +2,15 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <section className='bg-light'>
+        <section
+            className='bg-light'
+            style={{ background: 'var(--bs-gray-300)' }}
+        >
             <div
                 className='container d-flex justify-content-between align-items-center'
-                style={{ minHeight: 'calc(100vh - 60px)' }}
+                style={{
+                    minHeight: 'calc(100vh - 60px)',
+                }}
             >
                 <div className=' w-50'>
                     <h1 className='display-1'>Level Up You Gaming</h1>
