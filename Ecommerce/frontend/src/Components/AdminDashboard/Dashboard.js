@@ -10,7 +10,7 @@ function Dashboard() {
     const revenueArray = useSelector(totalRevenueData)
     return (
         <>
-            <section className='bg-dark '>
+            <section className=' '>
                 <Statistics StatisticsArray={StatisticsArray} />
                 <EarningData revenueArray={revenueArray} />
                 {/* <OrdersData ordersArray={ordersDataArray} /> */}
