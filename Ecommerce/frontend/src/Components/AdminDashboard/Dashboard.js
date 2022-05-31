@@ -13,7 +13,7 @@ function Dashboard() {
             <section className='bg-dark '>
                 <Statistics StatisticsArray={StatisticsArray} />
                 <EarningData revenueArray={revenueArray} />
-                <OrdersData ordersArray={ordersDataArray} />
+                {/* <OrdersData ordersArray={ordersDataArray} /> */}
             </section>
         </>
     )
