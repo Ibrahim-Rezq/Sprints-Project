@@ -9,7 +9,9 @@ import {
     ErrorPage,
     SingleProduct,
     AdminDashboard,
+    
 } from './Pages'
+import PaymentConfirmationPage from './Pages/PaymentConfirmationPage'
 import { Header, Footer, SideBarNav } from './Components'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -26,6 +28,11 @@ function App() {
                 <Route path='/orders' element={<Orders />}></Route>
                 <Route path='/cart' element={<Cart />}></Route>
                 <Route path='/SingleProduct' element={<SingleProduct />}></Route>
+                <Route path='/checkout' element={<CheckOut />}></Route>
+                <Route path='/checkout' element={<CheckOut />}></Route>
+                <Route path='/confirmation' element={<PaymentConfirmationPage/>}></Route>
+
+
                 
                 <Route
                     path='/AdminDashboard'
