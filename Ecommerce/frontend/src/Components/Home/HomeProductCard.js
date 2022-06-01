@@ -1,7 +1,7 @@
 import React from 'react'
-import { formatPrice } from '../../Utils/Helpers'
-
-const ProductCard = ({ Product }) => {
+import styled from 'styled-components'
+import { FaPercent } from 'react-icons/fa'
+function HomeProductCard({ Product }) {
     const {
         name,
         image,
@@ -21,13 +21,18 @@ const ProductCard = ({ Product }) => {
                         alt=''
                         className='img-fluid d-block mx-auto mb-3'
                     />
+                    <h5>
+                        <a href='#' className='text-dark'>
+                            Awesome product
+                        </a>
+                    </h5>
+                    <p className='small text-muted font-italic'>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit.
+                    </p>
                     <div className='d-flex justify-content-between align-items-center mb-2 px-3'>
-                        <h5>
-                            <a href='#' className='text-dark'>
-                                Awesome product
-                            </a>
-                        </h5>
-                        <p className='m-0'>{formatPrice(price)}</p>
+                        <p className='m-0'>$30.00</p>
+                        <button className='btn btn-danger '>Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -35,4 +40,4 @@ const ProductCard = ({ Product }) => {
     )
 }
 
-export default ProductCard
+export default HomeProductCard

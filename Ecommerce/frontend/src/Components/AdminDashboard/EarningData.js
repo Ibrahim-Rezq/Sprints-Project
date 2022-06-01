@@ -20,7 +20,10 @@ function EarningData({ revenueArray }) {
                                             {name}
                                         </h4>
                                         <p className='lead'>
-                                            Profit: {formatPrice(profit)}
+                                            Profit:{' '}
+                                            <span className='text-danger'>
+                                                {formatPrice(profit)}
+                                            </span>
                                         </p>
                                     </span>
                                 </div>
