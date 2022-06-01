@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel ='stylesheet' href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/stylesheet.css">
+</head>
+<body>
+<!-- Start signup-->
+<hr>
+<div class="row btn-light ">
+<div class="col-md-5 mb-3 mt-3 ms-2">
+<div class="container">
+    <!---->
+    <div class="col "><h2> Sign Up </h2></div>
+    <form action="xxxx.py" method="Post">
+    <div class="col">
+         <label for="">First Name</label>
+        <input type="text"  required placeholder=" Write your First Name" name="userName"></div>
+        <br>
+       <div class="col">
+        <label for="">Last Name</label>
+        <input type="text"  required placeholder=" Write your Second Name" name="userName"></div>
+        <br>
+        <div class="col"> <label for='' >Email "" </label>
+        <input type="email"  required placeholder="...........@gmail" name="email"></div>
+        <br>
+       <div class="col"> <label for=''>Password</label> 
+        <input type="password"   required placeholder="Write a complex password " name="password"></div>
+        <br>
+        <div class="col"> <label for=''>Password</label> 
+            <input type="password"  required placeholder="Confirm password " name="Confirm password"></div>
+        <br>
+
+       <div class="col"> <input type="submit" value="Submit"></div>
+        <br>
+    <div class="login"><a href="#..."> Login </a></div>
+    </form>
+</div>
+</div>
+<!--end sign up-->
+<!--Start login -->
+<div class="col-md-5 mb-3 mt-5">
+<div class="container2">
+  <div class="col mt-3"> <h2> Login </h2></div> 
+    <form action="xxxx.py" method="Post">
+        <div class="col">
+            <label for="">Name</label>
+            <input type="text"  required placeholder=" Write your Name" name="userName"></div>
+            <br>
+        <div class="col"> <label for='' > Email  </label>
+            <input type="email"  required placeholder=".....@gmail" name="email"></div>
+            <br>
+        <div class="col"> <label for=''>Password</label> 
+            <input type="password"  required placeholder="Password " name="Confirm password"></div>
+        <br>
+       <div class="col"> <input type="submit" value="Login "></div>
+        <br>
+    </form>
+</div>
+</div>
+</div>
+
+<hr>
+<!--end login -30711290203013-->
+<!-- start loadind-->
+<div class="loading">
+<div class="dots-bars-3"></div></div>
+<hr>
+
+<!-- end loadind-->
+<!--start payment form-->
+<!--start billing adress
+<div class="row btn-light ">
+<div class="col-4 mb-3 mt-3 ms-5">
+    <div class="cont">
+        <form action="/action_page.py"> 
+     <div class="col-6 ms-5 mb-3">
+              <h3>Billing Address</h3>
+             <div class="col "> <label for="fname"> Full Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Mohammad Ahmed"></div>
+           <div class="col">   <label for="email"> Email</label>
+              <input type="text" id="email" name="email" placeholder="Mohammad@gmail.com"></div>
+              <div class="col"><label for="adr"> Address</label>
+              <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"></div>
+             <div class="col"> <label for="city"> City</label>
+              <input type="text" id="city" name="city" placeholder="Alexandria"></div>
+              <div class="row">
+                <div class="col">
+                  <label for="state">State</label>
+                  <input type="text" id="state" name="state" placeholder="AX"> </div>  
+                  <div class="row">         
+                <div class="col">
+                  <label for="zip">Zip</label>
+                  <input type="text" id="zip" name="zip" placeholder="21648">  </div></div> 
+              </div>
+        </form>
+    </div>
+</div>
+</div>
+<!--end billing address
+<!--start cart 
+<div class="row btn-light ">
+  <div class="col-4 mb-3 mt-3 ms-5">
+      <div class="cont">
+          <form action="/action_page.py"> 
+       <div class="col-4 ms-5 mb-3">    
+              <h3>Payment</h3>
+           <div class="col">  <label for="fname">Accepted Cards</label>
+            <label for="cname">Name on Card</label></div>
+            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+             <div class="col"> <label for="ccnum">Credit card number</label></div>
+             <div class="col"> <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+              <label for="expmonth">Exp Month</label></div>
+              <input type="text" id="expmonth" name="expmonth" placeholder="September">
+              <div class="row">
+                  <div class="col"><label for="expyear">Exp Year</label>
+                  <input type="text" id="expyear" name="expyear" placeholder="2018"></div>
+                </div>
+                <div class="col">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="352"></div>
+           
+          <label>
+            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+          </label>
+          <input type="submit" value="Continue to checkout" class="btn">
+        </form>
+</div>
+  </div>
+</div>
+<div class="row btn-light ">
+
+<div class="col-4 mb-3 mt-3 ms-5">
+    <div class="cont"> 
+    <div class="col-6">
+        <h4>Cart
+          <span class="price">
+            <b>4</b>
+          </span>
+        </h4>
+        <p><a href="#"> Product 1</a> <span class="price">$15</span></p>
+        <p><a href="#">Product 2</a> <span class="price">$5</span></p>
+        <p><a href="#">Product 3</a> <span class="price">$8</span></p>
+        <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<!--end cart-->
+<!--end payment form-->
+</body>
+</html>
+</body>
+</html>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
