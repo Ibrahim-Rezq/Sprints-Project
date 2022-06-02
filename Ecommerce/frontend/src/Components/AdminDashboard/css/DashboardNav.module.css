@@ -1,0 +1,10 @@
+.NavResponsive {
+    position: fixed;
+    height: 50vh;
+    left: -280px;
+    transition: all 0.4s;
+}
+
+.NavActive {
+    left: 0;
+}

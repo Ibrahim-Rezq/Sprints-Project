@@ -12,22 +12,51 @@ function OrdersContent() {
     ]
     return (
         <>
-            <section className='container bg-light border text-center rounded '>
-                <div className='d-flex border-bottom border-info border-2 p-1 m-1 align-items-center justify-content-between'>
-                    {values.map((value) => {
-                        return (
-                            <h6
-                                key={value}
-                                className='m-0 text-secondary mx-2 my-3 w-25 text-capitalize'
-                            >
-                                {value}
-                            </h6>
-                        )
-                    })}
+            <section className='container text-dark text-center '>
+                <h3 className='p-4 display-4'>Recent Orders</h3>{' '}
+                <div className='table-responsive'>
+                    <table className='table table-striped table-bordered table-sm'>
+                        <thead>
+                            <tr>
+                                {values.map((value) => {
+                                    return (
+                                        <th className='p-3' scope='col'>
+                                            {value}
+                                        </th>
+                                    )
+                                })}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {ordersArray.map((order) => {
+                                const { id, number, cost, orderData, statues } =
+                                    order
+
+                                return (
+                                    <tr key={id}>
+                                        <td style={{ minWidth: '7rem' }}>
+                                            {number}
+                                        </td>
+                                        <td style={{ minWidth: '7rem' }}>
+                                            {cost}
+                                        </td>
+                                        <td style={{ minWidth: '7rem' }}>
+                                            {orderData}
+                                        </td>
+                                        <td style={{ minWidth: '7rem' }}>
+                                            {statues}
+                                        </td>
+                                        <td style={{ minWidth: '7rem' }}>
+                                            <button className='btn btn-warning'>
+                                                Edit
+                                            </button>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
                 </div>
-                {ordersArray.map((order) => {
-                    return <SingleOrder order={order} />
-                })}
             </section>
         </>
     )

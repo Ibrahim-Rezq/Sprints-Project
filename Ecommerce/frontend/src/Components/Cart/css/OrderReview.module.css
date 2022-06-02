@@ -1,0 +1,19 @@
+.order-review {
+    background-color: #ddd;
+    padding: 2em;
+    border-radius: 20px;
+    
+}
+.order-review h2 {
+    margin-bottom: 1em;
+}
+.order-products {
+    padding-left: 1em;
+}
+
+.order-total {
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 2em;
+
+}

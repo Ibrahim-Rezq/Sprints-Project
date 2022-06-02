@@ -1,0 +1,13 @@
+.checkout-wrapper {
+    margin: 2em 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-wrapper {
+    width: 65.6666%;
+}
+
+.right-wrapper{
+    width: 32.333%;
+}

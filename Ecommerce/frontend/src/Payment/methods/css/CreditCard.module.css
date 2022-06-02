@@ -1,0 +1,12 @@
+.cc-form {
+    width: 90%;
+}
+
+.row-elements {
+    display: flex;
+    justify-content: space-between;
+}
+.row-elements div {
+    flex-grow: 1;
+    padding-right: 2%;
+}

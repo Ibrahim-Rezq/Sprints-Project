@@ -1,7 +1,8 @@
 import React from 'react'
+import ProcedeToCheckOut from '../Components/Cart/ProcedeToCheckOut'
 
 function CheckOutPage() {
-    return <div>CheckOutPage</div>
+    return <ProcedeToCheckOut />
 }
 
 export default CheckOutPage

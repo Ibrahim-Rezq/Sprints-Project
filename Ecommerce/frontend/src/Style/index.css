@@ -183,6 +183,16 @@ a {
    max-width: 50rem;
    min-width: 30rem;
 }
+.product-images img {
+    width: 10rem;
+}
+#image-active {
+    width: 30rem;
+}
+/* .product-slider {
+    padding: 2rem 4rem;
+    width: 100vh;
+} */
 
 .product-text-side {
     padding: 2rem;
