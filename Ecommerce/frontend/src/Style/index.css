@@ -55,56 +55,8 @@ a {
 .cart-icon:hover {
     color: rgb(202, 16, 53);
 }
-/* 
-header 
 
-{
-    position: relative;
-}
-nav {
-    width: 100%;
-    position: sticky;
-    z-index: 1;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: rgb(176, 123, 203);
-}
-nav h1 {
-    padding: 0 4rem;
-    font-size: 3rem;
-    justify-content: flex-start;
-    text-shadow: 1px 1px 1px rgb(167, 167, 167);
-}
-nav span {
-    color: #1500ff;
-    text-shadow: 1px 1px 1px rgb(167, 167, 167);
-} */
-/* 
-.nav-center,
-.nav-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-}
-
-.nav-center li {
-    padding: 0 2rem;
-}
-.nav-center a {
-    font-size: 1.3rem;
-}
-
-.nav-right a {
-    font-size: 1.6rem;
-    padding: 0 2rem;
-} */
-/* nav a:hover {
-    color: rgb(255, 0, 0);
-} */
-
-/* section1 */
+/* Hero */
 .Hero {
     background-color: #d2c3f5;
     min-height: calc(100vh - 60px);
@@ -163,7 +115,11 @@ nav span {
 .text-side button a {
     color: aliceblue;
 }
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
 /* On Sale */
+
 .on-sale {
     background-color: #6f58b5;
 }
@@ -211,6 +167,7 @@ nav span {
 .error {
     height: 50vh;
 }
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 /* footer */
 .facebook {
     color: rgb(32, 73, 255);
@@ -220,20 +177,17 @@ nav span {
     color: rgb(0, 204, 255);
 }
 /* ProductImagePreview */
-.product-images img {
-    width: 10rem;
-}
-#image-active {
-    width: 30rem;
-}
+
 .product-slider {
     padding: 2rem 4rem;
-    width: 100vh;
+   max-width: 50rem;
+   min-width: 30rem;
 }
 
 .product-text-side {
     padding: 2rem;
     flex-wrap: wrap;
+    max-width: 45rem;
 }
 .product-text-side hr {
     height: 8px;
@@ -249,4 +203,5 @@ nav span {
 .product-status {
     font-size: 1.2rem;
     font-weight: 700;
+    
 }

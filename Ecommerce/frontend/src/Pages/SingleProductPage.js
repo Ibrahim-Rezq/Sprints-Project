@@ -6,15 +6,15 @@ import {
 } from '../Components'
 
 function SingleProductPage() {
-    return <div className='container'>
-        <div className='d-flex justify-content-around'>
+    return <div className='container-fluid '>
+        <div className='d-flex  flex-wrap  justify-content-around'>
         
-         <div className=''>
+         <div className=' '>
         <ProductImagePreview/>
 
         
         </div>
-        <div className='d-flex flex-column'>
+        <div className='d-flex flex-column mb-4 '>
                <ProductReviews/>
                <AddToCartButtons/>
             </div>
