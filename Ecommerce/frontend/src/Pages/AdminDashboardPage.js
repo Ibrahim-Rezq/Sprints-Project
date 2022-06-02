@@ -7,22 +7,27 @@ import OrdersData from '../Components/AdminDashboard/OrdersData'
 import ProductsData from '../Components/AdminDashboard/ProductsData'
 import { useDispatch, useSelector } from 'react-redux'
 import { totalRevenueData } from '../Redux/Features/Admin/AdminSlice'
-import { ordersDataArray, StatisticsArray } from '../Utils/Constant'
+import {
+    ordersDataArray,
+    ProductsDataArray,
+    StatisticsArray,
+} from '../Utils/Constant'
 function AdminDashboardPage() {
     const revenueArray = useSelector(totalRevenueData)
 
     return (
         <>
             <section
-                className='d-flex position-relative bg-light'
+                className=' bg-light position-relative'
                 style={{ minHeight: 'calc(100vh - 60px)' }}
             >
                 <DashboardNav />
-                <section className='container d-flex justify-content-center align-items-center '>
+                {/* d-flex justify-content-center align-items-center */}
+                <section className='container-lg  '>
                     <Routes>
                         <Route path='/' element={<Dashboard />} />
                         <Route
-                            path='/statistics'
+                            path='/orders'
                             element={
                                 <OrdersData ordersArray={ordersDataArray} />
                             }
@@ -30,7 +35,9 @@ function AdminDashboardPage() {
                         <Route
                             path='/products'
                             element={
-                                <ProductsData ordersArray={ordersDataArray} />
+                                <ProductsData
+                                    ProductsArray={ProductsDataArray}
+                                />
                             }
                         />
                     </Routes>

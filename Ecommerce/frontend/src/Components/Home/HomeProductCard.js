@@ -13,7 +13,12 @@ function HomeProductCard({ Product }) {
         shipping,
     } = Product
     return (
-        <div className=' w-25 pb-5 mb-4 '>
+        <div
+            className='pb-5 mb-4'
+            style={{
+                maxWidth: '20rem',
+            }}
+        >
             <div className='card rounded shadow-sm border-0'>
                 <div className='card-body p-0 '>
                     <img

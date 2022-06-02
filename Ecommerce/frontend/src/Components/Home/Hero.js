@@ -3,16 +3,21 @@ import React from 'react'
 const Hero = () => {
     return (
         <section
-            className='bg-light'
+            className='bg-light py-3'
             style={{ background: 'var(--bs-gray-300)' }}
         >
             <div
-                className='container d-flex justify-content-between align-items-center'
+                className='container d-flex justify-content-center justify-content-md-between align-items-center py-3'
                 style={{
                     minHeight: 'calc(100vh - 60px)',
                 }}
             >
-                <div className=' w-50'>
+                <div
+                    className='p-2'
+                    style={{
+                        maxWidth: '30rem',
+                    }}
+                >
                     <h1 className='display-1'>Level Up You Gaming</h1>
                     <p className='lead'>
                         Cupiditate distinctio. Ullam cum nostrum placeat velit
@@ -25,7 +30,7 @@ const Hero = () => {
                         Shop now{' '}
                     </a>
                 </div>
-                <div className='img-side'>
+                <div className='img-side d-none d-md-flex'>
                     <img
                         className='ms-5 img1'
                         src='https://gamerzone391.netlify.app/static/media/hero-bcg.62414bf4.jpg'

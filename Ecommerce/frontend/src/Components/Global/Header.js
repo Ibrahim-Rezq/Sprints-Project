@@ -1,6 +1,7 @@
 import React from 'react'
 import { BsFillCartCheckFill } from 'react-icons/bs'
 import NavLink from './NavLink'
+import { Link } from 'react-router-dom'
 
 function Header() {
     const NavLinks = [
@@ -15,6 +16,18 @@ function Header() {
         {
             path: '/SingleProduct',
             name: 'SingleProduct',
+        },
+        {
+            path: '/confirmation',
+            name: 'Confirmation',
+        },
+        {
+            path: '/checkout',
+            name: 'Checkout',
+        },
+        {
+            path: '/orders',
+            name: 'Orders',
         },
         {
             path: '/AdminDashboard',
@@ -47,9 +60,12 @@ function Header() {
                     </ul>
                     <ul className='navbar-nav ms-auto '>
                         <li className='nav-item fs-4 '>
-                            <a className='mt-1 nav-link ' href='#'>
+                            <Link
+                                className='mt-1 nav-link '
+                                to='/accounts/login'
+                            >
                                 Log in
-                            </a>
+                            </Link>
                         </li>
                         <li className='nav-item fs-4 '>
                             <a className='cart-icon fs-1 m-3 ' href='#'>

@@ -1,28 +1,75 @@
 import React from 'react'
+import { formatPrice } from '../../Utils/Helpers'
 
-function ProductsData() {
-    const values = ['item', '  ', 'amount', ' ', 'remove Item']
+function ProductsData({ ProductsArray }) {
+    const headers = [
+        '#',
+        'Product',
+        'Name',
+        'Price',
+        'Sales Data',
+        'Edit Product',
+    ]
     return (
-        <section className='container text-dark '>
-            <div className='d-flex border-bottom border-info border-2 p-1 m-1 align-items-center justify-content-between'>
-                {values.map((value) => {
-                    return (
-                        <h6
-                            key={value}
-                            className='m-0 text-secondary mx-2 my-3 w-25 text-capitalize'
-                        >
-                            {value}
-                        </h6>
-                    )
-                })}
+        <section className='w-100 text-dark text-center'>
+            <h3 className='p-4 display-4'>Products</h3>{' '}
+            <div className='table-responsive'>
+                <table className='table table-striped table-bordered table-sm'>
+                    <thead>
+                        <tr>
+                            {headers.map((header) => {
+                                return (
+                                    <th className='p-3' scope='col'>
+                                        {header}
+                                    </th>
+                                )
+                            })}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {ProductsArray.map((product) => {
+                            const {
+                                id,
+                                name,
+                                image,
+                                price,
+                                salePrice,
+                                sales,
+                                category,
+                                company,
+                            } = product
+
+                            return (
+                                <tr key={id}>
+                                    <td style={{ minWidth: '7rem' }}>{id}</td>
+                                    <td style={{ minWidth: '7rem' }}>
+                                        <img
+                                            src={image}
+                                            alt=''
+                                            style={{
+                                                width: '60px',
+                                                height: '40px',
+                                            }}
+                                        />
+                                    </td>
+                                    <td style={{ minWidth: '7rem' }}>{name}</td>
+                                    <td style={{ minWidth: '7rem' }}>
+                                        {formatPrice(price)}
+                                    </td>
+                                    <td style={{ minWidth: '7rem' }}>
+                                        {sales}
+                                    </td>
+                                    <td style={{ minWidth: '7rem' }}>
+                                        <button className='btn btn-warning'>
+                                            Edit
+                                        </button>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
             </div>
-            <section className='d-flex border-bottom border-secondary border-2 p-1 m-1 align-items-center justify-content-between'>
-                <div className='m-0 mx-2 w-25'>
-                    <img src={''} alt='' className='img-fluid' />
-                </div>
-                <h5 className='m-0 mx-2 w-25 text-secondary'>{'saasdas'}</h5>
-                <p className='m-0 mx-2 w-25'>{'sdasas'}</p>
-            </section>
         </section>
     )
 }
