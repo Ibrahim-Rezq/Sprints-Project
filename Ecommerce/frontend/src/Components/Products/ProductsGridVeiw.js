@@ -1,26 +1,39 @@
-import React from 'react'
-import ProductCard from './ProductCard'
-import Filters from './Filters'
-import { Products } from '../../Utils/Constant'
-import styles from "./ProductCard.module.css";
+import React, { useEffect } from 'react';
+import { ProductCard } from './';
+import styles from './css/ProductCard.module.css';
+
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  getSingleProduct,
+  productsState,
+  getProducts,
+} from '../../Redux/Features/Products/ProductsSlice';
+import { Loading } from '../Global';
 
 function ProductsGridVeiw() {
-    return (
-    <div className='d-flex justify-content-evenly'>
-         <div className=''>
-       <Filters/>
-       </div>
-        <div className={styles.procutsGridView}>
-            {Products.map((product) => {
-                return <div className={styles.productGridView}>
-                    <ProductCard Product={product} />
-                   </div>
-        })}
-              </div>
-       
-        </div>
-        
-    )
+  const { products } = useSelector(productsState);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
+  return (
+    <div className={styles.procutsGridView}>
+      {products && products.length > 0 ? (
+        products.map((product) => {
+          return (
+            <div className={styles.productGridView}>
+              <ProductCard Product={product} />
+            </div>
+          );
+        })
+      ) : (
+        <Loading />
+      )}
+    </div>
+  );
 }
 
-export default ProductsGridVeiw
+export default ProductsGridVeiw;

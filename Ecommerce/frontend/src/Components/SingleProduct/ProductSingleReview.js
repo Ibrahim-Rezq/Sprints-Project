@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function ProductSingleReview() {
-    return <div>ProductSingleReview</div>
+  return <div>ProductSingleReview</div>;
 }
 
-export default ProductSingleReview
+export default ProductSingleReview;

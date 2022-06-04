@@ -1,47 +1,52 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router';
+
+// Components
 import {
-    ProductImagePreview,
-    ProductReviews,
-    AddToCartButtons,
-} from '../Components'
+  ProductImagePreview,
+  ProductReviews,
+  ProductInfo,
+} from '../Components/SingleProduct';
+import { AddToCartButtons } from '../Components/Products';
+
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  getSingleProduct,
+  productsState,
+  getProducts,
+} from '../Redux/Features/Products/ProductsSlice';
+import { Link } from 'react-router-dom';
 
 function SingleProductPage() {
- 
-    return (
-        <div className='container'>
-            <div
-                className='d-flex justify-content-around align-items-center '
-                style={{ minHeight: 'calc(100vh - 60px)' }}
-            >
-                <ProductImagePreview />
-                <div className='d-flex flex-column'>
-                    <div className='product-text-side'>
-                        <h1>Playstation 4 Controller </h1>
-                        <h2>$59.99</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Vel blanditiis eaque veritatis aliquid!
-                            Corporis, eos?
-                        </p>
-                        <div className='d-flex justify-content-between align-items-center '>
-                            <div>
-                                <p className='product-status'>Colors : </p>
-                                <p className='product-status'>SKU: </p>
-                                <p className='product-status'>Brand: </p>
-                            </div>
-                            <div>
-                                <p>In Stock</p>
-                                <p>RectQrvzMGUGj1mqa</p>
-                                <p>Sony</p>
-                            </div>
-                        </div>
-                        <hr />
-                    </div>
-                    <AddToCartButtons />
-                </div>
-            </div>
+  const { id } = useParams();
+  const { product } = useSelector(productsState);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+    dispatch(getSingleProduct(id));
+  }, []);
+
+  return (
+    <div className='container p-3'>
+      <Link className='btn btn-danger btn-lg ' to='/products'>
+        Back to products
+      </Link>
+
+      {product.id && (
+        <div
+          className='d-flex justify-content-around align-items-center '
+          style={{ minHeight: 'calc(100vh - 60px)' }}>
+          <ProductImagePreview images={product.images} />
+          <div className='d-flex flex-column'>
+            <ProductInfo product={product} />
+            <AddToCartButtons />
+          </div>
         </div>
-    )
+      )}
+    </div>
+  );
 }
 
-export default SingleProductPage
+export default SingleProductPage;

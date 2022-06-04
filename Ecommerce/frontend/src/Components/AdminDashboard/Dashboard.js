@@ -1,28 +1,22 @@
-import React from 'react'
-import Statistics from './Statistics'
-import EarningData from './EarningData'
-import ProductsData from './ProductsData'
-import OrdersData from './OrdersData'
-import { useDispatch, useSelector } from 'react-redux'
-import { totalRevenueData } from '../../Redux/Features/Admin/AdminSlice'
-import {
-    ordersDataArray,
-    ProductsDataArray,
-    StatisticsArray,
-} from '../../Utils/Constant'
+import React from 'react';
+import { Statistics, EarningData, ProductsData, OrdersData } from './';
 
-function Dashboard() {
-    const revenueArray = useSelector(totalRevenueData)
-    return (
-        <>
-            <section className='bg-light py-4 m-2'>
-                <Statistics StatisticsArray={StatisticsArray} />
-                <EarningData revenueArray={revenueArray} />
-                <OrdersData ordersArray={ordersDataArray} />
-                <ProductsData ProductsArray={ProductsDataArray} />
-            </section>
-        </>
-    )
+function Dashboard({
+  totalRevenue,
+  ordersDataArray,
+  productsDataArray,
+  statisticsArray,
+}) {
+  return (
+    <>
+      <section className='bg-light py-4 m-2'>
+        <Statistics StatisticsArray={statisticsArray} />
+        <EarningData totalRevenue={totalRevenue} />
+        <OrdersData ordersArray={ordersDataArray} />
+        <ProductsData ProductsArray={productsDataArray} />
+      </section>
+    </>
+  );
 }
 
-export default Dashboard
+export default Dashboard;
