@@ -1,21 +1,44 @@
-import React, { useState } from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import React, { useState } from 'react'
 
-function ProductImagePreview({ images }) {
-  return (
-    <Carousel className='product-slider '>
-      {images &&
-        images.length > 0 &&
-        images.map((img) => {
-          return (
-            <div>
-              <img src={img} />
-              <p className='legend'></p>
+function ProductImagePreview({ images = [{ url: '' }] }) {
+    const [mainImg, setMainImg] = useState(images[0].url)
+    return (
+        <section
+            className='p-4  text-center'
+            style={{
+                maxWidth: '50rem',
+                borderRadius: '0.25rem',
+            }}
+        >
+            <img
+                src={mainImg}
+                alt='Main Image'
+                style={{
+                    width: '40rem',
+                    height: '30rem',
+                    objectFit: 'cover',
+                }}
+            />
+            <div className='pt-2 d-flex justify-content-between'>
+                {images.map((img) => {
+                    return (
+                        <img
+                            src={img.url}
+                            onClick={(e) => {
+                                setMainImg(img.url)
+                            }}
+                            style={{
+                                maxWidth: 125,
+                                height: 75,
+                                objectFit: 'cover',
+                                border: '2px solid gray',
+                                borderRadius: '0.25rem',
+                            }}
+                        />
+                    )
+                })}
             </div>
-          );
-        })}
-    </Carousel>
-  );
+        </section>
+    )
 }
-export default ProductImagePreview;
+export default ProductImagePreview
