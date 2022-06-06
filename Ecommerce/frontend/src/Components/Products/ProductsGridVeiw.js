@@ -2,7 +2,7 @@ import React from 'react'
 import ProductCard from './ProductCard'
 import Filters from './Filters'
 import { Products } from '../../Utils/Constant'
-import styles from "./ProductCard.module.css";
+import styles from "./Products.module.css";
 
 function ProductsGridVeiw() {
     return (

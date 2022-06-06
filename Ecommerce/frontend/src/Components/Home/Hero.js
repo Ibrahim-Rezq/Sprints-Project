@@ -1,24 +1,24 @@
 import React from 'react'
-
+import hero from "./Home.module.css"
 const Hero = () => {
     return (
         <section
-            className='bg-light py-3'
-            style={{ background: 'var(--bs-gray-300)' }}
+         
+            style={{ background: 'var(--bs-white    -300)' }}
         >
             <div
-                className='container d-flex justify-content-center justify-content-md-between align-items-center py-3'
+                className={hero.hero}
                 style={{
                     minHeight: 'calc(100vh - 60px)',
                 }}
             >
                 <div
-                    className='p-2'
+                    className={hero.textSide}
                     style={{
                         maxWidth: '30rem',
                     }}
                 >
-                    <h1 className='display-1'>Level Up You Gaming</h1>
+                    <h1 >Level Up You Gaming</h1>
                     <p className='lead'>
                         Cupiditate distinctio. Ullam cum nostrum placeat velit
                         odit officiis est quas modi. Incidunt debitis cupiditate
@@ -30,17 +30,17 @@ const Hero = () => {
                         Shop now{' '}
                     </a>
                 </div>
-                <div className='img-side d-none d-md-flex'>
+                <div className={hero.imgSide}>
                     <img
-                        className='ms-5 img1'
+                        className={hero.img1}
                         src='https://gamerzone391.netlify.app/static/media/hero-bcg.62414bf4.jpg'
-                        alt='Gaming image 2 '
+                        alt='Gaming image 1 '
                     />
                     <img
-                        className='img2'
+                        className={hero.img2}
                         src='https://gamerzone391.netlify.app/static/media/hero-bcg-2.9b0cb083.jpg
 '
-                        alt='Gaming image 1'
+                        alt='Gaming image 2'
                     />
                 </div>
             </div>

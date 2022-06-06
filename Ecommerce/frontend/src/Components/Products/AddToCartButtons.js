@@ -1,6 +1,6 @@
 import React from 'react'
 import CartAmountButtons from '../Cart/CartAmountButtons'
-import styles from "./ProductCard.module.css";
+import styles from "./Products.module.css";
 
 function AddToCartButtons() {
     return <div>
@@ -15,10 +15,11 @@ function AddToCartButtons() {
            
            
             </div>
-            <div className='p-3 d-flex justify-content-between  '  >
+            <div className=' d-flex justify-content-between  '  >
          <button className=' btn btn-danger btn-lg'> Add to cart</button>
 
         <button className='btn btn-danger btn-lg '>Back to products</button> 
+        
   
         </div>
     </div>

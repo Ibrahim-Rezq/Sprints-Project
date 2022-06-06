@@ -8,6 +8,7 @@ import ProductsGridVeiw from './Products/ProductsGridVeiw'
 import SignInForm from './Accounts/SignInForm'
 import SignUpForm from './Accounts/SignUpForm'
 import ProductImagePreview from './SingleProduct/ProductImagePreview'
+import productInfo from './SingleProduct/productInfo'
 import ProductReviews from './SingleProduct/ProductReviews'
 import Loading from './Global/Loading'
 import Error from './Global/Error'
@@ -30,6 +31,7 @@ export {
     SignInForm,
     SignUpForm,
     ProductImagePreview,
+    productInfo,
     ProductReviews,
     Featured,
     Hero,

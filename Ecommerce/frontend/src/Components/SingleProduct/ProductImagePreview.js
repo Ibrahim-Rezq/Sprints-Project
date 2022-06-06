@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import { Carousel } from 'react-responsive-carousel'
+import React, { useState } from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
+
 
 function ProductImagePreview() {
     const imageArray = [
@@ -11,12 +12,12 @@ function ProductImagePreview() {
     ]
 
     return (
-        <Carousel className='product-slider '>
+        <Carousel className="product-slider ">
             {imageArray.map((img) => {
                 return (
-                    <div>
+                    <div className=''>
                         <img src={img} />
-                        <p className='legend'></p>
+                        
                     </div>
                 )
             })}

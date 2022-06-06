@@ -1,0 +1,149 @@
+/* Hero */
+.hero {
+    padding: 1.5rem;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:  rgb(248, 249, 250);
+
+}
+
+.textSide {
+    font-weight: 700;
+    max-width: 40rem;
+    padding: 2rem 0;
+}
+
+.imgSide {
+   max-width: 40rem;
+    display: flex;
+  justify-content: center;
+    position: relative;
+}
+
+.img1 {
+    border-radius: 8%;
+    width: 35%;
+    box-shadow: 10px 10px 10px 10px #070707;
+    z-index: 1;
+    position: absolute;
+    bottom: .2rem;
+   right:27rem ;
+
+    
+ 
+}
+ .img2 {
+    border-radius: 8%;
+     width: 55%;
+    box-shadow: 20px 20px 20px #6e4bd6;
+
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+/* On Sale */
+
+.on-sale {
+    background-color: #6f58b5;
+}
+.on-sale h3 {
+    text-align: center;
+    padding: 2rem;
+}
+.underline {
+    width: 6rem;
+    height: 0.25rem;
+    background: #49a6e9;
+    background: #4d15f4;
+    background: var(--clr-primary-5);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.on-sale span {
+    color: #fd009c;
+}
+.sales {
+    display: flex;
+    justify-content: space-evenly;
+}
+.sales img {
+    width: 20%;
+}
+
+/* media querys */
+
+/* Hero */
+@media (max-width: 1200px) {
+
+    .textSide {
+        text-align: center;
+        align-items: center;
+    }
+    .imgtSide {
+      
+    }
+     .img1 {
+        width: 35%;
+    
+    }
+     .img2 {
+        max-width: 70%;
+    }
+}
+@media (max-width: 700px) {
+
+     .img1 {
+        width: 35%;
+        right:18rem ;
+    }
+     .img2 {
+        max-width: 50%;
+    
+    }
+}
+
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<> */
+/* ProductImagePreview */
+
+.product-slider {
+    padding: 2rem 4rem;
+   max-width: 50rem;
+   min-width: 30rem;
+}
+.product-images img {
+    width: 10rem;
+}
+#image-active {
+    width: 30rem;
+}
+/* .product-slider {
+    padding: 2rem 4rem;
+    width: 100vh;
+} */
+
+.product-text-side {
+    padding: 2rem;
+    flex-wrap: wrap;
+    max-width: 45rem;
+}
+.product-text-side hr {
+    height: 8px;
+    border-radius: 50%;
+}
+.product-text-side h2 {
+    color: blue;
+    font-weight: 700;
+}
+.product-text-side h1 {
+    font-weight: 700;
+}
+.product-status {
+    font-size: 1.2rem;
+    font-weight: 700;
+    
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { formatPrice } from '../../Utils/Helpers'
-import styles from "./ProductCard.module.css";
+import styles from "./Products.module.css";
 
 const ProductCard = ({ Product }) => {
     const {

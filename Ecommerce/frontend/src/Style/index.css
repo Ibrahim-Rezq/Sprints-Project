@@ -1,5 +1,5 @@
-basic css * {
-    padding: 0;
+/* basic css  */
+* { padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
@@ -56,117 +56,7 @@ a {
     color: rgb(202, 16, 53);
 }
 
-/* Hero */
-.Hero {
-    background-color: #d2c3f5;
-    min-height: calc(100vh - 60px);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
 
-.text-side {
-    width: 40rem;
-    padding: 2rem;
-}
-.text-side h1 {
-    margin: 1.5rem 0;
-    font-size: 3rem;
-}
-.text-side p {
-    font-size: 1.3rem;
-    line-height: 2;
-}
-.img-side {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.img-side .img1 {
-    border-radius: 8%;
-    width: 15rem;
-    box-shadow: 10px 10px 10px #070707;
-    position: absolute;
-    left: 0;
-    bottom: 0rem;
-}
-.img-side .img2 {
-    border-radius: 8%;
-    width: 21rem;
-    box-shadow: 20px 20px 20px #6e4bd6;
-}
-
-.text-side button {
-    margin: 1rem 0;
-    padding: 1rem;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 5%;
-    background-color: #6e4bd6;
-}
-
-.text-side button:hover {
-    background-color: #4d15f4;
-}
-.text-side button a {
-    color: aliceblue;
-}
-
-/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
-
-/* On Sale */
-
-.on-sale {
-    background-color: #6f58b5;
-}
-.on-sale h3 {
-    text-align: center;
-    padding: 2rem;
-}
-.underline {
-    width: 6rem;
-    height: 0.25rem;
-    background: #49a6e9;
-    background: #4d15f4;
-    background: var(--clr-primary-5);
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.on-sale span {
-    color: #fd009c;
-}
-.sales {
-    display: flex;
-    justify-content: space-evenly;
-}
-.sales img {
-    width: 20%;
-}
-
-/* media querys */
-
-/* Hero */
-@media (max-width: 1100px) {
-    .text-side {
-        text-align: center;
-    }
-    .img-side .img1 {
-        width: 40%;
-    }
-    .img-side .img2 {
-        max-width: 80%;
-    }
-}
-
-/* error page */
-.error {
-    height: 50vh;
-}
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 /* footer */
 .facebook {
@@ -176,6 +66,18 @@ a {
 .twitter {
     color: rgb(0, 204, 255);
 }
+
+/* error */
+.error-page{
+ background-image: url(https://thumbs.dreamstime.com/b/error-web-page-concept-austronaut-open-space-different-palnets-comets-stars-space-ships-very-good-71821149.jpg);
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+background-color:#111113 ;
+background-position-y: -5rem;
+ height: 90vh;
+
+}
 /* ProductImagePreview */
 
 .product-slider {
@@ -183,35 +85,56 @@ a {
    max-width: 50rem;
    min-width: 30rem;
 }
-.product-images img {
-    width: 10rem;
-}
-#image-active {
-    width: 30rem;
-}
-/* .product-slider {
-    padding: 2rem 4rem;
-    width: 100vh;
-} */
 
 .product-text-side {
     padding: 2rem;
     flex-wrap: wrap;
     max-width: 45rem;
 }
-.product-text-side hr {
+.hr {
     height: 8px;
     border-radius: 50%;
 }
-.product-text-side h2 {
+.h2 {
     color: blue;
     font-weight: 700;
 }
-.product-text-side h1 {
+.h1 {
     font-weight: 700;
 }
 .product-status {
     font-size: 1.2rem;
     font-weight: 700;
     
+}
+
+
+/* stars */
+.checked{
+    color: #FFD700;
+}
+
+/* REVIEWS */
+.reviews-page{
+    height: 50rem;
+    background-color: rgb(235, 235, 235);
+  
+}
+.single-review{
+    padding: 1rem 1.5rem  ;
+    background-color:white ;
+    min-width: 45rem;
+   min-height: 8rem;
+   border-radius: 2%;
+   display: flex;  
+   flex-wrap: wrap  ;
+
+
+}
+.review-img{
+max-width:15rem;
+max-height: 10rem;
+}
+.single-product-review-text{
+    min-width:20rem;
 }
