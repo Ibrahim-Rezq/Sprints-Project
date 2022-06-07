@@ -9,7 +9,7 @@ function Dashboard({
 }) {
     return (
         <>
-            <section className='bg-light py-4 m-2'>
+            <section className='bg-light  m-2'>
                 <Statistics StatisticsArray={statisticsArray} />
                 <EarningData totalRevenue={totalRevenue} />
                 <OrdersData ordersArray={ordersArray} />

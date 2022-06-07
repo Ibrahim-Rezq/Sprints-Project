@@ -491,6 +491,8 @@ const Products = [
         name: 'Nintendo N64',
         colors: ['#ffffff', '#dc143c'],
         image: 'https://dl.airtable.com/.attachments/94efb8a9b4425a9ffb9e927a6d88beff/d2f7df26/pexels-pavel-danilyuk-7776214.jpg?ts=1654428906&userId=usr5Bo1z3DLd6Njfo&cs=ae3bf9716501be50',
+        description:
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni nisi accusamus non, iusto neque vel!',
         price: 8999,
         category: 'console',
         onSale: true,
@@ -501,6 +503,8 @@ const Products = [
         name: 'Playstation 4',
         colors: ['#000000', '#ffffff'],
         image: 'https://dl.airtable.com/.attachments/f082ad94d24ac170ca1839a4fe8e5ac5/dfd9d172/pexels-cottonbro-3945673.jpg?ts=1654428906&userId=usr5Bo1z3DLd6Njfo&cs=83f9d8a81ffe1ad8',
+        description:
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni nisi accusamus non, iusto neque vel!',
         price: 39999,
         category: 'console',
         company: 'sony',
@@ -512,6 +516,8 @@ const Products = [
         name: 'Xbox Controller',
         colors: ['#000000', '#ffffff'],
         image: 'https://dl.airtable.com/.attachments/96c71ad9850f8fdfa000fc6ca5740178/af7ac146/pexels-fox-2106216.jpg?ts=1654428906&userId=usr5Bo1z3DLd6Njfo&cs=3e764b69d9c4517f',
+        description:
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni nisi accusamus non, iusto neque vel!',
         price: 6969,
         category: 'accessories',
         company: 'microsoft',
@@ -521,6 +527,8 @@ const Products = [
         name: 'Xbox Console',
         colors: ['#000000', '#ffffff'],
         image: 'https://dl.airtable.com/.attachments/f4cc2a25ca64ee8b9b8c3112552a88ee/8a4885b2/pexels-bryce-carithers-8782574.jpg?ts=1654428906&userId=usr5Bo1z3DLd6Njfo&cs=c7f8a0eda379ee63',
+        description:
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni nisi accusamus non, iusto neque vel!',
         price: 69999,
         category: 'console',
         company: 'microsoft',
@@ -542,11 +550,17 @@ const TotalRevenue = [
     { id: '598', name: 'June', profit: 20654, productsSold: '46' },
 ]
 
+// no of users(active/deactivated)-
+// no of orders(pending - in review - in progress- on the way -delivered)
+// -total income last 7 days
+// -no of new customers last 7 days
+// -no of today orders
 const StatisticsArray = [
-    { id: '563', name: 'sales', value: '350' },
-    { id: '958', name: 'profit', value: '200' },
-    { id: '558', name: 'customers', value: '600' },
-    { id: '548', name: 'products', value: '900' },
+    { id: '363', name: 'no of users', value: '350', Range: 'all' },
+    { id: '563', name: 'no of orders', value: '350', Range: 'all' },
+    { id: '958', name: 'income ', value: '200', Range: 'last 7 days' },
+    { id: '558', name: 'customers ', value: '600', Range: 'last 7 days' },
+    { id: '548', name: 'Today Orders', value: '900', Range: 'today' },
 ]
 const OrdersArray = [
     {
@@ -592,64 +606,53 @@ const OrdersArray = [
 ]
 const ProductsDataArray = [
     {
-        id: 'recrGXTSQghJI9Htq',
-        name: 'Nintendo sasd',
-        image: 'https://dl.airtable.com/.attachments/838c50315f31354b64538c6b1340dbcd/8a8ef525/pexels-polina-tankilevitch-4523017.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=a161c7039bc771f7',
-        price: 55999,
-        salePrice: 49999,
-        sales: 555,
+        id: 'recA0TuFMnJFgPdu1',
+        name: 'Nintendo N64',
+        colors: ['#ffffff', '#dc143c'],
+        image: 'https://dl.airtable.com/.attachments/94efb8a9b4425a9ffb9e927a6d88beff/d2f7df26/pexels-pavel-danilyuk-7776214.jpg?ts=1654428906&userId=usr5Bo1z3DLd6Njfo&cs=ae3bf9716501be50',
+        description:
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni nisi accusamus non, iusto neque vel!',
+        price: 8999,
         category: 'console',
+        onSale: true,
         company: 'nintendo',
     },
     {
-        id: 'rerGXTSQghJI9Htq',
-        name: 'Nintendo Switch',
-        image: 'https://dl.airtable.com/.attachments/838c50315f31354b64538c6b1340dbcd/8a8ef525/pexels-polina-tankilevitch-4523017.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=a161c7039bc771f7',
-        price: 55999,
-        salePrice: 49999,
-        sales: 555,
+        id: 'recHAi5BmkCxS5VaR',
+        name: 'Playstation 4',
+        colors: ['#000000', '#ffffff'],
+        image: 'https://dl.airtable.com/.attachments/f082ad94d24ac170ca1839a4fe8e5ac5/dfd9d172/pexels-cottonbro-3945673.jpg?ts=1654428906&userId=usr5Bo1z3DLd6Njfo&cs=83f9d8a81ffe1ad8',
+        description:
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni nisi accusamus non, iusto neque vel!',
+        price: 39999,
         category: 'console',
-        company: 'nintendo',
+        company: 'sony',
+        featured: true,
+        shipping: true,
     },
     {
-        id: 'recrGXTSQghJI9Hq',
-        name: 'Nintendo Switch',
-        image: 'https://dl.airtable.com/.attachments/838c50315f31354b64538c6b1340dbcd/8a8ef525/pexels-polina-tankilevitch-4523017.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=a161c7039bc771f7',
-        price: 55999,
-        salePrice: 49999,
-        sales: 555,
-        category: 'console',
-        company: 'nintendo',
+        id: 'recL023uAqRzaqSNT',
+        name: 'Xbox Controller',
+        colors: ['#000000', '#ffffff'],
+        image: 'https://dl.airtable.com/.attachments/96c71ad9850f8fdfa000fc6ca5740178/af7ac146/pexels-fox-2106216.jpg?ts=1654428906&userId=usr5Bo1z3DLd6Njfo&cs=3e764b69d9c4517f',
+        description:
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni nisi accusamus non, iusto neque vel!',
+        price: 6969,
+        category: 'accessories',
+        company: 'microsoft',
     },
     {
-        id: 'recrGTSQghJI9Htq',
-        name: 'Nitendo Switch',
-        image: 'https://dl.airtable.com/.attachments/838c50315f31354b64538c6b1340dbcd/8a8ef525/pexels-polina-tankilevitch-4523017.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=a161c7039bc771f7',
-        price: 55999,
-        salePrice: 49999,
-        sales: 555,
+        id: 'recRoQD1w0ItHzafo',
+        name: 'Xbox Console',
+        colors: ['#000000', '#ffffff'],
+        image: 'https://dl.airtable.com/.attachments/f4cc2a25ca64ee8b9b8c3112552a88ee/8a4885b2/pexels-bryce-carithers-8782574.jpg?ts=1654428906&userId=usr5Bo1z3DLd6Njfo&cs=c7f8a0eda379ee63',
+        description:
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni nisi accusamus non, iusto neque vel!',
+        price: 69999,
         category: 'console',
-        company: 'nintendo',
-    },
-    {
-        id: 'recrGXTSQJI9Htq',
-        name: 'Nintendo Switch',
-        image: 'https://dl.airtable.com/.attachments/838c50315f31354b64538c6b1340dbcd/8a8ef525/pexels-polina-tankilevitch-4523017.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=a161c7039bc771f7',
-        price: 55999,
-        salePrice: 49999,
-        sales: 555,
-        category: 'console',
-        company: 'nintendo',
-    },
-    {
-        id: 'recrGXTSQghJ9Htq',
-        name: 'Nintendo Switch',
-        image: 'https://dl.airtable.com/.attachments/838c50315f31354b64538c6b1340dbcd/8a8ef525/pexels-polina-tankilevitch-4523017.jpg?ts=1653686651&userId=usr5Bo1z3DLd6Njfo&cs=a161c7039bc771f7',
-        price: 55999,
-        salePrice: 49999,
-        sales: 555,
-        category: 'console',
-        company: 'nintendo',
+        company: 'microsoft',
+        featured: true,
+        shipping: true,
     },
 ]
 //////////////////////////////// Dashboard Arrays ////////////////////////////////

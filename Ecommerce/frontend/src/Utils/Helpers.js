@@ -4,4 +4,16 @@ export const formatPrice = (price) => {
         currency: 'USD',
     }).format(price / 100)
 }
-const getFilterValues = () => {}
+export const getUniqueValues = (products, type) => {
+    let unique = [
+        'all',
+        ...new Set(
+            products
+                .map((product) => {
+                    return product[type]
+                })
+                .flat()
+        ),
+    ]
+    return unique
+}

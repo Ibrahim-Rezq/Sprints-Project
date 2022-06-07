@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { Products, Product } from '../../../Utils/Constant'
+
 const initialState = {
     products: [],
     product: {},

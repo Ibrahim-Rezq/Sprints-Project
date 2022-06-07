@@ -10,12 +10,13 @@ import {
     productsState,
     getProducts,
 } from '../../../Redux/Features/Products/ProductsSlice'
+import { getUniqueValues } from '../../../Utils/Helpers'
 
 const ProductControles = () => {
     const { id } = useParams()
     const imageRef = useRef(null)
 
-    const { product } = useSelector(productsState)
+    const { product, products } = useSelector(productsState)
     const dispatch = useDispatch()
 
     const [tempProduct, setTempProduct] = useState(product)
@@ -25,6 +26,10 @@ const ProductControles = () => {
         dispatch(getSingleProduct(id))
         setTempProduct()
     }, [])
+
+    useEffect(() => {
+        console.log(getUniqueValues(products, 'category'))
+    }, [products])
 
     useEffect(() => {
         setTempProduct(product)
@@ -101,6 +106,7 @@ const ProductControles = () => {
                     inputFunc={handleChange}
                 />
                 <hr />
+                <button className='btn-outline-dark btn'>Save Changes</button>
             </form>
         </div>
     )

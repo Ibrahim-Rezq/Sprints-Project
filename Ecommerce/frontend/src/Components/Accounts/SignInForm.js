@@ -4,7 +4,6 @@ function SignInForm() {
     return (
         <div className='secondCont'>
             <h2> Login </h2>
-
             <form action='xxxx.py' method='Post'>
                 <div className='user'>
                     <label for=''>Name</label>
@@ -17,7 +16,6 @@ function SignInForm() {
                 </div>
                 <br />
                 <div className='email'>
-                    {' '}
                     <label for=''> Email </label>
                     <input
                         type='email'
