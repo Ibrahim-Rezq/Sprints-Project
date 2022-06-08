@@ -12,59 +12,46 @@ function Statistics({ StatisticsArray }) {
         { sign: <FiDollarSign />, color: 'success' },
         { sign: <BsPerson />, color: 'warning' },
         { sign: <BiPackage />, color: 'danger' },
+        { sign: <BiPackage />, color: 'primary' },
     ]
     return (
         <>
-            <Section className='container bg-white py-4 my-4'>
-                <h3 className='text-center display-5'>Statistics</h3>
-                <section
-                    className='d-flex flex-wrap justify-content-evenly align-items-center
-'
-                >
-                    {StatisticsArray.map(({ name, value, id }, index) => {
-                        return (
-                            <div
-                                key={id}
-                                id={styles[signs[index].color]}
-                                className='d-flex justify-content-center align-items-center p-3 text-dark m-3 rounded'
-                            >
-                                <span
-                                    className={
-                                        'text-' +
-                                        signs[index].color +
-                                        '  me-2 mb-2 fs-2'
-                                    }
+            <Section className='container bg-white '>
+                <h3 className='text-center display-5 m-0'>Statistics</h3>
+                <section className='row justify-content-center align-items-center'>
+                    {StatisticsArray.map(
+                        ({ name, value, id, Range }, index) => {
+                            return (
+                                <div
+                                    key={id}
+                                    className='col-12 col-md-4 col-lg-3 
+                                d-flex justify-content-center align-items-center  mx-2 p-2 rounded '
                                 >
-                                    {signs[index].sign}
-                                </span>
-                                <span>
-                                    <h4>{value}K</h4>
-                                    <p
-                                        className={
-                                            'text-capitalize fw-bold text-' +
-                                            signs[index].color
-                                        }
+                                    <div
+                                        class={`card border-${signs[index]?.color} mb-3 text-center w-100`}
                                     >
-                                        {name}
-                                    </p>
-                                </span>
-                            </div>
-                        )
-                    })}
+                                        <div class='card-header fs-5 text-capitalize '>
+                                            {name}
+                                        </div>
+                                        <div class='card-body'>
+                                            <h5 class='card-title'>{value}k</h5>
+                                        </div>
+                                        <div
+                                            class={`card-footer bg-transparent border-${signs[index]?.color}`}
+                                        >
+                                            {Range}
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    )}
                 </section>
             </Section>
             {/* 230k Sales 8.549k Customers 1.423k Products $9745 Revenue */}
         </>
     )
 }
-const Section = styled.section`
-    div {
-        width: 10rem;
-    }
-    h4,
-    p {
-        margin: 0;
-    }
-`
+const Section = styled.section``
 
 export default Statistics

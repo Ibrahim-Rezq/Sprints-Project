@@ -7,11 +7,11 @@ const [logInData, setLogInData] = useState({
     Email:"",
     password: "",
 
-})
+});
 const [ passwordChecker, setpasswordChecker] = useState({
     password: "password",
     text : "text"
-})
+});
 // functions
  const changeHandler = (e) =>{
 setLogInData({...logInData, [e.target.name]:e.target.value })

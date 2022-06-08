@@ -58,7 +58,7 @@ const OrderDataRow = ({ order }) => {
                 <td style={{ minWidth: '7rem' }}>{status}</td>
             )}
             <td style={{ minWidth: '7rem' }}>
-                <button onClick={handleOrderEdit} className='btn btn-warning'>
+                <button onClick={handleOrderEdit} className='btn btn-dark'>
                     {isEditing ? 'Save' : 'Edit'}
                 </button>
             </td>

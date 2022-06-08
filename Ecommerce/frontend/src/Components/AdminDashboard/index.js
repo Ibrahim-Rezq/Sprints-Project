@@ -6,7 +6,8 @@ import OrdersData from './OrdersData';
 import OrderDataRow from './OrderDataRow';
 import Statistics from './Statistics';
 import ProductsData from './ProductsData';
-import ControlesFormInput from './Controles/ControlesFormInput';
+import ColorChange from './Controles/ColorChange';
+import ImagesChange from './Controles/ImagesChange';
 import OrdersControles from './Controles/OrdersControles';
 import UsersControles from './Controles/UsersControles';
 import ProductControles from './Controles/ProductControles';
@@ -19,7 +20,8 @@ export {
   OrderDataRow,
   Statistics,
   ProductsData,
-  ControlesFormInput,
+  ColorChange,
+  ImagesChange,
   OrdersControles,
   UsersControles,
   ProductControles,

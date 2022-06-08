@@ -64,4 +64,4 @@ function AccountsPage() {
     
 }
 
-export default AccountsPage;
+export default AccountsPage

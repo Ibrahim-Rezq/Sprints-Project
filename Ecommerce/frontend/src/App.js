@@ -11,7 +11,7 @@ import {
   AdminDashboard,
   
 } from './Pages';
-import { Header, Footer } from './Components/Global';
+import { Header, Footer, ProtectedLinks } from './Components/Global';
 import PaymentConfirmationPage from './Pages/PaymentConfirmationPage';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -27,12 +27,33 @@ function App() {
         <Route path='/accounts/*' element={<Accounts />}></Route>
         <Route path='/orders' element={<Orders />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
+
         <Route path='/product/:id' element={<SingleProduct />}></Route>
         <Route path='/Products' element={<ProductsPage />}></Route>
-        <Route path='/checkout' element={<CheckOut />} />
-        <Route path='/confirmation' element={<PaymentConfirmationPage />} />
-        <Route path='/AdminDashboard/*' element={<AdminDashboard />} />
-       
+        <Route
+          path='/checkout'
+          element={
+            <ProtectedLinks>
+              <CheckOut />
+            </ProtectedLinks>
+          }
+        />
+        <Route
+          path='/confirmation'
+          element={
+            <ProtectedLinks>
+              <PaymentConfirmationPage />
+            </ProtectedLinks>
+          }
+        />
+        <Route
+          path='/AdminDashboard/*'
+          element={
+            <ProtectedLinks>
+              <AdminDashboard />
+            </ProtectedLinks>
+          }
+        />
         <Route path='/*' element={<ErrorPage />} />
       </Routes>
       <Footer />
