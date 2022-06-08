@@ -150,7 +150,7 @@ max-height: 10rem;
     background-size: cover;
   position: relative;
     background-position: center; 
-min-height: 130vh;
+min-height: 110vh;
 }
 .sign-in-up-switch{
 width:100%;
@@ -170,6 +170,7 @@ margin: 2.5rem ;
 } */
 .login-compo{
    position: relative;
+   top: 2rem;
    bottom: 25rem;
     width: 24.75rem;
     height:36rem;
@@ -209,7 +210,7 @@ margin: 2.5rem ;
 .signUp-comp{
     padding: 2rem;
     width: 24.75rem;
-    height:39rem;
+    height:41rem;
     position: relative;
     bottom: 2rem;
     display:flex ;

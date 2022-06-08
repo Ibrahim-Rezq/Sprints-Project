@@ -21,8 +21,8 @@ function AccountsPage() {
 
   return ( <div>
      
-    <div className='logging d-flex flex-column align-items-center '>
-    <div className='login-compo'>
+    <div className='logging d-flex flex-column justify-content-start align-items-center '>
+    <div className='login-compo '>
     <div className="sign-in-up-switch d-flex justify-content-evenly align-items-center">
 
 <Link to="login" onClick={btnToggler} className={` btn btn-lg ${btnTogglerClassess.btnDanger}`}> Sign in </Link>

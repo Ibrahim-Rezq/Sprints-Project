@@ -20,7 +20,7 @@ function Filters() {
     dispatch(filteredProducts({name:"company", company}))
   }
   return (<>
-    <div className={styles.formContainer}>
+    <div className={styles.formContainer}> 
       <form className={styles.filtersForm} action=''>
         <div>
           <DebounceInput

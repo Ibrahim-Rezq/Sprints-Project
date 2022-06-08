@@ -3,18 +3,26 @@ import React, {useState} from 'react';
 function SignUpForm() {
     // state
 const [signUpData,setSignUpData] = useState({
-    firstName: " " ,
-    lastName: " " ,
-    Email: " ",
+    firstName: "" ,
+    lastName: "" ,
+    Email: "",
     password: "",
-    confirmPassowrd: " ", 
+    confirmPassowrd: "", 
 });
+const [ passwordChecker, setpasswordChecker] = useState({
+    password: "password",
+    text : "text"
+})
     // functions
     const ImputChangeHandler = (e) =>{
 setSignUpData({...signUpData, [e.target.name]:e.target.value  
   })
     }
 
+    const showPassword = (e) =>{
+        passwordChecker.password === "password" ? setpasswordChecker({...passwordChecker, password:"text"}) :
+        setpasswordChecker({...passwordChecker, password :"password"}) 
+    }
    
     // const signUpSubmitHandler= (e) =>{
         
@@ -107,7 +115,7 @@ setSignUpData({...signUpData, [e.target.name]:e.target.value
                      className='imputs'
                         type='text'
                         required
-                        placeholder=' Write your First Name'
+                        placeholder='Write your First Name'
                         name='firstName'
                         value={signUpData["firstName"]}
                         onChange={ImputChangeHandler}
@@ -146,7 +154,7 @@ setSignUpData({...signUpData, [e.target.name]:e.target.value
                     <label  className='pb-2' for=''>Password</label>
                     <input
                      className='imputs'
-                        type='password'
+                        type={passwordChecker.password}
                         required
                         placeholder='Write a complex password '
                         name='password'
@@ -160,17 +168,21 @@ setSignUpData({...signUpData, [e.target.name]:e.target.value
                     <label className='pb-2' for=''>Password</label>
                     <input
                      className='imputs'
-                        type='password'
+                        type={passwordChecker.password}
                         required
-                        placeholder='Confirm password '
+                        placeholder={'Confirm password '}
                         name="confirmPassword"
                         value={signUpData["confirmPassword"]}
                         onChange={ImputChangeHandler}
                     />
+                   <input onClick={showPassword}  className={` mt-3 me-3  `} type="checkbox" />
+                <label htmlFor=""> Show passowrd</label> 
                 </div>
                 <br />
-
+                
+                
                 <div className='submit '>
+                    
                     {' '}
                     <input className='btn btn-lg btn-danger' type='submit' value='Submit' />
                 </div>
