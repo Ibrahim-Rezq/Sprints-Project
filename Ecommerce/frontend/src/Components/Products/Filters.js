@@ -1,29 +1,47 @@
 import React from 'react';
 import styles from './css/ProductCard.module.css';
+import { useDispatch } from "react-redux";
+import { DebounceInput } from 'react-debounce-input'
+import { filteredProducts, searchProducts } from '../../Redux/Features/Products/ProductsSlice';
 
 function Filters() {
+  const dispatch = useDispatch() 
+  const handleClick = (e) => {
+    e.preventDefault()
+    const category = e.target.value
+    dispatch(filteredProducts({name:"category", category}))
+  }
+  const handleSearchChange = (e) => {
+      const text = e.target.value
+      dispatch(searchProducts(text))
+  }
+  const handleCompanyChange = (e) => {
+    const company = e.target.value
+    dispatch(filteredProducts({name:"company", company}))
+  }
   return (
     <div className={styles.formContainer}>
       <form className={styles.filtersForm} action=''>
         <div>
-          <input
-            type='text'
-            placeholder='search'
-            className={styles.searchImput}
+          <DebounceInput
+          minLength={1}
+          debounceTimeout={300}
+          placeholder="search"
+          onChange={handleSearchChange}
           />
         </div>
 
         <div>
           <h5 className={styles.h5}>Catagories</h5>
           <div className=' d-flex flex-column'>
-            <button className={styles.filterBtns} name='category'>
+            <button className={styles.filterBtns} name='category' value="all" onClick={handleClick}>
               {' '}
               All
             </button>
-            <button className={styles.filterBtns} name='category'>
+            <button className={styles.filterBtns} name='category' value="console" onClick={handleClick}>
               Console
             </button>
-            <button className={styles.filterBtns} name='category'>
+            <button className={styles.filterBtns} name='category' value="accessories" onClick={handleClick}>
               {' '}
               accessories
             </button>
@@ -35,7 +53,8 @@ function Filters() {
           <select
             name='company'
             id='companyID'
-            className={styles.companySelect}>
+            className={styles.companySelect}
+            onChange={handleCompanyChange}>
             <option value='all'>All</option>
             <option value='nintendo'>Ninitendo</option>
             <option value='sony'>Sony</option>
@@ -79,9 +98,9 @@ function Filters() {
         </div>
         <div>
           <button
-            className='btn btn-danger mt-3'
+            className='btn btn-danger mt-3 clear-btn'
             type='button'
-            className='clear-btn'>
+            >
             Clear Filters
           </button>
         </div>
