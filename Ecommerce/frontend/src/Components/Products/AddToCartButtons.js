@@ -3,7 +3,8 @@ import CartAmountButtons from '../Cart/CartAmountButtons'
 import styles from "./Products.module.css";
 
 function AddToCartButtons() {
-    return <div>
+    return (<div>
+       <hr />
    <div className='  '>
             <div className='p-4 d-flex justify-content-between' >
             <p className='product-status'>Color : </p>
@@ -15,17 +16,18 @@ function AddToCartButtons() {
            
            
             </div>
-            <div className=' d-flex justify-content-between  '  >
+            <div className=' d-flex justify-content-between ps-3  '  >
          <button className=' btn btn-danger btn-lg'> Add to cart</button>
 
-        <button className='btn btn-danger btn-lg '>Back to products</button> 
+        
         
   
         </div>
+    
+      </div>
     </div>
    
-    </div>
-    
+  );
 }
 
-export default AddToCartButtons
+export default AddToCartButtons;

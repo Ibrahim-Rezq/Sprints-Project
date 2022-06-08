@@ -87,7 +87,7 @@ background-position-y: -5rem;
 }
 
 .product-text-side {
-    padding: 2rem;
+    padding: 0 2rem;
     flex-wrap: wrap;
     max-width: 45rem;
 }
@@ -96,8 +96,9 @@ background-position-y: -5rem;
     border-radius: 50%;
 }
 .h2 {
-    color: blue;
-    font-weight: 700;
+    font-size: 1.5rem;
+    color:rgb(219, 1, 1);
+    font-weight: 600;
 }
 .h1 {
     font-weight: 700;
@@ -137,4 +138,84 @@ max-height: 10rem;
 }
 .single-product-review-text{
     min-width:20rem;
+}
+
+/* log in/sign up */
+
+.logging{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(34, 33, 33);
+    background-image: url(https://images.pexels.com/photos/9072216/pexels-photo-9072216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover;
+  position: relative;
+    background-position: center; 
+min-height: 130vh;
+}
+.sign-in-up-switch{
+width:100%;
+height:30% ;
+
+border-radius: 10%;
+margin: 2.5rem ;
+
+
+}
+
+/* .log-sign-switch{
+    width:13rem;
+    height: 13rem;
+    background-color: black;
+    border-radius: 4%;
+} */
+.login-compo{
+   position: relative;
+   bottom: 25rem;
+    width: 24.75rem;
+    height:36rem;
+    position: relative;
+    bottom: 2rem;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color:black;
+    border-radius: 4%;
+}
+.form-box{
+    text-align: center;
+    height: 100%;
+ 
+}
+
+.imputs{
+    padding: .6rem .8rem;
+   width: 20rem;
+    display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4%;
+  position: relative;
+}
+.login-btn{
+    cursor: pointer;
+    cursor: pointer;
+    border: none;
+}
+.logging-submit{
+    height: 30%;
+}
+/* sign up */
+.signUp-comp{
+    padding: 2rem;
+    width: 24.75rem;
+    height:39rem;
+    position: relative;
+    bottom: 2rem;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color:black;
+    border-radius: 4%; 
 }

@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { OrderDataRow } from './'
+
 function OrdersData({ ordersArray }) {
     const headers = [
         '#',
         'Order Number',
-        'Customer Order',
+        'Customer Id',
         'Date',
+        'Price',
         'Status',
         'Edit Order',
     ]
@@ -18,7 +21,11 @@ function OrdersData({ ordersArray }) {
                             <tr>
                                 {headers.map((header) => {
                                     return (
-                                        <th className='p-3' scope='col'>
+                                        <th
+                                            key={header}
+                                            className='p-3'
+                                            scope='col'
+                                        >
                                             {header}
                                         </th>
                                     )
@@ -27,32 +34,11 @@ function OrdersData({ ordersArray }) {
                         </thead>
                         <tbody>
                             {ordersArray.map((order) => {
-                                const { id, Num, customer, orderData, status } =
-                                    order
-
                                 return (
-                                    <tr key={id}>
-                                        <td style={{ minWidth: '7rem' }}>
-                                            {id}
-                                        </td>
-                                        <td style={{ minWidth: '7rem' }}>
-                                            {Num}
-                                        </td>
-                                        <td style={{ minWidth: '7rem' }}>
-                                            {customer}
-                                        </td>
-                                        <td style={{ minWidth: '7rem' }}>
-                                            {orderData}
-                                        </td>
-                                        <td style={{ minWidth: '7rem' }}>
-                                            {status}
-                                        </td>
-                                        <td style={{ minWidth: '7rem' }}>
-                                            <button className='btn btn-warning'>
-                                                Edit
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    <OrderDataRow
+                                        key={order.idw}
+                                        order={order}
+                                    />
                                 )
                             })}
                         </tbody>

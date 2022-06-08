@@ -18,7 +18,7 @@ const ProductInfo = ({ product }) => {
         return (
             <div className='product-text-side'>
                 <h2>{name} </h2>
-                <h4 className='h2'>{formatPrice(price)}</h4>
+                <h4>{formatPrice(price)}</h4>
                 <p className='lead'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
                     blanditiis eaque veritatis aliquid! Corporis, eos?
@@ -46,11 +46,11 @@ const ProductInfo = ({ product }) => {
                         })}
                     </p>
                 </div>
-                <div className='d-flex justify-content-start align-items-start mb-5 '>
+                <div className='d-flex justify-content-start align-items-center '>
                     <h5 className=' me-4'>Brand: </h5>
                     <p>{company}</p>
                 </div>
-               
+                <hr />
             </div>
         )
     else return <></>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function ProductSingleReview() {
     return <div className=' d-flex flex-column  align-items-center justify-content-start p-3  '>
@@ -58,4 +58,4 @@ function ProductSingleReview() {
     </div>
 }
 
-export default ProductSingleReview
+export default ProductSingleReview;

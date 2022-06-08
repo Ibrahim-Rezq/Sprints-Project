@@ -1,6 +1,6 @@
 import React from 'react'
-import SingleOrder from './SingleOrder'
-import { ordersArray, StatisticsArray } from '../../Utils/Constant'
+import SingleOrder from './'
+import { OrdersArray, StatisticsArray } from '../../Utils/Constant'
 
 function OrdersContent() {
     const values = [
@@ -20,7 +20,11 @@ function OrdersContent() {
                             <tr>
                                 {values.map((value) => {
                                     return (
-                                        <th className='p-3' scope='col'>
+                                        <th
+                                            key={value}
+                                            className='p-3'
+                                            scope='col'
+                                        >
                                             {value}
                                         </th>
                                     )
@@ -28,23 +32,29 @@ function OrdersContent() {
                             </tr>
                         </thead>
                         <tbody>
-                            {ordersArray.map((order) => {
-                                const { id, number, cost, orderData, statues } =
-                                    order
+                            {OrdersArray.map((order) => {
+                                const {
+                                    orderId,
+                                    orderNumber,
+                                    userId,
+                                    orderDate,
+                                    price,
+                                    status,
+                                } = order
 
                                 return (
-                                    <tr key={id}>
+                                    <tr key={orderId}>
                                         <td style={{ minWidth: '7rem' }}>
-                                            {number}
+                                            {orderNumber}
                                         </td>
                                         <td style={{ minWidth: '7rem' }}>
-                                            {cost}
+                                            {price}
                                         </td>
                                         <td style={{ minWidth: '7rem' }}>
-                                            {orderData}
+                                            {orderDate}
                                         </td>
                                         <td style={{ minWidth: '7rem' }}>
-                                            {statues}
+                                            {status}
                                         </td>
                                         <td style={{ minWidth: '7rem' }}>
                                             <button className='btn btn-warning'>

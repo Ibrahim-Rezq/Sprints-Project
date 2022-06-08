@@ -1,5 +1,5 @@
-import React from 'react'
-import ProductSingleReview from './ProductSingleReview'
+import React from 'react';
+import ProductSingleReview from './ProductSingleReview';
 
 function ProductReviews() {
   
@@ -11,4 +11,4 @@ function ProductReviews() {
     </div>
 }
 
-export default ProductReviews
+export default ProductReviews;
