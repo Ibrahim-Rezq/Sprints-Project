@@ -10,10 +10,12 @@ import { Route, Routes } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { adminState } from '../Redux/Features/Admin/AdminSlice';
-import {} from '../Utils/Constant';
+import { productsState } from '../Redux/Features/Products/ProductsSlice';
+
 function AdminDashboardPage() {
-  const { totalRevenue, ordersDataArray, productsDataArray, statisticsArray } =
+  const { totalRevenue, ordersArray, productsDataArray, statisticsArray } =
     useSelector(adminState);
+  const { products } = useSelector(productsState);
 
   return (
     <>
@@ -29,7 +31,7 @@ function AdminDashboardPage() {
                 <Dashboard
                   {...{
                     totalRevenue,
-                    ordersDataArray,
+                    ordersArray,
                     productsDataArray,
                     statisticsArray,
                   }}
@@ -38,11 +40,11 @@ function AdminDashboardPage() {
             />
             <Route
               path='/orders'
-              element={<OrdersData ordersArray={ordersDataArray} />}
+              element={<OrdersData ordersArray={ordersArray} />}
             />
             <Route
               path='/products'
-              element={<ProductsData ProductsArray={productsDataArray} />}
+              element={<ProductsData ProductsArray={products} />}
             />
             <Route path='/ProductEdit/:id' element={<ProductControles />} />
           </Routes>

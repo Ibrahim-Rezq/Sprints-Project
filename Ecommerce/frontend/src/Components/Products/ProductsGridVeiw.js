@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
-import { ProductCard } from './';
-import styles from './css/ProductCard.module.css';
+import React, { useEffect } from 'react'
+import { ProductCard } from './'
+import styles from './css/ProductCard.module.css'
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
 import {
-  getSingleProduct,
-  productsState,
-  getProducts,
-} from '../../Redux/Features/Products/ProductsSlice';
-import { Loading } from '../Global';
+    getSingleProduct,
+    productsState,
+    getProducts,
+} from '../../Redux/Features/Products/ProductsSlice'
+import { Loading } from '../Global'
+import { getUniqueValues } from '../../Utils/Helpers'
 
 function ProductsGridVeiw(props) {
   const { products, searchText } = useSelector(productsState);
@@ -42,4 +43,4 @@ function ProductsGridVeiw(props) {
   );
 }
 
-export default ProductsGridVeiw;
+export default ProductsGridVeiw

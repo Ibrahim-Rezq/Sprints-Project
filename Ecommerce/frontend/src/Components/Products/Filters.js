@@ -19,7 +19,7 @@ function Filters() {
     const company = e.target.value
     dispatch(filteredProducts({name:"company", company}))
   }
-  return (
+  return (<>
     <div className={styles.formContainer}>
       <form className={styles.filtersForm} action=''>
         <div>
@@ -62,51 +62,65 @@ function Filters() {
           </select>
         </div>
 
-        <div className=''>
-          <h5 className={styles.h5}>Colors</h5>
-          <div className=' d-flex justify-content-between align-items-center '>
-            <button className={` ${styles.filtersAll}`} name='color'>
-              {' '}
-              All
-            </button>
-            <button
-              className={`${styles.filterColors} ${styles.filtersWhite}`}
-              data-color='#ffffff'
-              name='color'></button>
-            <button
-              className={`${styles.filterColors} ${styles.filtersBlack}`}
-              name='color'></button>
-            <button
-              className={`${styles.filterColors} ${styles.filtersGrey}`}
-              name='color'></button>
-          </div>
-        </div>
+                <div className=''>
+                    <h5 className={styles.h5}>Colors</h5>
+                    <div className=' d-flex justify-content-between align-items-center '>
+                        <button
+                            className={` ${styles.filtersAll}`}
+                            name='color'
+                        >
+                            {' '}
+                            All
+                        </button>
+                        <button
+                            className={`${styles.filterColors} ${styles.filtersWhite}`}
+                            data-color='#ffffff'
+                            name='color'
+                        ></button>
+                        <button
+                            className={`${styles.filterColors} ${styles.filtersBlack}`}
+                            name='color'
+                        ></button>
+                        <button
+                            className={`${styles.filterColors} ${styles.filtersGrey}`}
+                            name='color'
+                        ></button>
+                    </div>
+                </div>
 
-        <div>
-          <h5 className={styles.h5}>Price</h5>
-          <p>$699.99</p>
-          <input type='range' />
-        </div>
+                <div>
+                    <h5 className={styles.h5}>Price</h5>
+                    <p>$699.99</p>
+                    <input type='range' />
+                </div>
 
-        <div className='d-flex justify-content-start align-items-center'>
-          <label htmlFor='shipping'>Free Shiping</label>
-          <input
-            className={styles.filtersCheckBox}
-            type='checkbox'
-            name='shipping'
-            id='shipping'></input>
-        </div>
-        <div>
+                <div className='d-flex justify-content-start align-items-center'>
+                    <label htmlFor='shipping'>Free Shiping</label>
+                    <input
+                        className={styles.filtersCheckBox}
+                        type='checkbox'
+                        name='shipping'
+                        id='shipping'
+                    ></input>
+                </div>
+                <div>
+                    <button
+                        className='clear-btn btn btn-danger mt-3'
+                        type='button'
+                    >
+                        Clear Filters
+                    </button>
+                </div>
+            </form>
           <button
             className='btn btn-danger mt-3 clear-btn'
             type='button'
             >
             Clear Filters
           </button>
-        </div>
-      </form>
     </div>
+    </>
   );
 }
 
-export default Filters;
+export default Filters
