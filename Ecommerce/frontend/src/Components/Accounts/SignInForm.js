@@ -27,15 +27,16 @@ const showPassword = (e) =>{
     
 //      }
     return (
- 
-            <form className='form-box' >
+         <div className='secondCont'>
+            <h2> Login </h2>
+
+            <form >
                 
                 <br />
-                <div className=' d-flex flex-column'>
+                <div className='email'>
                     {' '}
-                    <label className='mb-2 fs-5' for=''> E-mail </label>
+                    <label for=''> Email </label>
                     <input
-                    className='imputs'
                         type='email'
                         required
                         placeholder='.....@gmail'
@@ -45,12 +46,11 @@ const showPassword = (e) =>{
                     />
                 </div>
                 <br />
-                <div className=' d-flex flex-column'>
+                <div className='pass2'>
                     {' '}
-                    <label className='fs-5' for=''>Password</label>
-                    <input 
-                    className='imputs mt-2'
-                        type={`${passwordChecker.password}`}
+                    <label for=''>Password</label>
+                    <input
+                        type='password'
                         required
                         placeholder='Password '
                         name="password"
@@ -59,19 +59,59 @@ const showPassword = (e) =>{
                     />
                 </div>
                 <br />
-                <input onClick={showPassword}  className={`mb-3 me-3 align-self-start`} type="checkbox" />
-                <label htmlFor=""> Show passowrd</label>
-                
-                <div className='logging-submit d-flex flex-column align-items-center  '>
+                <div className='submit'>
                     {' '}
-                  
-                    <input className=' mt-3 btn-lg btn-danger' type='submit' value='Login ' />
-                   
-                    <a className='mt-3' href="">Forget password</a>
-                    <a href=""></a>
+                    <input type='submit' value='Login ' />
                 </div>
                 <br />
             </form>
+        </div>
+ 
+            // <form className='form-box' >
+                
+            //     <br />
+            //     <div className=' d-flex flex-column'>
+            //         {' '}
+            //         <label className='mb-2 fs-5' for=''> E-mail </label>
+            //         <input
+            //         className='imputs'
+            //             type='email'
+            //             required
+            //             placeholder='.....@gmail'
+            //             name='Email'
+            //             value={ logInData["Email"]}
+            //             onChange={changeHandler}
+            //         />
+            //     </div>
+            //     <br />
+            //     <div className=' d-flex flex-column'>
+            //         {' '}
+            //         <label className='fs-5' for=''>Password</label>
+            //         <input 
+            //         className='imputs mt-2'
+            //             type={`${passwordChecker.password}`}
+            //             required
+            //             placeholder='Password '
+            //             name="password"
+            //             value={ logInData["password"]}
+            //             onChange={changeHandler}
+            //         />
+            //     </div>
+            //     <br />
+            //     <input onClick={showPassword}  className={`mb-3 me-3 align-self-start`} type="checkbox" />
+            //     <label htmlFor=""> Show passowrd</label>
+                
+            //     <div className='logging-submit d-flex flex-column align-items-center  '>
+            //         {' '}
+                  
+            
+            //         <input className=' mt-3 btn-lg btn-danger' type='submit' value='Login ' />
+                   
+            //         <a className='mt-3' href="">Forget password</a>
+            //         <a href=""></a>
+            //     </div>
+            //     <br />
+            // </form>
             
   
        
