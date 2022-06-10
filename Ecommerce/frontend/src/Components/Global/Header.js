@@ -64,10 +64,10 @@ function Header() {
               </Link>
             </li>
             <li className='nav-item fs-4 '>
-              <a className='cart-icon fs-1 m-3 ' href='#'>
+              <Link className='cart-icon fs-1 m-3 ' to='/cart'>
                 {' '}
                 <BsFillCartCheckFill />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

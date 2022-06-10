@@ -4,21 +4,36 @@ import { CartContent } from '../Components/Cart';
 ///////////////////////////////////////////////////
 import { useSelector, useDispatch } from 'react-redux';
 import { addItemToCart, selectCount } from '../Redux/Features/Cart/CartSlice';
+import { Link } from 'react-router-dom';
 ///////////////////////////////////////////////////
 function CartPage() {
   // Dont Mind Redux ToolKit Related
   ///////////////////////////////////////////////////
-  const { cart } = useSelector(selectCount);
+  const { cart, total, totalAmount } = useSelector(selectCount);
   const dispatch = useDispatch();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    // console.log(cart);
+    // console.log(total);
+    // console.log(totalAmount);
+  }, [cart]);
   ///////////////////////////////////////////////////
 
   return (
     <div
       className='d-flex justify-content-center align-items-center'
-      style={{ height: 'calc(100vh - 60px)' }}>
-      <CartContent content={cart} />
+      style={{ minHeight: 'calc(100vh - 60px)' }}>
+      {cart && cart.length > 0 ? (
+        <CartContent content={cart} />
+      ) : (
+        <div className='text-center'>
+          <h2>No Items Found in cart</h2>
+          <br />
+          <Link className='btn-danger btn' to='/products'>
+            Shop Now
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
