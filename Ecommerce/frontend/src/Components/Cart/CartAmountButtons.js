@@ -1,12 +1,13 @@
 import React from 'react'
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
-function CartAmountButtons() {
+function CartAmountButtons({ amount }) {
     return (
-        <span className='d-flex justify-content-evenly'>
-            <button className='border-0 bg-transparent '>
+        <span className='row '>
+            <button className='col-4 m-0 p-0 border-0 bg-transparent '>
                 <AiOutlineMinus />
             </button>
-            <button className='border-0 bg-transparent '>
+            <p className='col-4 m-0 fs-2 fw-bold'>{amount}</p>
+            <button className='col-4 m-0 p-0 border-0 bg-transparent '>
                 <AiOutlinePlus />
             </button>
         </span>

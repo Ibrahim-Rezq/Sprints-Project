@@ -1,52 +1,50 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router';
+import React, { useEffect } from 'react'
+import { useParams } from 'react-router'
 
 // Components
 import {
-  ProductImagePreview,
-  ProductReviews,
-  ProductInfo,
-} from '../Components/SingleProduct';
-import { AddToCartButtons } from '../Components/Products';
+    ProductImagePreview,
+    ProductReviews,
+    ProductInfo,
+} from '../Components/SingleProduct'
+import { AddToCartButtons } from '../Components/Products'
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
 import {
-  getSingleProduct,
-  productsState,
-  getProducts,
-} from '../Redux/Features/Products/ProductsSlice';
-import { Link } from 'react-router-dom';
+    getSingleProduct,
+    productsState,
+    getProducts,
+} from '../Redux/Features/Products/ProductsSlice'
+import { Link } from 'react-router-dom'
 
 function SingleProductPage() {
-  const { id } = useParams();
-  const { product } = useSelector(productsState);
-  const dispatch = useDispatch();
+    const { id } = useParams()
+    const { product } = useSelector(productsState)
+    const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(getProducts());
-    dispatch(getSingleProduct(id));
-  }, []);
+    useEffect(() => {
+        dispatch(getProducts())
+        dispatch(getSingleProduct(id))
+    }, [])
 
-  return (
-    <div className='container  '>
-      <Link className='btn btn-danger btn-lg mt-4 ms-4 ' to='/products'>
-        Back to products
-      </Link>
+    return (
+        <div className='container'>
+            <Link className='btn btn-danger btn-lg mt-4' to='/products'>
+                Back to products
+            </Link>
 
-      {product.id && (
-        <div
-          className='d-flex justify-content-around align-items-center '
-          style={{ minHeight: 'calc(100vh - 60px)' }}>
-          <ProductImagePreview images={product.images} />
-          <div className='d-flex flex-column '>
-            <ProductInfo product={product} />
-            <AddToCartButtons />
-          </div>
+            {product.id && (
+                <div
+                    className='d-flex justify-content-evenly flex-wrap align-items-center '
+                    style={{ minHeight: '80vh' }}
+                >
+                    <ProductImagePreview images={product.images} />
+                    <ProductInfo product={product} />
+                </div>
+            )}
         </div>
-      )}
-    </div>
-  );
+    )
 }
 
-export default SingleProductPage;
+export default SingleProductPage

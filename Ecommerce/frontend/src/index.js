@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import bootstrap from 'bootstrap' 
+import bootstrap from 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Style/index.css'
 import { store } from './Redux/Store'
