@@ -22,6 +22,7 @@ function Profile(props) {
         
       </div>
       <div className={[classes.orders] + " mt-5"}>
+        <h3>Your Latest Orders</h3>
         <LatestOrders></LatestOrders>
       </div>
     </div>
