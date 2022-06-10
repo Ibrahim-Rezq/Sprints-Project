@@ -13,7 +13,7 @@ import {
 } from './Pages';
 import { Header, Footer, ProtectedLinks } from './Components/Global';
 import PaymentConfirmationPage from './Pages/PaymentConfirmationPage';
-
+import Profile from './Components/Accounts/Profile'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProductsPage from './Pages/ProductsPage';
 
@@ -30,6 +30,8 @@ function App() {
 
         <Route path='/product/:id' element={<SingleProduct />}></Route>
         <Route path='/Products' element={<ProductsPage />}></Route>
+        <Route path='/Profile' element={<Profile />}></Route>
+
         <Route
           path='/checkout'
           element={
