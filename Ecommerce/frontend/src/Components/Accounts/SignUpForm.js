@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 function SignUpForm() {
     // state
+      // form opject 
 const [signUpData,setSignUpData] = useState({
     firstName: "" ,
     lastName: "" ,
@@ -9,6 +10,7 @@ const [signUpData,setSignUpData] = useState({
     password: "",
     confirmPassowrd: "", 
 });
+    // checkbox opject 
 const [ passwordChecker, setpasswordChecker] = useState({
     password: "password",
     text : "text"
@@ -18,7 +20,7 @@ const [ passwordChecker, setpasswordChecker] = useState({
 setSignUpData({...signUpData, [e.target.name]:e.target.value  
   })
     }
-
+     // checkbox handler
     const showPassword = (e) =>{
         passwordChecker.password === "password" ? setpasswordChecker({...passwordChecker, password:"text"}) :
         setpasswordChecker({...passwordChecker, password :"password"}) 

@@ -4,12 +4,14 @@ import { Link, Route, Routes } from 'react-router-dom';
 
 function AccountsPage() {
   // state
+  //btn Toggler opject
   const [btnTogglerClassess ,setbtnTogglerClassess] = useState({
     btnDangerOutLine:"btn-outline-danger",
     btnDanger:"btn-danger",
   
 });
 // functions
+   
   const btnToggler = (e) =>{
     btnTogglerClassess.btnDangerOutLine ==="btn-outline-danger" ? 
     setbtnTogglerClassess({...btnTogglerClassess,

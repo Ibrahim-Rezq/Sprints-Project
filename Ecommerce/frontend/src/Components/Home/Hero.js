@@ -1,6 +1,19 @@
-import React from 'react'
-import hero from "./Home.module.css"
+import React from 'react';
+import hero from "./Home.module.css";
+import lazer1 from "../../BtnSounds/lazer1.mp3";
+import lazer2 from "../../BtnSounds/lazer2.mp3";
+import lazer3 from "../../BtnSounds/lazer3.mp3";
+import lazer4 from "../../BtnSounds/lazer4.mp3";
+
 const Hero = () => {
+    const btnSounds = [lazer1, lazer2, lazer3, lazer4]
+    //function
+    const playSound = () => {
+        var audio = new Audio( `${btnSounds[Math.floor(Math.random()* btnSounds.length )]}`)
+             audio.play();
+            
+    }
+
     return (
         <section
          
@@ -18,19 +31,16 @@ const Hero = () => {
                         maxWidth: '30rem',
                     }}
                 >
-                    <h1 >Level Up You Gaming</h1>
+                    <h1 >Level Up Your Gaming</h1>
                     <p className='lead'>
-                        Cupiditate distinctio. Ullam cum nostrum placeat velit
-                        odit officiis est quas modi. Incidunt debitis cupiditate
-                        aperiam officiis voluptatibus quo beatae obcaecati
-                        provident voluptate, deserunt tempora nobis magni,
+                        Provident voluptate, deserunt tempora nobis magni,
                         tempore dolorem reiciendis modi suscipit, neque a.
                     </p>
-                    <a className='btn btn-outline-danger btn-lg py-2' href=''>
+                    <button onClick={playSound} className='btn btn-danger btn-lg py-2' href=''>
                         Shop now{' '}
-                    </a>
+                    </button>
                 </div>
-                <div className={hero.imgSide}>
+                {/* <div className={hero.imgSide}>
                     <img
                         className={hero.img1}
                         src='https://gamerzone391.netlify.app/static/media/hero-bcg.62414bf4.jpg'
@@ -42,7 +52,7 @@ const Hero = () => {
 '
                         alt='Gaming image 2'
                     />
-                </div>
+                </div> */}
             </div>
         </section>
     )

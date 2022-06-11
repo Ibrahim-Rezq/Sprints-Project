@@ -13,10 +13,12 @@ const [ passwordChecker, setpasswordChecker] = useState({
     text : "text"
 });
 // functions
+
  const changeHandler = (e) =>{
 setLogInData({...logInData, [e.target.name]:e.target.value })
 
  }
+ //check box handler
 const showPassword = (e) =>{
     passwordChecker.password === "password" ? setpasswordChecker({...passwordChecker, password:"text"}) :
     setpasswordChecker({...passwordChecker, password :"password"}) 
