@@ -1,50 +1,47 @@
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router'
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router';
 
 // Components
 import {
-    ProductImagePreview,
-    ProductReviews,
-    ProductInfo,
-} from '../Components/SingleProduct'
-import { AddToCartButtons } from '../Components/Products'
+  ProductImagePreview,
+  ProductReviews,
+  ProductInfo,
+} from '../Components/SingleProduct';
+import { AddToCartButtons } from '../Components/Products';
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux'
-import {
-    getSingleProduct,
-    productsState,
-    getProducts,
-} from '../Redux/Features/Products/ProductsSlice'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useProductsContext } from '../Context/ProductContext';
 
 function SingleProductPage() {
-    const { id } = useParams()
-    const { product } = useSelector(productsState)
-    const dispatch = useDispatch()
+  const { id } = useParams();
+  const {
+    singleProduct,
+    singleProductLoading,
+    productsLoading,
+    fetchSingleProduct,
+  } = useProductsContext();
 
-    useEffect(() => {
-        dispatch(getProducts())
-        dispatch(getSingleProduct(id))
-    }, [])
+  useEffect(() => {
+    fetchSingleProduct(id);
+  }, []);
 
-    return (
-        <div className='container'>
-            <Link className='btn btn-danger btn-lg mt-4' to='/products'>
-                Back to products
-            </Link>
+  return (
+    <div className='container'>
+      <Link className='btn btn-danger btn-lg mt-4' to='/products'>
+        Back to products
+      </Link>
 
-            {product.id && (
-                <div
-                    className='d-flex justify-content-evenly flex-wrap align-items-center '
-                    style={{ minHeight: '80vh' }}
-                >
-                    <ProductImagePreview images={product.images} />
-                    <ProductInfo product={product} />
-                </div>
-            )}
+      {!productsLoading && !singleProductLoading && (
+        <div
+          className='d-flex justify-content-evenly flex-wrap align-items-center '
+          style={{ minHeight: '80vh' }}>
+          <ProductImagePreview images={singleProduct.images} />
+          <ProductInfo product={singleProduct} />
         </div>
-    )
+      )}
+    </div>
+  );
 }
 
-export default SingleProductPage
+export default SingleProductPage;
