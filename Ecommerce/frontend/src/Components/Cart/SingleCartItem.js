@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 import { CartAmountButtons } from './';
 import { GoTrashcan } from 'react-icons/go';
 import { formatPrice } from '../../Utils/Helpers';
-import { useDispatch } from 'react-redux';
-import {
-  addItemToCart,
-  removeItemFromCart,
-} from '../../Redux/Features/Cart/CartSlice';
+import { useCartContext } from '../../Context/CartContext';
 
-function SingleCartItem({ item: { id, amount, product } }) {
-  const dispatch = useDispatch();
+function SingleCartItem({ item: { id, amount, color, product } }) {
+  const { removeItem, toggleAmount } = useCartContext();
   const [itemAmount, setItemAmount] = useState(amount);
 
   const handleSetAmount = (num) => {
@@ -17,6 +13,7 @@ function SingleCartItem({ item: { id, amount, product } }) {
     if (sum > product.stock) sum = product.stock;
     if (sum < 1) sum = 1;
     setItemAmount(sum);
+    toggleAmount(id, sum);
   };
 
   return (
@@ -27,7 +24,21 @@ function SingleCartItem({ item: { id, amount, product } }) {
             <img src={product.image} alt='' className='img-fluid rounded ' />
           </div>
           <div className=' col-6 d-flex align-items-center '>
-            <h5 className='w-100 text-dark fw-bold'>{product.name}</h5>
+            <h5 className='w-100 text-dark fw-bold'>
+              {product.name}{' '}
+              <span className='d-inline d-md-none fs-6'>
+                {formatPrice(product.price)}
+              </span>{' '}
+              <span
+                className='btn border-secondary'
+                style={{
+                  background: color,
+                  borderRadius: '50%',
+                  width: '15px',
+                  height: '15px',
+                  padding: 0,
+                }}></span>
+            </h5>
           </div>
         </div>
         <p className='d-none d-md-block col-2 p-0 m-0'>
@@ -46,8 +57,7 @@ function SingleCartItem({ item: { id, amount, product } }) {
           <a
             onClick={(e) => {
               e.preventDefault();
-              console.log('hi');
-              dispatch(removeItemFromCart(id));
+              removeItem(id);
             }}
             className='text-danger'>
             <GoTrashcan />

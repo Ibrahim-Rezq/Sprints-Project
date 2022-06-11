@@ -4,6 +4,7 @@ import PaymentForm from '../../Payment/PaymentForm';
 import { ShippingDetails } from '../Shipping';
 
 import classes from './css/ProceedToCheckout.module.css';
+import { Link } from 'react-router-dom';
 
 function ProcedeToCheckOut() {
   let DUMMY_DATA = [
@@ -19,8 +20,8 @@ function ProcedeToCheckOut() {
 
   return (
     <div className='container mt-5'>
-      <div className={classes['checkout-wrapper'] + " row"}>
-        <div className={classes['left-wrapper'] + " col-xs-12 col-md-8"}>
+      <div className={classes['checkout-wrapper'] + ' row'}>
+        <div className={classes['left-wrapper'] + ' col-xs-12 col-md-8'}>
           <h2>Shipping Details</h2>
           <div id='shipping-details'>
             <ShippingDetails></ShippingDetails>
@@ -32,7 +33,7 @@ function ProcedeToCheckOut() {
             </div>
           </div>
         </div>
-        <div className={classes['right-wrapper'] + " col-xs-12 col-md-4"}>
+        <div className={classes['right-wrapper'] + ' col-xs-12 col-md-4'}>
           <OrderReview products={DUMMY_DATA}></OrderReview>
         </div>
       </div>

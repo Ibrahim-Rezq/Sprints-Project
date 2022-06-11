@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Profile } from '../Components/Accounts';
 
 function AccountInfoPage() {
-    return <div>AccountInfoPage</div>
+  return (
+    <>
+      <Profile />
+    </>
+  );
 }
 
-export default AccountInfoPage
+export default AccountInfoPage;

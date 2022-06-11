@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import CartAmountButtons from '../Cart/CartAmountButtons';
 import styles from './Products.module.css';
-import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../Redux/Features/Cart/CartSlice';
+import { useCartContext } from '../../Context/CartContext';
 
 function AddToCartButtons({ product }) {
-  const dispatch = useDispatch();
+  const { addToCart } = useCartContext();
 
   const [amount, setAmount] = useState(1);
+  const [mainColor, setMainColor] = useState(product.colors[0]);
 
   const handleSetAmount = (num) => {
     let sum = amount + num;
@@ -17,25 +17,32 @@ function AddToCartButtons({ product }) {
   };
 
   const handleAddToCart = () => {
-    console.log({ id: '', amount, product });
-    dispatch(addItemToCart({ id: '', amount, product }));
+    addToCart({
+      id: product.id + mainColor,
+      color: mainColor,
+      amount,
+      product,
+    });
   };
   return (
     <div className='p-4'>
       <div className='row align-items-center mb-4'>
         <span className='col-4 col-md-2  fw-bold m-0'>Color : </span>
         <div className='col align-items-center '>
-          {product.colors.map((color) => {
+          {product.colors.map((clr) => {
             return (
               <button
-                className='btn mx-2 border-secondary'
+                className={`btn mx-2 border-secondary ${
+                  clr == mainColor ? 'border-dark' : ''
+                }`}
                 style={{
-                  background: color,
+                  background: clr,
                   borderRadius: '50%',
                   width: '20px',
                   height: '20px',
                   padding: 0,
-                }}></button>
+                }}
+                onClick={() => setMainColor(clr)}></button>
             );
           })}
         </div>
@@ -44,7 +51,6 @@ function AddToCartButtons({ product }) {
         <CartAmountButtons amount={amount} handleSetAmount={handleSetAmount} />
       </div>
       <button className=' btn btn-danger btn-lg py-1' onClick={handleAddToCart}>
-        {' '}
         Add to cart
       </button>
     </div>
