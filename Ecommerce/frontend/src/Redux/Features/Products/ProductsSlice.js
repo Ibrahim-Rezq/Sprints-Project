@@ -37,8 +37,16 @@ export const productsSlice = createSlice({
     },
 
     getFeaturedProducts: (state) => {
+      console.log(
+        state.products.map((prod) => {
+          console.log(prod.featured);
+        })
+      );
       state.featuredProducts = [
-        ...state.products.filter((prod) => prod.featured),
+        ...state.products.filter((prod) => {
+          console.log('prod.featured');
+          return prod.featured;
+        }),
       ];
     },
     getOnSaleProducts: (state) => {

@@ -143,6 +143,7 @@ const Product = [
     category: 'console',
     company: 'nintendo',
     stars: 6.5,
+    featured: true,
     stock: 5,
     reviews: '69',
   },
