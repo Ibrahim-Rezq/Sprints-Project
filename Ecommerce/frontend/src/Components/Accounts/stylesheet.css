@@ -1,0 +1,23 @@
+/* start log in and sign up*/
+body{background: scroll;
+  background-image: url("images/Capture.PNG");
+  background-size: cover;
+}
+.container,.container2{
+border: solid 3px rgb(253, 247, 247);
+width: 75%;
+border-radius: 2%;
+color: white;
+text-align: center;
+margin-left: 180px;
+}
+a{color: white;}
+
+@media(max-width:567px){
+.container,.container2{width: 300px;
+margin-left: 10%;}
+
+}
+
+
+/*end loading*
