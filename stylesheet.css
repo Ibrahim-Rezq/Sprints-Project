@@ -1,0 +1,19 @@
+
+body{background-image: url(../Payment/css/images/Capture2.PNG);
+background-size: cover;}
+.cont,.cont2{
+border: solid 2px white;
+border-radius: 2%;
+color: white;
+text-align: center;
+margin: 20px;
+margin-left: 60px;
+margin-top: 60px;
+width: 350px;
+}
+a{color: white;}
+@media(max-width:567px){
+    .cont,.cont2{width: 300px;
+    margin-left: 0%;}
+    
+    }
