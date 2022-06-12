@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 import React, { useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -24,7 +24,8 @@ export const ProductsProvider = ({ children }) => {
   const fetchProducts = async (url) => {
     // try {
     dispatch(getProductsBegin());
-    //   const response = await axios.get(url);
+    // const response = await axios.get('http://127.0.0.1:8000/products/');
+    // console.log(response);
     setTimeout(() => {
       dispatch(getProductsSucsses());
     }, 0);
@@ -45,9 +46,11 @@ export const ProductsProvider = ({ children }) => {
   // urlSingle
   useEffect(() => {
     fetchProducts('url');
+  }, []);
+  useEffect(() => {
     dispatch(getOnSaleProducts());
     dispatch(getFeaturedProducts());
-  }, []);
+  }, [state.products]);
 
   return (
     <ProductsContext.Provider value={{ ...state, fetchSingleProduct }}>
