@@ -1,18 +1,20 @@
-// import axios from 'axios';
+import axios from 'axios';
 import React, { useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  getProductsBegin,
-  getProductsSucsses,
-  getOnSaleProducts,
-  getFeaturedProducts,
-  getProductsError,
+  productsState,
   getSingleProductBegin,
   getSingleProductSucsses,
   getSingleProductError,
+  initProductsData,
+  getProductsBegin,
+  getProductsSucsses,
+  getProductsError,
   filteredProducts,
   searchProducts,
-  productsState,
+  toggleFreeShipping,
+  clearFilters,
+  priceChange,
 } from '../Redux/Features/Products/ProductsSlice';
 
 const ProductsContext = React.createContext();
@@ -21,10 +23,27 @@ export const ProductsProvider = ({ children }) => {
   const state = useSelector(productsState);
   const dispatch = useDispatch();
 
+  const filterProducts = (obj) => {
+    dispatch(filteredProducts(obj));
+  };
+  const search = (text) => {
+    dispatch(searchProducts(text));
+  };
+
+  const filtersClear = () => {
+    dispatch(clearFilters());
+  };
+  const freeShippingToggle = (val) => {
+    dispatch(toggleFreeShipping(val));
+  };
+  const changePrice = (value) => {
+    dispatch(priceChange(value));
+  };
   const fetchProducts = async (url) => {
     // try {
     dispatch(getProductsBegin());
-    //   const response = await axios.get(url);
+    // const response = await axios.get('http://127.0.0.1:8000/products/');
+    // console.log(response);
     setTimeout(() => {
       dispatch(getProductsSucsses());
     }, 0);
@@ -45,12 +64,23 @@ export const ProductsProvider = ({ children }) => {
   // urlSingle
   useEffect(() => {
     fetchProducts('url');
-    dispatch(getOnSaleProducts());
-    dispatch(getFeaturedProducts());
   }, []);
 
+  useEffect(() => {
+    dispatch(initProductsData());
+  }, [state.products]);
+
   return (
-    <ProductsContext.Provider value={{ ...state, fetchSingleProduct }}>
+    <ProductsContext.Provider
+      value={{
+        ...state,
+        filterProducts,
+        search,
+        filtersClear,
+        freeShippingToggle,
+        fetchSingleProduct,
+        changePrice,
+      }}>
       {children}
     </ProductsContext.Provider>
   );

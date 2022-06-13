@@ -1,125 +1,163 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './css/ProductCard.module.css';
-import { useDispatch } from "react-redux";
-import { DebounceInput } from 'react-debounce-input'
-import { filteredProducts, searchProducts } from '../../Redux/Features/Products/ProductsSlice';
+import { DebounceInput } from 'react-debounce-input';
+import { useProductsContext } from '../../Context/ProductContext';
+import { formatPrice } from '../../Utils/Helpers';
+import { getUniqueValues } from '../../Utils/Helpers';
 
 function Filters() {
-  const dispatch = useDispatch() 
-  const handleClick = (e) => {
-    e.preventDefault()
-    const category = e.target.value
-    dispatch(filteredProducts({name:"category", category}))
-  }
-  const handleSearchChange = (e) => {
-      const text = e.target.value
-      dispatch(searchProducts(text))
-  }
-  const handleCompanyChange = (e) => {
-    const company = e.target.value
-    dispatch(filteredProducts({name:"company", company}))
-  }
-  return (<>
-    <div className={styles.formContainer}> 
-      <form className={styles.filtersForm} action=''>
-        <div>
-          <DebounceInput
-          minLength={1}
-          debounceTimeout={300}
-          placeholder="search"
-          onChange={handleSearchChange}
-          />
-        </div>
+  const {
+    filterProducts,
+    freeShippingToggle,
+    filtersClear,
+    search,
+    searchText,
+    maxPrice,
+    price,
+    changePrice,
+    products,
+  } = useProductsContext();
 
-        <div>
-          <h5 className={styles.h5}>Catagories</h5>
-          <div className=' d-flex flex-column'>
-            <button className={styles.filterBtns} name='category' value="all" onClick={handleClick}>
-              {' '}
-              All
-            </button>
-            <button className={styles.filterBtns} name='category' value="console" onClick={handleClick}>
-              Console
-            </button>
-            <button className={styles.filterBtns} name='category' value="accessories" onClick={handleClick}>
-              {' '}
-              accessories
+  const [filterValues, setFilterValues] = useState({
+    categories: [],
+    companies: [],
+    colors: [],
+  });
+
+  useEffect(() => {
+    setFilterValues({
+      categories: getUniqueValues(products, 'category'),
+      companies: getUniqueValues(products, 'company'),
+      colors: getUniqueValues(products, 'colors'),
+    });
+  }, [products]);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const name = e.target.name;
+    let value;
+    if (name === 'color') value = e.target.getAttribute('data-color');
+    else value = e.target.value;
+    filterProducts({ name: name, [name]: value });
+  };
+
+  const handleSearchChange = (e) => {
+    search(e.target.value);
+  };
+  const handleShippingClick = (e) => {
+    freeShippingToggle(e.target.checked);
+  };
+  const handleClearFilter = () => {
+    filtersClear();
+  };
+  const handlePriceChange = (e) => {
+    changePrice(e.target.value);
+  };
+
+  return (
+    <>
+      <div
+        style={{ background: 'var(--bs-gray-900)' }}
+        className={styles.formContainer}>
+        <form className={styles.filtersForm} action=''>
+          <div>
+            <DebounceInput
+              minLength={1}
+              debounceTimeout={300}
+              placeholder='search'
+              className='form-control bg-dark border-light text-light'
+              value={searchText}
+              onChange={handleSearchChange}
+            />
+          </div>
+
+          <div>
+            <h5 className={styles.h5}>Catagories</h5>
+            <div className=' d-flex flex-column'>
+              {filterValues.categories.map((cat) => {
+                return (
+                  <button
+                    className={styles.filterBtns}
+                    name='category'
+                    value={cat}
+                    onClick={handleClick}>
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <h5 className={styles.h5}>Companies</h5>
+            <select
+              name='company'
+              id='companyID'
+              className={styles.companySelect}
+              onChange={handleClick}>
+              {filterValues.companies.map((com) => {
+                return <option value={com}> {com}</option>;
+              })}
+            </select>
+          </div>
+          <div className=''>
+            <h5 className={styles.h5}>Colors</h5>
+            <div className=' d-flex justify-content-between align-items-center '>
+              {filterValues.colors.map((clr) => {
+                return clr == 'all' ? (
+                  <button
+                    className={` ${styles.filtersAll}`}
+                    data-color={clr}
+                    name='color'
+                    onClick={handleClick}>
+                    {clr}
+                  </button>
+                ) : (
+                  <button
+                    className={`${styles.filterColors}`}
+                    style={{ background: clr }}
+                    data-color={clr}
+                    onClick={handleClick}
+                    name='color'
+                  />
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <h5 className={styles.h5}>Price</h5>
+            <p>{formatPrice(price)}</p>
+            <input
+              type='range'
+              min={0}
+              max={maxPrice}
+              value={price}
+              onChange={handlePriceChange}
+            />
+          </div>
+
+          <div className='d-flex justify-content-start align-items-center'>
+            <label htmlFor='shipping'>Free Shiping</label>
+            <input
+              className={styles.filtersCheckBox}
+              type='checkbox'
+              name='freeShipping'
+              id='shipping'
+              onChange={handleShippingClick}></input>
+          </div>
+          <div>
+            <button
+              className='clear-btn btn btn-danger mt-3'
+              type='button'
+              onClick={handleClearFilter}>
+              Clear Filters
             </button>
           </div>
-        </div>
-
-        <div>
-          <h5 className={styles.h5}>Companies</h5>
-          <select
-            name='company'
-            id='companyID'
-            className={styles.companySelect}
-            onChange={handleCompanyChange}>
-            <option value='all'>All</option>
-            <option value='nintendo'>Ninitendo</option>
-            <option value='sony'>Sony</option>
-            <option value='microsoft'>Microsoft</option>
-          </select>
-        </div>
-
-                <div className=''>
-                    <h5 className={styles.h5}>Colors</h5>
-                    <div className=' d-flex justify-content-between align-items-center '>
-                        <button
-                            className={` ${styles.filtersAll}`}
-                            name='color'
-                        >
-                            {' '}
-                            All
-                        </button>
-                        <button
-                            className={`${styles.filterColors} ${styles.filtersWhite}`}
-                            data-color='#ffffff'
-                            name='color'
-                        ></button>
-                        <button
-                            className={`${styles.filterColors} ${styles.filtersBlack}`}
-                            name='color'></button>
-                        <button
-                            className={`${styles.filterColors} ${styles.filtersGrey}`}
-                            name='color'
-                        ></button>
-                    </div>
-                </div>
-
-                <div>
-                    <h5 className={styles.h5}>Price</h5>
-                    <p>$699.99</p>
-                    <input type='range' />
-                </div>
-
-                <div className='d-flex justify-content-start align-items-center'>
-                    <label htmlFor='shipping'>Free Shiping</label>
-                    <input
-                        className={styles.filtersCheckBox}
-                        type='checkbox'
-                        name='shipping'
-                        id='shipping'
-                    ></input>
-                </div>
-                <div>
-                    <button
-                        className='clear-btn btn btn-danger mt-3'
-                        type='button'
-                    >
-                        Clear Filters
-                    </button>
-                </div>
-            </form>
-          <button
-            className='btn btn-danger mt-3 clear-btn'
-            type='button'
-            >
-            Clear Filters
-          </button>
-    </div>
+        </form>
+      </div>
     </>
   );
 }
 
-export default Filters
+export default Filters;
