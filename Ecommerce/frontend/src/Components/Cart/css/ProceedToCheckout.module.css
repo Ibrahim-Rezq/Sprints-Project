@@ -1,13 +1,9 @@
-.checkout-wrapper {
-    margin: 2em 0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.left-wrapper {
-    width: 65.6666%;
-}
-
-.right-wrapper{
-    width: 32.333%;
-}
+@media (max-width: 768px) { 
+    .left-wrapper{
+        order: 2;
+    }
+    .right-wrapper{
+        order: 1;
+        margin-bottom: 2em;
+    }
+ }

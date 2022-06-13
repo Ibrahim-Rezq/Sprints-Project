@@ -9,13 +9,11 @@ import {
   ErrorPage,
   SingleProduct,
   AdminDashboard,
-  
+  PaymentConfirmation,
+  Products,
 } from './Pages';
 import { Header, Footer, ProtectedLinks } from './Components/Global';
-import PaymentConfirmationPage from './Pages/PaymentConfirmationPage';
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ProductsPage from './Pages/ProductsPage';
 
 function App() {
   return (
@@ -25,11 +23,12 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/About' element={<About />}></Route>
         <Route path='/accounts/*' element={<Accounts />}></Route>
-        <Route path='/orders' element={<Orders />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
 
         <Route path='/product/:id' element={<SingleProduct />}></Route>
-        <Route path='/Products' element={<ProductsPage />}></Route>
+        <Route path='/Products' element={<Products />}></Route>
+        <Route path='/Profile' element={<UserProfile />}></Route>
+
         <Route
           path='/checkout'
           element={
@@ -42,18 +41,19 @@ function App() {
           path='/confirmation'
           element={
             <ProtectedLinks>
-              <PaymentConfirmationPage />
+              <PaymentConfirmation />
             </ProtectedLinks>
           }
         />
-        <Route
+        {/* <Route
           path='/AdminDashboard/*'
           element={
             <ProtectedLinks>
-              <AdminDashboard />
+            <AdminDashboard />
             </ProtectedLinks>
           }
-        />
+        /> 
+         <Route path='/orders' element={<Orders />}></Route> */}
         <Route path='/*' element={<ErrorPage />} />
       </Routes>
       <Footer />

@@ -2,8 +2,9 @@ import React from 'react';
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import { NavLink } from './';
 import { Link } from 'react-router-dom';
-
+import { useCartContext } from '../../Context/CartContext';
 function Header() {
+  const { totalAmount } = useCartContext();
   const NavLinks = [
     {
       path: '/',
@@ -24,14 +25,6 @@ function Header() {
     {
       path: '/checkout',
       name: 'Checkout',
-    },
-    {
-      path: '/orders',
-      name: 'Orders',
-    },
-    {
-      path: '/AdminDashboard',
-      name: 'AdminDashboard',
     },
   ];
 
@@ -64,10 +57,21 @@ function Header() {
               </Link>
             </li>
             <li className='nav-item fs-4 '>
-              <a className='cart-icon fs-1 m-3 ' href='#'>
-                {' '}
-                <BsFillCartCheckFill />
-              </a>
+              <Link className='cart-icon fs-1 m-3 position-relative' to='/cart'>
+                <span className='text-danger'>
+                  <BsFillCartCheckFill />
+                </span>
+                <span
+                  className='btn m-0 p-0 border-secondary bg-danger  position-absolute  start-100 translate-middle fw-bold'
+                  style={{
+                    borderRadius: '50%',
+                    top: '25%',
+                    width: '28px',
+                    height: '28px',
+                  }}>
+                  {totalAmount}
+                </span>
+              </Link>
             </li>
           </ul>
         </div>

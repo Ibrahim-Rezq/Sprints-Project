@@ -1,0 +1,20 @@
+.profile-data .data-row {
+    display: flex;
+    font-size: 20px;
+}
+.profile-data .data-row .data-key {
+    width: 30%;
+    font-weight: 500;
+    padding: 10px 0;
+    padding-left: 10px;
+}
+.profile-data .data-value {
+    padding: 10px 0;
+}
+
+.profile-data .data-row:nth-child(even) {
+    background: #eee;
+}
+.data-btn > a {
+    margin-right: 10px;
+}

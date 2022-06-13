@@ -19,7 +19,7 @@ function AdminDashboardPage() {
 
   return (
     <>
-      <section
+      {/* <section
         className=' bg-light position-relative p-3 m-3'
         style={{ minHeight: 'calc(100vh - 60px)' }}>
         <DashboardNav />
@@ -49,7 +49,7 @@ function AdminDashboardPage() {
             <Route path='/ProductEdit/:id' element={<ProductControles />} />
           </Routes>
         </section>
-      </section>
+      </section> */}
     </>
   );
 }

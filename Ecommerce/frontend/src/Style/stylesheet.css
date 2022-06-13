@@ -1,0 +1,108 @@
+/* start log in and sign up*/
+body {
+    background: scroll;
+}
+.container,
+.container2 {
+    background-color: aliceblue;
+    border: solid 2px gray;
+    width: 75%;
+    border-radius: 10%;
+    color: rgb(109, 109, 109);
+    text-align: center;
+    margin-left: 180px;
+}
+.container:hover {
+    width: 100%;
+    margin: 80px;
+    border: 6px rgb(21, 22, 21) solid;
+}
+.container2:hover {
+    width: 100%;
+    margin: 80px;
+    border: 6px rgb(21, 22, 21) solid;
+}
+@media (max-width: 567px) {
+    .container {
+        width: max-content;
+        margin-left: 0%;
+    }
+    .container2 {
+        width: max-content;
+        margin-left: 0%;
+    }
+    input {
+        width: 100%;
+    }
+}
+.cont,
+.cont2 {
+    background-color: rgb(238, 236, 240);
+    border: solid 2px rgb(31, 27, 27);
+    color: rgb(109, 109, 109);
+    text-align: center;
+    margin-bottom: 20px;
+}
+@media (max-width: 567px) {
+    .cont,
+    .cont2 {
+        width: 300px;
+        margin: 0px;
+    }
+}
+
+/*
+margin-left: 220px;
+margin-bottom: 50px;
+margin-top: 40px;
+[class|="col-md-5  bg-light text-dark"],[class|="col-md-5"]{ 
+        background-color: aliceblue;
+        border: solid 2px gray;
+        border-radius: 20%;
+        color: rgb(109, 109, 109);
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+}
+.firstContainer .submit input ,.secondCont .submit input{
+        background-color: rgb(210, 217, 223);
+        border: 5px solid rgba(225, 230, 210, 0.801);}
+.firstContainer .submit :hover ,.secondCont .submit :hover{
+background-color:#eeee;}
+.firstC .login{text-align: center;}
+/*  end login and sign up*/
+/*start loading*/
+
+.dots-bars-3 {
+    width: 20%;
+    height: 26px;
+    position: relative;
+}
+.dots-bars-3:before {
+    content: '';
+    position: absolute;
+    width: 19px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgb(157, 198, 233);
+    left: 0;
+    top: 0;
+    animation: db3-1 1.5s linear infinite alternate,
+        db3-2 0.75s cubic-bezier(0, 200, 0.8, 200) infinite;
+}
+
+.row-6 input {
+    margin: 10px;
+}
+@keyframes db3-1 {
+    100% {
+        left: calc(100% - 8px);
+    }
+}
+
+@keyframes db3-2 {
+    100% {
+        top: -0.1px;
+    }
+}
+/*end loading*/

@@ -1,59 +1,46 @@
-import React from 'react'
-
-import { formatPrice } from '../../Utils/Helpers'
+import React from 'react';
+import { AddToCartButtons } from '../Products';
+import { formatPrice } from '../../Utils/Helpers';
 
 const ProductInfo = ({ product }) => {
-    const {
-        id,
-        name,
-        images,
-        colors,
-        price,
-        category,
-        company,
-        featured,
-        shipping,
-    } = product
-    if (product)
-        return (
-            <div className='product-text-side'>
-                <h2>{name} </h2>
-                <h4 className='h2'>{formatPrice(price)}</h4>
-                <p className='lead'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-                    blanditiis eaque veritatis aliquid! Corporis, eos?
-                </p>
-                <div className='d-flex justify-content-start align-items-center '>
-                    <h5 className=' me-4'>SKU : </h5>
-                    <p>{id}</p>
-                </div>
-                <div className='d-flex justify-content-start align-items-center '>
-                    <h5 className=' me-4'>Colors : </h5>
-                    <p>
-                        {colors.map((color) => {
-                            return (
-                                <button
-                                    className='btn mx-2 border-dark'
-                                    style={{
-                                        background: color,
-                                        borderRadius: '50%',
-                                        width: '15px',
-                                        height: '15px',
-                                        padding: 0,
-                                    }}
-                                ></button>
-                            )
-                        })}
-                    </p>
-                </div>
-                <div className='d-flex justify-content-start align-items-start mb-5 '>
-                    <h5 className=' me-4'>Brand: </h5>
-                    <p>{company}</p>
-                </div>
-               
-            </div>
-        )
-    else return <></>
-}
+  const {
+    id,
+    name,
+    images,
+    colors,
+    price,
+    category,
+    company,
+    featured,
+    shipping,
+    stock,
+  } = product;
+  if (product)
+    return (
+      <div className='product-text-side p-0 my-4 my-xl-0'>
+        <h2 className='fw-bold'>{name} </h2>
+        <p className='fs-5 fw-bold text-danger'>{formatPrice(price)}</p>
+        <p className='lead' style={{ maxWidth: '30rem' }}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+          blanditiis eaque veritatis aliquid! Corporis, eos?
+        </p>
+        <div className='d-flex justify-content-start align-items-center '>
+          <span className=' me-4 mb-2 fw-bold'>Available: </span>
+          {stock > 0 ? 'In Stock' : 'Out of Stock'}
+        </div>
+        <div className='d-flex justify-content-start align-items-center '>
+          <span className=' me-4 mb-2 fw-bold'>SKU: </span>
+          {id}
+        </div>
+        <div className='d-flex justify-content-start align-items-center '>
+          <span className=' me-4 mb-2 fw-bold'>Brand: </span>
+          {company}
+        </div>
+        <hr />
+        <AddToCartButtons product={product} />
+      </div>
+    );
+  else return <></>;
+};
 
-export default ProductInfo
+export default ProductInfo;

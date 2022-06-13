@@ -13,22 +13,22 @@ import { getUniqueValues } from '../../../Utils/Helpers';
 import { ColorChange, ImagesChange } from '../';
 
 const ProductControles = () => {
-  const { id } = useParams();
-  const colorsInput = useRef(null);
+  //   const { id } = useParams();
+  //   const colorsInput = useRef(null);
 
-  const { product, products } = useSelector(productsState);
-  const dispatch = useDispatch();
+  //   const { product, products } = useSelector(productsState);
+  //   const dispatch = useDispatch();
 
-  const [tempProduct, setTempProduct] = useState(product);
-  /*
-    images:[{...},{...},{...},{...},{...}]
-    colors: ['#000000', '#ffffff'], 12964
-*/
-  useEffect(() => {
-    dispatch(getProducts());
-    dispatch(getSingleProduct(id));
-    setTempProduct();
-  }, []);
+  //   const [tempProduct, setTempProduct] = useState(product);
+  //   /*
+  //     images:[{...},{...},{...},{...},{...}]
+  //     colors: ['#000000', '#ffffff'], 12964
+  // */
+  //   useEffect(() => {
+  //     dispatch(getProducts());
+  //     dispatch(getSingleProduct(id));
+  //     setTempProduct();
+  //   }, []);
 
   //   useEffect(() => {
   //     console.log(tempProduct);
@@ -36,36 +36,36 @@ const ProductControles = () => {
   //   useEffect(() => {
   //     console.log(getUniqueValues(products, 'category'));
   //   }, [products]);
-  useEffect(() => {
-    setTempProduct(product);
-  }, [product]);
+  // useEffect(() => {
+  //   setTempProduct(product);
+  // }, [product]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(updateSingleProduct(tempProduct));
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(updateSingleProduct(tempProduct));
+  // };
 
-  const handleColorChange = (colorsArr) => {
-    setTempProduct({ ...tempProduct, colors: colorsArr });
-  };
+  // const handleColorChange = (colorsArr) => {
+  //   setTempProduct({ ...tempProduct, colors: colorsArr });
+  // };
 
-  const handleImageChange = (colorsArr) => {
-    setTempProduct({ ...tempProduct, images: colorsArr });
-  };
+  // const handleImageChange = (colorsArr) => {
+  //   setTempProduct({ ...tempProduct, images: colorsArr });
+  // };
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    if (name === 'shipping' || name === 'featured') {
-      setTempProduct({ ...tempProduct, [name]: e.target.checked });
-    }
-    if (value && value !== undefined)
-      setTempProduct({ ...tempProduct, [name]: value });
-  };
+  // const handleChange = (e) => {
+  //   const name = e.target.name;
+  //   const value = e.target.value;
+  //   if (name === 'shipping' || name === 'featured') {
+  //     setTempProduct({ ...tempProduct, [name]: e.target.checked });
+  //   }
+  //   if (value && value !== undefined)
+  //     setTempProduct({ ...tempProduct, [name]: value });
+  // };
 
   return (
     <div className='container'>
-      {tempProduct.id && (
+      {/* {tempProduct.id && (
         <form onSubmit={handleSubmit}>
           <ColorChange
             handleColorChange={handleColorChange}
@@ -186,7 +186,7 @@ const ProductControles = () => {
             Save Changes
           </button>
         </form>
-      )}
+      )} */}
     </div>
   );
 };

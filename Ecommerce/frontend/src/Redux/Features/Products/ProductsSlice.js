@@ -1,87 +1,109 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Products, Product } from '../../../Utils/Constant';
+import { Product } from '../../../Utils/Constant';
 
 const initialState = {
+  category: 'all',
+  company: 'all',
+  searchText: '',
+  // ^ filters
   products: [],
-  product: {},
-  category:'all',
-  company:'all',
-  searchText:'',
-  featuredProducts: [],
-  onSaleProducts: [],
-  // this will be used once connected to database
   productsLoading: false,
   productsError: false,
-  //
+  featuredProducts: [],
+  onSaleProducts: [],
+  singleProduct: {},
+  singleProductLoading: false,
+  singleProductError: false,
 };
 
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    getSingleProduct: (state, action) => {
-      state.productsLoading = false;
-      state.product =
-        Product.filter((product) => {
-          return product.id === action.payload;
-        })[0] || {};
-      state.productsLoading = true;
+    getSingleProductBegin: (state) => {
+      state.singleProductLoading = true;
+      state.singleProductError = false;
     },
+    getSingleProductSucsses: (state, action) => {
+      state.singleProduct = state.products.filter((product) => {
+        return product.id === action.payload;
+      })[0];
+      state.singleProductLoading = false;
+      state.singleProductError = false;
+    },
+    getSingleProductError: (state) => {
+      state.singleProductLoading = false;
+      state.singleProductError = true;
+    },
+
     getFeaturedProducts: (state) => {
-      if (state.products.length > 0)
-        state.featuredProducts = [...Products.filter((prod) => prod.featured)];
+      console.log(
+        state.products.map((prod) => {
+          console.log(prod.featured);
+        })
+      );
+      state.featuredProducts = [
+        ...state.products.filter((prod) => {
+          console.log('prod.featured');
+          return prod.featured;
+        }),
+      ];
     },
     getOnSaleProducts: (state) => {
-      if (state.products.length > 0)
-        state.onSaleProducts = [...Products.filter((prod) => prod.onSale)];
+      state.onSaleProducts = [...state.products.filter((prod) => prod.onSale)];
     },
-    getProducts: (state) => {
-      if (state.products.length <= 0) state.products = [...Products];
+    getProductsBegin: (state) => {
+      state.productsLoading = true;
+      state.productsError = false;
     },
-    addProduct: (state, action) => {
-      state.products.push(action.payload);
+    getProductsSucsses: (state) => {
+      state.products = [...Product];
+      state.productsLoading = false;
+      state.productsError = false;
     },
-    updateSingleProduct: (state, action) => {
-      state.products = state.products.map((product) => {
-        if (product.id === action.payload.id) {
-          return { ...product, ...action.payload };
-        } else return product;
-      });
+    getProductsError: (state) => {
+      state.productsLoading = false;
+      state.productsError = true;
     },
     filteredProducts: (state, action) => {
-      const object = action.payload.name
-      state[object] = action.payload[object]
-      state.products = [...Products]
-      if(state.category === 'all' && state.company === 'all'){
-        state.products = [...Products]
-      }
-      else if(state.category === 'all' && state.company !== 'all'){
-        state.products = state.products.filter((product) => product.company === state.company )
-      }
-      else if(state.company === 'all' && state.category !== 'all'){
-        state.products = state.products.filter((product) => product.category === state.category )
-      }
-      else{
-        state.products = state.products.filter((product) => product.category === state.category && product.company === state.company )
+      const object = action.payload.name;
+      state[object] = action.payload[object];
+      state.products = [...Product];
+      if (state.category === 'all' && state.company === 'all') {
+        state.products = [...Product];
+      } else if (state.category === 'all' && state.company !== 'all') {
+        state.products = state.products.filter(
+          (product) => product.company === state.company
+        );
+      } else if (state.company === 'all' && state.category !== 'all') {
+        state.products = state.products.filter(
+          (product) => product.category === state.category
+        );
+      } else {
+        state.products = state.products.filter(
+          (product) =>
+            product.category === state.category &&
+            product.company === state.company
+        );
       }
     },
     searchProducts: (state, action) => {
-      state.searchText = action.payload
-    }
+      state.searchText = action.payload;
+    },
   },
 });
 
-
 export const {
-  addProduct,
-  getSingleProduct,
+  getSingleProductBegin,
+  getSingleProductSucsses,
+  getSingleProductError,
   getOnSaleProducts,
   getFeaturedProducts,
-  getProducts,
-  updateSingleProduct,
-  updateProduct, 
-  filteredProducts, 
-  searchProducts
+  getProductsBegin,
+  getProductsSucsses,
+  getProductsError,
+  filteredProducts,
+  searchProducts,
 } = productsSlice.actions;
 export const productsState = (state) => state.products;
 

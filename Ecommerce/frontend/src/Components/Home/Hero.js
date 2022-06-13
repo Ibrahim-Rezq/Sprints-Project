@@ -40,19 +40,7 @@ const Hero = () => {
                         Shop now{' '}
                     </button>
                 </div>
-                {/* <div className={hero.imgSide}>
-                    <img
-                        className={hero.img1}
-                        src='https://gamerzone391.netlify.app/static/media/hero-bcg.62414bf4.jpg'
-                        alt='Gaming image 1 '
-                    />
-                    <img
-                        className={hero.img2}
-                        src='https://gamerzone391.netlify.app/static/media/hero-bcg-2.9b0cb083.jpg
-'
-                        alt='Gaming image 2'
-                    />
-                </div> */}
+             
             </div>
         </section>
     )
