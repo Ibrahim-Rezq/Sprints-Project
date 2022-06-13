@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './css/ProductCard.module.css';
-import { useDispatch } from "react-redux";
+import { productsState } from '../../Redux/Features/Products/ProductsSlice';
+import { useDispatch, useSelector } from "react-redux";
 import { DebounceInput } from 'react-debounce-input'
-import { filteredProducts, searchProducts } from '../../Redux/Features/Products/ProductsSlice';
+import { filteredProducts, searchProducts, toggleFreeShipping, clearFilters } from '../../Redux/Features/Products/ProductsSlice';
 
 function Filters() {
+
   const dispatch = useDispatch() 
+  const { searchText, freeShipping } = useSelector(productsState);
   const handleClick = (e) => {
     e.preventDefault()
     const category = e.target.value
-    dispatch(filteredProducts({name:"category", category}))
+    const name = e.target.name
+    dispatch(filteredProducts({name:name, category}))
   }
   const handleSearchChange = (e) => {
       const text = e.target.value
@@ -17,7 +21,20 @@ function Filters() {
   }
   const handleCompanyChange = (e) => {
     const company = e.target.value
-    dispatch(filteredProducts({name:"company", company}))
+    const name = e.target.name
+    dispatch(filteredProducts({name:name, company}))
+  }
+  const handleColorClick = (e) => {
+    e.preventDefault()
+    const name = e.target.name
+    const color = e.target.getAttribute("data-color")
+    dispatch(filteredProducts({name:name, color}))
+  }
+  const handleShippingClick = (e) => {
+    dispatch(toggleFreeShipping())
+  }
+  const handleClearFilter = () => {
+    dispatch(clearFilters())
   }
   return (<>
     <div className={styles.formContainer}> 
@@ -27,6 +44,7 @@ function Filters() {
           minLength={1}
           debounceTimeout={300}
           placeholder="search"
+          value={searchText}
           onChange={handleSearchChange}
           />
         </div>
@@ -61,13 +79,14 @@ function Filters() {
             <option value='microsoft'>Microsoft</option>
           </select>
         </div>
-
                 <div className=''>
                     <h5 className={styles.h5}>Colors</h5>
                     <div className=' d-flex justify-content-between align-items-center '>
                         <button
                             className={` ${styles.filtersAll}`}
+                            data-color='all'
                             name='color'
+                            onClick={handleColorClick}
                         >
                             {' '}
                             All
@@ -75,13 +94,18 @@ function Filters() {
                         <button
                             className={`${styles.filterColors} ${styles.filtersWhite}`}
                             data-color='#ffffff'
+                            onClick={handleColorClick}
                             name='color'
                         ></button>
                         <button
                             className={`${styles.filterColors} ${styles.filtersBlack}`}
+                            data-color='#000000'
+                            onClick={handleColorClick}
                             name='color'></button>
                         <button
                             className={`${styles.filterColors} ${styles.filtersGrey}`}
+                            data-color='#808080'
+                            onClick={handleColorClick}
                             name='color'
                         ></button>
                     </div>
@@ -98,25 +122,22 @@ function Filters() {
                     <input
                         className={styles.filtersCheckBox}
                         type='checkbox'
-                        name='shipping'
+                        name='freeShipping'
                         id='shipping'
+                        onChange={handleShippingClick}
+                        checked={freeShipping}
                     ></input>
                 </div>
                 <div>
                     <button
                         className='clear-btn btn btn-danger mt-3'
                         type='button'
+                        onClick={handleClearFilter}
                     >
                         Clear Filters
                     </button>
                 </div>
             </form>
-          <button
-            className='btn btn-danger mt-3 clear-btn'
-            type='button'
-            >
-            Clear Filters
-          </button>
     </div>
     </>
   );
