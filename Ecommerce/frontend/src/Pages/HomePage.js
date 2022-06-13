@@ -12,12 +12,12 @@ function HomePage() {
       <Hero />
       <Featured
         FeaturedProducts={featuredProducts}
-        bgColor={'white'}
+        bgColor={'var(--bs-gray-900)'}
         name={'Featured Products'}
       />
       <Featured
         name={'OnSale Products'}
-        bgColor={'light'}
+        bgColor={'var(--bs-gray-800)'}
         FeaturedProducts={onSaleProducts}
       />
     </div>

@@ -24,7 +24,7 @@ function SingleCartItem({ item: { id, amount, color, product } }) {
             <img src={product.image} alt='' className='img-fluid rounded ' />
           </div>
           <div className=' col-6 d-flex align-items-center '>
-            <h5 className='w-100 text-dark fw-bold'>
+            <h5 className='w-100 text-white fw-bold'>
               {product.name}{' '}
               <span className='d-inline d-md-none fs-6'>
                 {formatPrice(product.price)}

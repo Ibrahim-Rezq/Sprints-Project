@@ -5,9 +5,12 @@ import { useCartContext } from '../Context/CartContext';
 function CartPage() {
   const { cart, clearCart } = useCartContext();
   return (
-    <div
-      className='d-flex justify-content-center align-items-center flex-column'
-      style={{ minHeight: 'calc(100vh - 60px)' }}>
+    <section
+      style={{
+        background: 'var(--bs-gray-800)',
+        minHeight: 'calc(100vh - 100px)',
+      }}
+      className='d-flex justify-content-center align-items-center text-light'>
       {cart && cart.length > 0 ? (
         <section className='container'>
           <CartContent content={cart} />
@@ -27,7 +30,7 @@ function CartPage() {
           </Link>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

@@ -15,7 +15,7 @@ function OrderReview(props) {
   });
 
   return (
-    <div className={classes['order-review']}>
+    <div className={classes['order-review'] + ` bg-dark rounded`}>
       <h2>Ordered Products</h2>
       <div className={classes['order-products']}>{orderProduct}</div>
       <div className={classes['order-total']}>Total Price: ${totalPrice}</div>

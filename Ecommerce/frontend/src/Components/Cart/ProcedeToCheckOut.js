@@ -19,25 +19,33 @@ function ProcedeToCheckOut() {
   ];
 
   return (
-    <div className='container mt-5'>
-      <div className={classes['checkout-wrapper'] + ' row'}>
-        <div className={classes['left-wrapper'] + ' col-xs-12 col-md-8'}>
-          <h2>Shipping Details</h2>
-          <div id='shipping-details'>
-            <ShippingDetails></ShippingDetails>
-          </div>
-          <h2>Payment Details</h2>
-          <div id='checkout' className={classes.checkout}>
-            <div className={classes['payment-process']}>
-              <PaymentForm></PaymentForm>
+    <section
+      className=' d-flex justify-content-center align-items-center text-light'
+      style={{
+        background: 'var(--bs-gray-800)',
+        minHeight: 'calc(100vh - 80px)',
+      }}>
+      {' '}
+      <div className='container mt-5'>
+        <div className={classes['checkout-wrapper'] + ' row'}>
+          <div className={classes['left-wrapper'] + ' col-xs-12 col-md-8'}>
+            <h2>Shipping Details</h2>
+            <div id='shipping-details'>
+              <ShippingDetails></ShippingDetails>
+            </div>
+            <h2>Payment Details</h2>
+            <div id='checkout' className={classes.checkout}>
+              <div className={classes['payment-process']}>
+                <PaymentForm></PaymentForm>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={classes['right-wrapper'] + ' col-xs-12 col-md-4'}>
-          <OrderReview products={DUMMY_DATA}></OrderReview>
+          <div className={classes['right-wrapper'] + ' col-xs-12 col-md-4'}>
+            <OrderReview products={DUMMY_DATA}></OrderReview>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
