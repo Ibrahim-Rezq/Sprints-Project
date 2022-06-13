@@ -40,7 +40,9 @@ export const productsSlice = createSlice({
 
     getFeaturedProducts: (state) => {
       state.featuredProducts = [
-        ...state.products.filter((prod) => prod.featured),
+        ...state.products.filter((prod) => {
+          return prod.featured;
+        }),
       ];
     },
     getOnSaleProducts: (state) => {

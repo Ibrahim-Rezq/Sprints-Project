@@ -2,26 +2,20 @@ import React from 'react';
 import classes from './css/Profile.module.css';
 import { ProfileImage, ProfileData } from './';
 import LatestOrders from './LatestOrders';
-
-const DUMMY_USER = {
-  fname: 'Seif',
-  lname: 'Omran',
-  address: 'Obour City',
-  phone: '01099662420',
-  profileImage:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
-};
+import { useUserContext } from '../../Context/UserContext';
 
 function Profile(props) {
+  const { user } = useUserContext();
+
   return (
     <div className={classes['user-profile'] + ' container mt-5'}>
       <div className='row'>
         <ProfileImage
           myClasses='col-xs-12 col-md-4'
-          profileImage={DUMMY_USER.profileImage}></ProfileImage>
+          profileImage={user.profileImage}></ProfileImage>
         <ProfileData
           myClasses='col-xs-12 col-md-8'
-          userData={DUMMY_USER}></ProfileData>
+          userData={user}></ProfileData>
       </div>
       <div className={[classes.orders] + ' mt-5'}>
         <h3>Your Latest Orders</h3>

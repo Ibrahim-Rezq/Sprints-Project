@@ -5,9 +5,8 @@ import { Featured, Hero } from '../Components/Home';
 import { useProductsContext } from '../Context/ProductContext';
 
 function HomePage() {
-  const { productsLoading, featuredProducts, onSaleProducts } =
+  const { productsLoading, products, featuredProducts, onSaleProducts } =
     useProductsContext();
-
   return (
     <div>
       <Hero />
