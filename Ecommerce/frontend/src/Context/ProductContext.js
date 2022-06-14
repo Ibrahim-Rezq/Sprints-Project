@@ -59,7 +59,7 @@ export const ProductsProvider = ({ children }) => {
     // const res = await axios.get(`http://127.0.0.1:8000/products/${id}`);
     // console.log(res.data);
     // dispatch(getSingleProductSucsses(res.data));
-    dispatch(getSingleProductSucsses());
+    dispatch(getSingleProductSucsses(id));
     // } catch {
     // dispatch(getSingleProductError());
     // }

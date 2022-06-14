@@ -1,23 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import OrderReview from './OrderReview';
 import PaymentForm from '../../Payment/PaymentForm';
 import { ShippingDetails } from '../Shipping';
 
 import classes from './css/ProceedToCheckout.module.css';
-import { Link } from 'react-router-dom';
 
-function ProcedeToCheckOut() {
-  let DUMMY_DATA = [
-    {
-      title: 'Product 1',
-      price: 100,
-    },
-    {
-      title: 'Product 2',
-      price: 300,
-    },
-  ];
-
+function ProcedeToCheckOut({ formData, setFormData }) {
   return (
     <section
       className=' d-flex justify-content-center align-items-center '
@@ -35,12 +23,12 @@ function ProcedeToCheckOut() {
             <h2>Payment Details</h2>
             <div id='checkout' className={classes.checkout}>
               <div className={classes['payment-process']}>
-                <PaymentForm></PaymentForm>
+                <PaymentForm formData={formData} setFormData={setFormData} />
               </div>
             </div>
           </div>
           <div className={classes['right-wrapper'] + ' col-xs-12 col-md-4'}>
-            <OrderReview products={DUMMY_DATA}></OrderReview>
+            <OrderReview />
           </div>
         </div>
       </div>

@@ -30,18 +30,10 @@ function App() {
         <Route path='/Profile' element={<UserProfile />}></Route>
 
         <Route
-          path='/checkout'
+          path='/checkout/*'
           element={
             <ProtectedLinks>
               <CheckOut />
-            </ProtectedLinks>
-          }
-        />
-        <Route
-          path='/confirmation'
-          element={
-            <ProtectedLinks>
-              <PaymentConfirmation />
             </ProtectedLinks>
           }
         />

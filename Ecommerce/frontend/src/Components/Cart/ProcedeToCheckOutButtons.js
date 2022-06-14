@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCartContext } from '../../Context/CartContext';
 import { formatPrice } from '../../Utils/Helpers';
+import { Link } from 'react-router-dom';
 
 const ProcedeToCheckOutButtons = () => {
   const { total, totalAmount } = useCartContext();
@@ -20,7 +21,10 @@ const ProcedeToCheckOutButtons = () => {
             </div>
           </div>
           <div class={`card-footer bg-transparent `}>
-            <button className='btn btn-danger'> Procede To Checkout</button>
+            <Link to='/checkout' className='btn btn-danger'>
+              {' '}
+              Procede To Checkout
+            </Link>
           </div>
         </div>
       </div>

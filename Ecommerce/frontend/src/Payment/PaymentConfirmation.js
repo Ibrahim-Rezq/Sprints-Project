@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatPrice } from '../Utils/Helpers';
 import classes from './css/PaymentConfirmation.module.css';
 
 function PaymentConfirmation(props) {
@@ -27,7 +28,9 @@ function PaymentConfirmation(props) {
                 Payment Method: {props.order.paymentMethod}
               </div>
               <hr />
-              <div className='amount'>Paid Amount: ${props.order.amount}</div>
+              <div className='amount'>
+                Paid Amount: {formatPrice(props.order.amount)}
+              </div>
               <hr />
             </div>
           </div>

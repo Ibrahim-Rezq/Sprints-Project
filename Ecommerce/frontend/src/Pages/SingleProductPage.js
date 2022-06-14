@@ -17,6 +17,9 @@ function SingleProductPage() {
   useEffect(() => {
     fetchSingleProduct(id);
   }, []);
+  useEffect(() => {
+    console.log(singleProduct);
+  }, [singleProduct]);
 
   return (
     <div className='container'>

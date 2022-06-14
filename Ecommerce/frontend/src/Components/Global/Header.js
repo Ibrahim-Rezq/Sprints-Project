@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import { NavLink } from './';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useCartContext } from '../../Context/CartContext';
 function Header() {
   const { totalAmount } = useCartContext();
@@ -19,14 +19,18 @@ function Header() {
       name: 'Products',
     },
     {
-      path: '/confirmation',
-      name: 'Confirmation',
-    },
-    {
       path: '/checkout',
       name: 'Checkout',
     },
   ];
+
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, [location]);
 
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark '>
