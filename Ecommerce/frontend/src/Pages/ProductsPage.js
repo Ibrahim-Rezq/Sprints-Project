@@ -3,12 +3,14 @@ import { Filters, ProductsGridVeiw } from '../Components/Products';
 
 const ProductsPage = () => {
   return (
-    <section
-      style={{ background: 'var(--bs-gray-800)' }}
-      className='d-flex justify-content-center align-items-center text-light'>
-      <section className='container-md d-flex justify-content-center p-3 m-3'>
-        <Filters />
-        <ProductsGridVeiw />
+    <section className='d-flex justify-content-center align-items-center text-light'>
+      <section className='container-md row my-4'>
+        <article className='col-12 col-sm-4 col-lg-3'>
+          <Filters />
+        </article>
+        <article className='col-12 col-sm mt-4'>
+          <ProductsGridVeiw />
+        </article>
       </section>
     </section>
   );

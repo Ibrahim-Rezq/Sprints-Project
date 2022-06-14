@@ -1,15 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 
-// Components
-import {
-  ProductImagePreview,
-  ProductReviews,
-  ProductInfo,
-} from '../Components/SingleProduct';
-import { AddToCartButtons } from '../Components/Products';
-
-// Redux
+import { ProductImagePreview, ProductInfo } from '../Components/SingleProduct';
 import { Link } from 'react-router-dom';
 import { useProductsContext } from '../Context/ProductContext';
 

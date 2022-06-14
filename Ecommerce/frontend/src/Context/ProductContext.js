@@ -39,11 +39,12 @@ export const ProductsProvider = ({ children }) => {
   const changePrice = (value) => {
     dispatch(priceChange(value));
   };
-  const fetchProducts = async (url) => {
+  const fetchProducts = async () => {
     // try {
     dispatch(getProductsBegin());
     // const response = await axios.get('http://127.0.0.1:8000/products/');
-    // console.log(response);
+    // console.log(response.data);
+    // dispatch(getProductsSucsses(response.data));
     setTimeout(() => {
       dispatch(getProductsSucsses());
     }, 0);
@@ -52,11 +53,13 @@ export const ProductsProvider = ({ children }) => {
     // }
   };
 
-  const fetchSingleProduct = async (url) => {
+  const fetchSingleProduct = async (id) => {
     // try {
     dispatch(getSingleProductBegin());
-    //   const response = await axios.get(url);
-    dispatch(getSingleProductSucsses(url));
+    // const res = await axios.get(`http://127.0.0.1:8000/products/${id}`);
+    // console.log(res.data);
+    // dispatch(getSingleProductSucsses(res.data));
+    dispatch(getSingleProductSucsses());
     // } catch {
     // dispatch(getSingleProductError());
     // }

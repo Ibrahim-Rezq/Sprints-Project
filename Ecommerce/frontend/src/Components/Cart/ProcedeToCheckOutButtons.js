@@ -7,7 +7,7 @@ const ProcedeToCheckOutButtons = () => {
   return (
     <>
       <div className='d-flex justify-content-center align-items-center  mx-2 p-2 rounded '>
-        <div class={`card bg-dark mb-3 text-center w-100`}>
+        <div class={`card bg-light mb-3 text-center w-100`}>
           <div class='card-header fs-5 text-capitalize '>Totals</div>
           <div class='card-body'>
             <div className='d-flex justify-content-start align-items-center m-2'>

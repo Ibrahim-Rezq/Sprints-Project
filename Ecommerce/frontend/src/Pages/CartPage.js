@@ -7,10 +7,9 @@ function CartPage() {
   return (
     <section
       style={{
-        background: 'var(--bs-gray-800)',
         minHeight: 'calc(100vh - 100px)',
       }}
-      className='d-flex justify-content-center align-items-center text-light'>
+      className='d-flex justify-content-center align-items-center text-dark'>
       {cart && cart.length > 0 ? (
         <section className='container'>
           <CartContent content={cart} />

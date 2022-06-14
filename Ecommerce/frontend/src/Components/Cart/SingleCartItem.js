@@ -24,7 +24,7 @@ function SingleCartItem({ item: { id, amount, color, product } }) {
             <img src={product.image} alt='' className='img-fluid rounded ' />
           </div>
           <div className=' col-6 d-flex align-items-center '>
-            <h5 className='w-100 text-white fw-bold'>
+            <h5 className='w-100 text-dark fw-bold'>
               {product.name}{' '}
               <span className='d-inline d-md-none fs-6'>
                 {formatPrice(product.price)}
@@ -53,7 +53,7 @@ function SingleCartItem({ item: { id, amount, color, product } }) {
         <p className='col-2 p-0 m-0'>
           {formatPrice(product.price * itemAmount)}
         </p>
-        <p className='fs-4 col-12 col-md-2'>
+        <p className='fs-4 col-12 col-md-2 m-0 mt-2 mt-md-0 mb-md-2 '>
           <a
             onClick={(e) => {
               e.preventDefault();

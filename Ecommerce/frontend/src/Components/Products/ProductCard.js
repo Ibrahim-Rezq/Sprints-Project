@@ -19,7 +19,7 @@ const ProductCard = ({ Product }) => {
   return (
     <Link to={'/product/' + id}>
       <div className='pb-5 mb-4 '>
-        <div className='card rounded bg-dark text-light shadow-sm border-0'>
+        <div className='card rounded bg-white text-dark shadow-sm border-0'>
           <div className='card-body p-0 '>
             <img
               src={image}

@@ -3,17 +3,7 @@ import styled from 'styled-components';
 import { FaPercent } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 function HomeProductCard({ Product }) {
-  const {
-    id,
-    name,
-    image,
-    userId,
-    price,
-    category,
-    company,
-    featured,
-    shipping,
-  } = Product;
+  const { id, name, image } = Product;
   return (
     <div
       className='pb-5 mb-4'
@@ -32,7 +22,7 @@ function HomeProductCard({ Product }) {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           </p>
           <div className='d-flex justify-content-between align-items-center mb-2 px-3'>
-            <p className='m-0'>$30.00</p>
+            <p className='m-0 '>$30.00</p>
             <Link to={'/product/' + id} className='btn btn-danger '>
               Buy Now
             </Link>

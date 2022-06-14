@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import bootstrap from 'bootstrap';
 import { CartProvider } from './Context/CartContext';
 import { ProductsProvider } from './Context/ProductContext';
 import { UserProvider } from './Context/UserContext';
+import './Style/vars.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Style/index.css';
 import { store } from './Redux/Store';

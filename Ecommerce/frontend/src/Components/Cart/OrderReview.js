@@ -8,14 +8,14 @@ function OrderReview(props) {
     totalPrice += prod.price;
     return (
       <div key={prod.title} id='product' className={classes.ordered_product}>
-        <h4>{prod.title}</h4>
+        <h4 className='m-0'>{prod.title}</h4>
         <div className='product_price'>Price: {prod.price}</div>
       </div>
     );
   });
 
   return (
-    <div className={classes['order-review'] + ` bg-dark rounded`}>
+    <div className={classes['order-review']}>
       <h2>Ordered Products</h2>
       <div className={classes['order-products']}>{orderProduct}</div>
       <div className={classes['order-total']}>Total Price: ${totalPrice}</div>

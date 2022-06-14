@@ -16,6 +16,7 @@ function Filters() {
     price,
     changePrice,
     products,
+    color: stateColor,
   } = useProductsContext();
 
   const [filterValues, setFilterValues] = useState({
@@ -56,16 +57,14 @@ function Filters() {
 
   return (
     <>
-      <div
-        style={{ background: 'var(--bs-gray-900)' }}
-        className={styles.formContainer}>
+      <div className={styles.formContainer + ' text-dark'}>
         <form className={styles.filtersForm} action=''>
           <div>
             <DebounceInput
               minLength={1}
               debounceTimeout={300}
               placeholder='search'
-              className='form-control bg-dark border-light text-light'
+              className='form-control'
               value={searchText}
               onChange={handleSearchChange}
             />
@@ -77,7 +76,7 @@ function Filters() {
               {filterValues.categories.map((cat) => {
                 return (
                   <button
-                    className={styles.filterBtns}
+                    className={styles.filterBtns + ' bg-light'}
                     name='category'
                     value={cat}
                     onClick={handleClick}>
@@ -115,7 +114,7 @@ function Filters() {
                 ) : (
                   <button
                     className={`${styles.filterColors}`}
-                    style={{ background: clr }}
+                    style={{ background: clr == stateColor ? clr : clr + 'af' }}
                     data-color={clr}
                     onClick={handleClick}
                     name='color'

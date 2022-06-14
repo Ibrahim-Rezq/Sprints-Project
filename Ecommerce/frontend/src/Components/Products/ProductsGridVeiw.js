@@ -9,13 +9,13 @@ function ProductsGridVeiw() {
   const { filterdProducts, productsLoading } = useProductsContext();
 
   return (
-    <div className={styles.procutsGridView}>
+    <div className='row'>
       {productsLoading ? (
         <Loading />
       ) : (
         filterdProducts.map((product) => {
           return (
-            <div className={styles.productGridView}>
+            <div className='col-12 col-md-6 col-lg-4'>
               <ProductCard Product={product} />
             </div>
           );

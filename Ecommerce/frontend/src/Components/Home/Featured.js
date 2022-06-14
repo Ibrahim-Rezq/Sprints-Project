@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Featured({ FeaturedProducts, name, bgColor }) {
   return (
     <section
-      className={'text-center text-light'}
+      className={'text-center text-dark'}
       style={{ background: bgColor }}>
       <section className='container'>
         <h3 className='fw-bold display-4  text-center py-5'>{name}</h3>
