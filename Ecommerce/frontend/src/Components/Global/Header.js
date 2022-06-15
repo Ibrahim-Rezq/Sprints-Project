@@ -3,24 +3,22 @@ import { BsFillCartCheckFill } from 'react-icons/bs';
 import { NavLink } from './';
 import { Link, useLocation } from 'react-router-dom';
 import { useCartContext } from '../../Context/CartContext';
+import { useUserContext } from '../../Context/UserContext';
 function Header() {
   const { totalAmount } = useCartContext();
+  const { isAuth, logOut } = useUserContext();
   const NavLinks = [
     {
       path: '/',
       name: 'Home',
     },
     {
-      path: '/About',
-      name: 'About',
-    },
-    {
       path: '/Products',
       name: 'Products',
     },
     {
-      path: '/checkout',
-      name: 'Checkout',
+      path: '/About',
+      name: 'About',
     },
   ];
 
@@ -53,12 +51,19 @@ function Header() {
             {NavLinks.map((link) => {
               return <NavLink key={link.name} {...link} />;
             })}
+            {isAuth && <NavLink path={'/checkout'} name={'Checkout'} />}
           </ul>
           <ul className='navbar-nav ms-auto '>
             <li className='nav-item fs-4 '>
-              <Link className='mt-1 nav-link ' to='/accounts/login'>
-                Log in
-              </Link>
+              {isAuth ? (
+                <a className='mt-1 nav-link ' onClick={logOut}>
+                  LogOut
+                </a>
+              ) : (
+                <Link className='mt-1 nav-link ' to='/accounts/login'>
+                  LogIn
+                </Link>
+              )}
             </li>
             <li className='nav-item fs-4 '>
               <Link className='cart-icon fs-1 m-3 position-relative' to='/cart'>

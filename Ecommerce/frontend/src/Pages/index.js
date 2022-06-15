@@ -7,7 +7,6 @@ import UserProfile from './UserProfilePage';
 import About from './AboutPage';
 import Accounts from './AccountsPage';
 import SingleProduct from './SingleProductPage';
-import AdminDashboard from './AdminDashboardPage';
 import PaymentConfirmation from './PaymentConfirmationPage';
 import Products from './ProductsPage';
 
@@ -23,5 +22,4 @@ export {
   PaymentConfirmation,
   About,
   SingleProduct,
-  AdminDashboard,
 };

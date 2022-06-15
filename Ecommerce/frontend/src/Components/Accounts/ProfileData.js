@@ -24,8 +24,8 @@ function ProfileData(props) {
         <span className={classes['data-value']}>{props.userData.phone}</span>
       </div>
       <div className={'my-4 ' + classes['data-btn']}>
-        <a className='btn btn-primary'>Edit Data</a>
-        <a className='btn btn-danger'>Close Your Account</a>
+        <a className='btn btn-secondary disabled'>Edit Data</a>
+        <a className='btn btn-secondary disabled'>Close Your Account</a>
       </div>
     </div>
   );

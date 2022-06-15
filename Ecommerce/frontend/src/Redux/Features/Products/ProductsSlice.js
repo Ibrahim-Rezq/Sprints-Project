@@ -181,7 +181,7 @@ export const productsSlice = createSlice({
         : (state.filterdProducts = [...state.products]);
     },
     toggleFreeShipping: (state, action) => {
-      action.payload == true
+      action.payload === true
         ? (state.filterdProducts = state.products.filter(
             (product) => product.shipping === true
           ))

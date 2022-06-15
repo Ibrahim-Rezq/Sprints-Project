@@ -13,7 +13,7 @@ function CartPage() {
       {cart && cart.length > 0 ? (
         <section className='container'>
           <CartContent content={cart} />
-          <div className='d-flex justify-content-around align-items-start w-100 mt-4'>
+          <div className='d-flex justify-content-around align-items-center align-items-md-start flex-column flex-md-row w-100 mt-4'>
             <button className='d-block mt-4 btn-danger btn' onClick={clearCart}>
               Clear Carts
             </button>

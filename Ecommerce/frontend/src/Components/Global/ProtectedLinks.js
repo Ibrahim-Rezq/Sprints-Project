@@ -1,9 +1,11 @@
 import React from 'react';
 import { Navigate } from 'react-router';
+import { useUserContext } from '../../Context/UserContext';
 
 const ProtectedLinks = ({ children }) => {
-  const auth = true;
-  return <>{auth ? { ...children } : <Navigate to={-1} />})</>;
+  const { isAuth } = useUserContext();
+
+  return <>{isAuth ? { ...children } : <Navigate to={'/'} />})</>;
 };
 
 export default ProtectedLinks;

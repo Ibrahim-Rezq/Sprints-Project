@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
+  logingOut,
   userState,
   loginBegin,
   loginError,
@@ -39,13 +40,16 @@ export const UserProvider = ({ children }) => {
       dispatch(loginSucsses(dummyUser));
     }, 0);
   };
+  const logOut = () => {
+    dispatch(logingOut());
+  };
 
   useEffect(() => {
     Login();
   }, []);
 
   return (
-    <UserContext.Provider value={{ ...state, Login }}>
+    <UserContext.Provider value={{ ...state, Login, logOut }}>
       {children}
     </UserContext.Provider>
   );

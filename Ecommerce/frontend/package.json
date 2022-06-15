@@ -22,7 +22,9 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "lint": "./node_modules/react-scripts/node_modules/.bin/eslint src"
+
     },
     "eslintConfig": {
         "extends": [
@@ -42,5 +44,8 @@
             "last 1 safari version"
         ]
     },
+        "standard": {
+          "parser": "babel-eslint"
+        },
     "proxy": "http://127.0.0.1:8080"
 }
