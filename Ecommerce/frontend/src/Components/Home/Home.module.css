@@ -1,28 +1,27 @@
 /* Hero */
 .hero {
- 
     min-height: calc(100vh - 60px);
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     color: snow;
-    background-color:  rgb(248, 249, 250);
+    background-color: rgb(248, 249, 250);
     background-image: url(https://images.pexels.com/photos/9072286/pexels-photo-9072286.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-background-position: center;
-background-size: cover;
+    background-position: center;
+    background-size: cover;
 }
 
 .textSide {
     font-weight: 700;
-  width: 50vw;
+    width: 50vw;
     margin: 8rem;
 }
 
 .imgSide {
-   max-width: 40rem;
+    max-width: 40rem;
     display: flex;
-  justify-content: center;
+    justify-content: center;
     position: relative;
 }
 
@@ -32,17 +31,13 @@ background-size: cover;
     box-shadow: 10px 10px 10px 10px #070707;
     z-index: 1;
     position: absolute;
-    bottom: .2rem;
-   right:27rem ;
-
-    
- 
+    bottom: 0.2rem;
+    right: 27rem;
 }
- .img2 {
+.img2 {
     border-radius: 8%;
-     width: 55%;
+    width: 55%;
     box-shadow: 20px 20px 20px #6e4bd6;
-
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
@@ -81,43 +76,35 @@ background-size: cover;
 
 /* Hero */
 @media (max-width: 1200px) {
-
     .textSide {
         text-align: center;
-   
     }
-    
-     .img1 {
+
+    .img1 {
         width: 35%;
-    
     }
-     .img2 {
+    .img2 {
         max-width: 70%;
     }
 }
 
-
-
 @media (max-width: 400px) {
-
-     .img1 {
+    .img1 {
         width: 35%;
-        right:14rem ;
+        right: 14rem;
     }
-     .img2 {
+    .img2 {
         max-width: 50%;
-    
     }
 }
-
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<> */
 /* ProductImagePreview */
 
 .product-slider {
     padding: 2rem 4rem;
-   max-width: 50rem;
-   min-width: 30rem;
+    max-width: 50rem;
+    min-width: 30rem;
 }
 .product-images img {
     width: 10rem;
@@ -149,5 +136,4 @@ background-size: cover;
 .product-status {
     font-size: 1.2rem;
     font-weight: 700;
-    
 }

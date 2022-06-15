@@ -12,7 +12,7 @@ function ProductImagePreview({ images = [{ url: '' }] }) {
         >
             <img
                 src={mainImg}
-                alt='Main Image'
+                alt='Main Img'
                 style={{
                     objectFit: 'cover',
                     height: '500px',
@@ -24,7 +24,9 @@ function ProductImagePreview({ images = [{ url: '' }] }) {
                 {images.map((img) => {
                     return (
                         <img
+                            key={img.url}
                             src={img.url}
+                            alt={img.url}
                             onClick={(e) => {
                                 setMainImg(img.url)
                             }}
