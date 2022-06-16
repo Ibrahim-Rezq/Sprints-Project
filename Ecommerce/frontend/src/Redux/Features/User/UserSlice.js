@@ -1,53 +1,91 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
+
+const getSessionStorage = () => {
+    let user = sessionStorage.getItem('user')
+    if (user) {
+        return JSON.parse(sessionStorage.getItem('user'))
+    } else {
+        return {
+            id: '0',
+            userName: 'gusto',
+            address: 'city,Government,Egypt',
+            phone: '+201XXXXXXXXX',
+            profileImage:
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
+        }
+    }
+}
 
 const initialState = {
-  user: {
-    id: '1',
-    firstName: 'guest',
-    lastName: 'gusto',
-    address: 'city,Government,Egypt',
-    phone: '+201XXXXXXXXX',
-    profileImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
-  },
-  userLoading: true,
-  userError: false,
-  isAuth: true,
-};
+    user: getSessionStorage(),
+    isAuth: getSessionStorage().token,
+    userLoading: false,
+    userError: false,
+}
 
 export const userSlice = createSlice({
-  name: 'user',
-  initialState,
-  reducers: {
-    logingOut: (state) => {
-      state.user = {
-        id: '1',
-        firstName: 'guest',
-        lastName: 'gusto',
-        address: 'city,Government,Egypt',
-        phone: '+201XXXXXXXXX',
-        profileImage:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
-      };
+    name: 'user',
+    initialState,
+    reducers: {
+        logingOut: (state) => {
+            state.user = {
+                id: '1',
+                userName: 'gusto',
+                address: 'city,Government,Egypt',
+                phone: '+201XXXXXXXXX',
+                profileImage:
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
+            }
+            state.userLoading = false
+            state.userError = false
+            state.isAuth = false
+        },
+        loginBegin: (state, action) => {
+            state.userLoading = true
+            state.userError = false
+        },
+        loginSucsses: (state, { payload }) => {
+            state.user = {
+                ...state.user,
+                id: payload._id,
+                userName: payload.name,
+                profileImage:
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
+                token: payload.token,
+            }
+            state.userLoading = false
+            state.userError = false
+            state.isAuth = true
+        },
+        loginError: (state, action) => {
+            state.userLoading = false
+            state.userError = true
+        },
+        signupBegin: (state, action) => {
+            state.creatUserLoading = true
+            state.creatUserError = false
+        },
+        signupSucsses: (state, { payload }) => {
+            state.user = {
+                ...state.user,
+                id: payload._id,
+                userName: payload.name,
+                profileImage:
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
+            }
+            state.creatUserLoading = false
+            state.creatUserError = false
+            state.isAuth = true
+        },
+        signupError: (state, action) => {
+            state.creatUserLoading = false
+            state.creatUserError = true
+        },
     },
-    loginBegin: (state, action) => {
-      state.userLoading = true;
-      state.userError = false;
-    },
-    loginSucsses: (state, action) => {
-      state.user = { ...action.payload };
-      state.userLoading = false;
-      state.userError = false;
-    },
-    loginError: (state, action) => {
-      state.userLoading = false;
-      state.userError = true;
-    },
-  },
-});
+})
 
 export const { logingOut, loginBegin, loginError, loginSucsses } =
-  userSlice.actions;
-export const userState = (state) => state.user;
+    userSlice.actions
+export const userState = (state) => state.user
 
-export default userSlice.reducer;
+export default userSlice.reducer

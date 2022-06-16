@@ -1,60 +1,66 @@
-import axios from 'axios';
-import React, { useContext, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios'
+import React, { useContext, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import {
-  logingOut,
-  userState,
-  loginBegin,
-  loginError,
-  loginSucsses,
-} from '../Redux/Features/User/UserSlice';
+    logingOut,
+    userState,
+    loginBegin,
+    loginError,
+    loginSucsses,
+} from '../Redux/Features/User/UserSlice'
 
-const UserContext = React.createContext();
+const UserContext = React.createContext()
 
 export const UserProvider = ({ children }) => {
-  const state = useSelector(userState);
-  const dispatch = useDispatch();
-  const dummyUser = {
-    id: '1',
-    firstName: 'Seif',
-    lastName: 'Omran',
-    address: 'Obour City,Egypt',
-    phone: '+201099662420',
-    profileImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
-  };
-  const Login = async (logInData) => {
-    // dispatch(loginBegin());
-    // try {
-    //   const res = await axios.post('http://127.0.0.1:8000/users/login/', {
-    //     email: 'hima@hima.com',
-    //     password: 'hima1234',
-    //   });
-    //   console.log(res.data);
-    //   dispatch(loginSucsses(res.data));
-    // } catch {
-    //   dispatch(loginError());
-    // }
-    dispatch(loginBegin());
-    setTimeout(() => {
-      dispatch(loginSucsses(dummyUser));
-    }, 0);
-  };
-  const logOut = () => {
-    dispatch(logingOut());
-  };
+    const { REACT_APP_API_URL } = process.env
 
-  useEffect(() => {
-    Login();
-  }, []);
+    const state = useSelector(userState)
+    const dispatch = useDispatch()
+    const Login = async (logInData) => {
+        try {
+            dispatch(loginBegin())
+            const res = await axios.post(REACT_APP_API_URL + '/users/login/', {
+                email: logInData.email,
+                password: logInData.password,
+            })
+            dispatch(loginSucsses(res.data))
+        } catch {
+            dispatch(loginError())
+        }
+    }
+    const Signin = async (SignInData) => {
+        try {
+            dispatch(loginBegin())
+            const res = await axios.post(
+                REACT_APP_API_URL + '/users/register_user/',
+                {
+                    name: SignInData.userName,
+                    email: SignInData.email,
+                    password: SignInData.password,
+                }
+            )
+            dispatch(loginSucsses(res.data))
+        } catch {
+            dispatch(loginError())
+        }
+    }
+    const logOut = () => {
+        dispatch(logingOut())
+    }
 
-  return (
-    <UserContext.Provider value={{ ...state, Login, logOut }}>
-      {children}
-    </UserContext.Provider>
-  );
-};
+    useEffect(() => {
+        sessionStorage.setItem('user', JSON.stringify(state.user))
+
+        // eslint-disable-next-line
+    }, [state.user])
+
+    return (
+        <UserContext.Provider value={{ ...state, Login, logOut, Signin }}>
+            {children}
+        </UserContext.Provider>
+    )
+}
 
 export const useUserContext = () => {
-  return useContext(UserContext);
-};
+    return useContext(UserContext)
+}

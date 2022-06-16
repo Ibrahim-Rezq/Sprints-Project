@@ -16,7 +16,7 @@ function AddToCartButtons({ product }) {
 
     const handleAddToCart = () => {
         addToCart({
-            id: product.id,
+            id: product._id,
             amount,
             product,
         })

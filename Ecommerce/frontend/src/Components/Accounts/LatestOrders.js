@@ -1,20 +1,20 @@
-import React from 'react';
-import { SingleOrder } from '../Orders';
-import { OrdersArray } from '../../Utils/Constant';
+import React from 'react'
+import { useOrdersContext } from '../../Context/OrderContext'
+import { formatPrice } from '../../Utils/Helpers'
 
 function LatestOrders(props) {
-
-    const orders = OrdersArray.map((order)=>(
-        <tr>
+    const { orders } = useOrdersContext()
+    const ordersVeiw = orders.map((order) => (
+        <tr key={order.orderId}>
             <td>{order.orderId}</td>
-            <td>{order.price}</td>
+            <td>{formatPrice(order.price)}</td>
             <td>{order.orderDate}</td>
             <td>{order.status}</td>
         </tr>
-    ));
+    ))
 
     return (
-        <table className="table">
+        <table className='table'>
             <thead>
                 <tr>
                     <th>Order ID</th>
@@ -23,11 +23,9 @@ function LatestOrders(props) {
                     <th>Order Status</th>
                 </tr>
             </thead>
-            <tbody>
-                {orders}
-            </tbody>
+            <tbody>{ordersVeiw}</tbody>
         </table>
-    );
+    )
 }
 
-export default LatestOrders;
+export default LatestOrders
