@@ -39,6 +39,13 @@ An ecommerce website for all your gaming needs from consoles to accessories
 1. python manage.py runserver
 
 
+```
+go to 127.0.0.1:8000/admin -> then login with the prevoiusly created
+credentials to access admin dashboard 
+
+and preferably add products before runing frontend for the full experience
+```
+
 
 ## FrontEnd
 
