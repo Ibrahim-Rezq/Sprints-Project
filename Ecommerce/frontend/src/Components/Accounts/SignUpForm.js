@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { useUserContext } from '../../Context/UserContext'
 
-function SignUpForm() {
+function SignUpForm({ dispatch, openModal }) {
     const { isAuth, userLoading, userError, Signin } = useUserContext()
     const navigate = useNavigate()
 
@@ -23,8 +23,14 @@ function SignUpForm() {
         ) {
             if (signUpData.password === signUpData.confirmPassword) {
                 Signin(signUpData)
-            } else alert('password dosnt match')
-        } else alert('Please fill all feilds')
+            } else
+                dispatch(
+                    openModal({ content: 'password dosnt match', error: true })
+                )
+        } else
+            dispatch(
+                openModal({ content: 'Please fill all feilds', error: true })
+            )
     }
 
     const inputChangeHandler = (e) => {
@@ -32,7 +38,19 @@ function SignUpForm() {
     }
     useEffect(() => {
         if (!userLoading && !userError && isAuth) navigate('/profile')
-        if (userError) alert('either email or password is not right')
+        if (
+            userError &&
+            signUpData.userName &&
+            signUpData.email &&
+            signUpData.password &&
+            signUpData.confirmPassword
+        )
+            dispatch(
+                openModal({
+                    content: 'either email or password is not right',
+                    error: true,
+                })
+            )
     }, [userLoading, userError])
 
     return (
@@ -48,7 +66,6 @@ function SignUpForm() {
                     className='inputs form-control rounded-0 shadow-none'
                     id='UserName'
                     type='text'
-                    required
                     placeholder=' Write your Second Name'
                     name='userName'
                     value={signUpData['lasttName']}
@@ -61,7 +78,6 @@ function SignUpForm() {
                     className='inputs form-control rounded-0 shadow-none'
                     id='email'
                     type='email'
-                    required
                     placeholder='...........@gmail'
                     name='email'
                     value={signUpData['Email']}
@@ -73,7 +89,6 @@ function SignUpForm() {
                 <input
                     className='inputs form-control rounded-0 shadow-none'
                     type={showPassword ? 'text' : 'password'}
-                    required
                     placeholder='Write a complex password '
                     name='password'
                     id='password'
@@ -86,7 +101,6 @@ function SignUpForm() {
                 <input
                     className='inputs form-control rounded-0 shadow-none'
                     type={showPassword ? 'text' : 'password'}
-                    required
                     placeholder='Confirm password '
                     name='confirmPassword'
                     id='confirmPassword'

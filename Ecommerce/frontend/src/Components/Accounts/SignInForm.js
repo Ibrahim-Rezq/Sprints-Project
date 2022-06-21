@@ -2,38 +2,42 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { useUserContext } from '../../Context/UserContext'
 
-function SignInForm() {
-    //varibles
+function SignInForm({ openModal, dispatch }) {
     const { Login, isAuth, userLoading, userError } = useUserContext()
     const navigate = useNavigate()
 
-    // state
+    const [showPassword, setShowPassword] = useState(false)
     const [logInData, setLogInData] = useState({
         email: '',
         password: '',
     })
 
-    const [showPassword, setShowPassword] = useState(false)
-
-    // functions
     const handleSubmit = (e) => {
         e.preventDefault()
         if (logInData.email && logInData.password) {
             Login(logInData)
-        } else alert('Enter Both Email and Password')
+        } else
+            dispatch(
+                openModal({
+                    content: 'Enter Both Email and Password',
+                    error: true,
+                })
+            )
     }
-    // input change Handler
     const changeHandler = (e) => {
         setLogInData({ ...logInData, [e.target.name]: e.target.value })
     }
-    //check box handler
 
     useEffect(() => {
         if (!userLoading && !userError && isAuth) navigate('/profile')
-        if (userError) alert('either email or password is not right')
+        if (userError && logInData.email && logInData.password)
+            dispatch(
+                openModal({
+                    content: 'either email or password is not right',
+                    error: true,
+                })
+            )
     }, [userLoading, userError])
-
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     return (
         <form className='form-box' onSubmit={handleSubmit}>
@@ -45,7 +49,6 @@ function SignInForm() {
                 <input
                     className='inputs mt-2 form-control rounded-0 shadow-none'
                     type='email'
-                    required
                     placeholder='Mohamad@gmail'
                     name='email'
                     value={logInData['Email']}
@@ -60,7 +63,6 @@ function SignInForm() {
                 <input
                     className='inputs mt-2 form-control rounded-0 shadow-none'
                     type={showPassword ? 'text' : 'password'}
-                    required
                     placeholder='Password '
                     name='password'
                     value={logInData['password']}

@@ -1,59 +1,91 @@
 import React, { useState, useEffect } from 'react'
-import { SignInForm, SignUpForm } from '../Components/Accounts'
 import { Link, Route, Routes, useNavigate } from 'react-router-dom'
+import { Modal } from '../Components/Global'
+import { SignInForm, SignUpForm } from '../Components/Accounts'
 import { useUserContext } from '../Context/UserContext'
-
+import { useDispatch, useSelector } from 'react-redux'
+import {
+    modalState,
+    openModal,
+    closeModal,
+} from '../Redux/Features/Modal/ModalSlice'
 function AccountsPage() {
+    const { isModalOpen, modalContent, modalError } = useSelector(modalState)
+    const dispatch = useDispatch()
+
     const { isAuth } = useUserContext()
     const navigate = useNavigate()
     // state
-    const [btnTogglerClassess, setbtnTogglerClassess] = useState({
-        btnDangerOutLine: 'btn-outline-danger',
-        btnDanger: 'btn-danger',
-    })
-    // functions
-    const btnToggler = (e) => {
-        btnTogglerClassess.btnDangerOutLine === 'btn-outline-danger'
-            ? setbtnTogglerClassess({
-                  ...btnTogglerClassess,
-                  btnDangerOutLine: 'btn-danger',
-                  btnDanger: 'btn-outline-danger',
-              })
-            : setbtnTogglerClassess({
-                  ...btnTogglerClassess,
-                  btnDangerOutLine: 'btn-outline-danger',
-                  btnDanger: 'btn-danger',
-              })
-    }
+    const [btnToggle, setBtnToggle] = useState(true)
+
     useEffect(() => {
         isAuth && navigate('/')
     }, [isAuth])
 
     return (
         <div className='logging d-flex flex-column justify-content-center align-items-center '>
+            {isModalOpen && (
+                <Modal
+                    modalContent={modalContent}
+                    closeModal={() => {
+                        dispatch(closeModal())
+                    }}
+                    error={modalError}
+                />
+            )}
             <div className='login-compo shadow-lg '>
                 <div className='sign-in-up-switch my-4 d-flex justify-content-evenly align-items-center'>
                     <Link
                         to='login'
-                        onClick={btnToggler}
-                        className={` btn btn-lg ${btnTogglerClassess.btnDanger}`}
+                        onClick={() => {
+                            setBtnToggle(true)
+                        }}
+                        className={` btn btn-lg ${
+                            btnToggle ? 'btn-danger' : 'btn-outline-danger'
+                        }`}
                     >
-                        {' '}
-                        Sign in{' '}
+                        Sign in
                     </Link>
                     <Link
                         to='Register'
-                        onClick={btnToggler}
-                        className={` btn btn-lg ${btnTogglerClassess.btnDangerOutLine}`}
+                        onClick={() => {
+                            setBtnToggle(false)
+                        }}
+                        className={` btn btn-lg ${
+                            btnToggle ? 'btn-outline-danger' : 'btn-danger'
+                        }`}
                     >
-                        {' '}
-                        Sign up{' '}
+                        Sign up
                     </Link>
                 </div>
                 <Routes>
-                    <Route path='/' element={<SignInForm />} />
-                    <Route path='/login' element={<SignInForm />} />
-                    <Route path='/Register' element={<SignUpForm />} />
+                    <Route
+                        path='/'
+                        element={
+                            <SignInForm
+                                openModal={openModal}
+                                dispatch={dispatch}
+                            />
+                        }
+                    />
+                    <Route
+                        path='/login'
+                        element={
+                            <SignInForm
+                                openModal={openModal}
+                                dispatch={dispatch}
+                            />
+                        }
+                    />
+                    <Route
+                        path='/Register'
+                        element={
+                            <SignUpForm
+                                openModal={openModal}
+                                dispatch={dispatch}
+                            />
+                        }
+                    />
                 </Routes>
             </div>
         </div>

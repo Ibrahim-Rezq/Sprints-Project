@@ -6,7 +6,7 @@ import { useCartContext } from '../../Context/CartContext'
 import { useUserContext } from '../../Context/UserContext'
 function Header() {
     const { totalAmount } = useCartContext()
-    const { isAuth, logOut } = useUserContext()
+    const { isAuth, logOut, user } = useUserContext()
     const NavLinks = [
         {
             path: '/',
@@ -57,31 +57,59 @@ function Header() {
                         )}
                     </ul>
                     <ul className='navbar-nav ms-auto '>
-                        <li className='nav-item fs-4 '>
-                            {isAuth ? (
-                                <>
+                        {isAuth ? (
+                            <>
+                                <li class='nav-item fs-4 dropdown'>
                                     <a
-                                        className='mt-1 nav-link '
-                                        onClick={logOut}
+                                        class='nav-link dropdown-toggle'
+                                        href='#'
+                                        id='navbarDropdown'
+                                        role='button'
+                                        data-bs-toggle='dropdown'
+                                        aria-expanded='false'
                                     >
-                                        LogOut
+                                        <img
+                                            src={user.profileImage}
+                                            width='40'
+                                            alt=''
+                                        />
+                                        <span className='mx-1'>
+                                            {user.userName.split(' ')[0]}
+                                        </span>
                                     </a>
-                                    <Link
-                                        className='mt-1 nav-link '
-                                        to='/profile'
+                                    <ul
+                                        class='dropdown-menu'
+                                        aria-labelledby='navbarDropdown'
                                     >
-                                        Profile
-                                    </Link>
-                                </>
-                            ) : (
+                                        <li>
+                                            <Link
+                                                to='/profile'
+                                                class='dropdown-item'
+                                            >
+                                                Profile
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <a
+                                                class='dropdown-item'
+                                                onClick={logOut}
+                                            >
+                                                LogOut
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </>
+                        ) : (
+                            <li className='nav-item fs-4 '>
                                 <Link
                                     className='mt-1 nav-link '
                                     to='/accounts/login'
                                 >
                                     LogIn
                                 </Link>
-                            )}
-                        </li>
+                            </li>
+                        )}
                         <li className='nav-item fs-4 '>
                             <Link
                                 className='cart-icon fs-1 m-3 position-relative'
