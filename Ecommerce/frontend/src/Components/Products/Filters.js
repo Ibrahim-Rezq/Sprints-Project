@@ -8,14 +8,9 @@ import { getUniqueValues } from '../../Utils/Helpers'
 function Filters() {
     const {
         filterProducts,
-        freeShippingToggle,
         filtersClear,
-        search,
-        searchText,
-        maxPrice,
-        price,
-        changePrice,
         products,
+        filters: { searchText, freeShipping, maxPrice, price },
     } = useProductsContext()
 
     const [filterValues, setFilterValues] = useState({
@@ -31,23 +26,16 @@ function Filters() {
     }, [products])
 
     const handleClick = (e) => {
-        e.preventDefault()
         const name = e.target.name
-        const value = e.target.value
+        if (name !== 'freeShipping') e.preventDefault()
+        let value
+        if (name === 'freeShipping') value = e.target.checked
+        else value = e.target.value
         filterProducts({ name: name, [name]: value })
     }
 
-    const handleSearchChange = (e) => {
-        search(e.target.value)
-    }
-    const handleShippingClick = (e) => {
-        freeShippingToggle(e.target.checked)
-    }
     const handleClearFilter = () => {
         filtersClear()
-    }
-    const handlePriceChange = (e) => {
-        changePrice(e.target.value)
     }
 
     return (
@@ -61,7 +49,8 @@ function Filters() {
                             placeholder='search'
                             className='form-control'
                             value={searchText}
-                            onChange={handleSearchChange}
+                            name={'searchText'}
+                            onChange={handleClick}
                         />
                     </div>
 
@@ -116,7 +105,8 @@ function Filters() {
                             min={0}
                             max={maxPrice}
                             value={price}
-                            onChange={handlePriceChange}
+                            name={'price'}
+                            onChange={handleClick}
                         />
                     </div>
 
@@ -127,7 +117,8 @@ function Filters() {
                             type='checkbox'
                             name='freeShipping'
                             id='shipping'
-                            onChange={handleShippingClick}
+                            onChange={handleClick}
+                            checked={freeShipping}
                         ></input>
                     </div>
                     <div>

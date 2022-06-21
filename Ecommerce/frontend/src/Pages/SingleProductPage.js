@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
 
-import { ProductImagePreview, ProductInfo } from '../Components/SingleProduct'
+import {
+    ProductImagePreview,
+    ProductInfo,
+    ProductReviews,
+} from '../Components/SingleProduct'
 import { Link } from 'react-router-dom'
 import { useProductsContext } from '../Context/ProductContext'
 import { Loading } from '../Components/Global'
@@ -31,6 +35,7 @@ function SingleProductPage() {
                 >
                     <ProductImagePreview image={singleProduct.image} />
                     <ProductInfo product={singleProduct} />
+                    {/* <ProductReviews /> */}
                 </div>
             ) : (
                 <Loading />

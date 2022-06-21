@@ -2,15 +2,16 @@ import { createSlice } from '@reduxjs/toolkit'
 import { Product } from '../../../Utils/Constant'
 
 const initialState = {
-    category: 'all',
-    brand: 'all',
-    color: 'all',
-    searchText: '',
-    freeShipping: false,
-    mimPrice: 0,
-    maxPrice: 0,
-    price: 0,
-    // ^ filters
+    filters: {
+        category: 'all',
+        brand: 'all',
+        color: 'all',
+        searchText: '',
+        freeShipping: false,
+        mimPrice: 0,
+        maxPrice: 0,
+        price: 0,
+    },
     products: [],
     productsLoading: false,
     productsError: false,
@@ -50,8 +51,8 @@ export const productsSlice = createSlice({
                 }),
             ]
             const maxPrice = Math.max(...state.products.map((p) => p.price))
-            state.maxPrice = maxPrice
-            state.price = maxPrice
+            state.filters.maxPrice = maxPrice
+            state.filters.price = maxPrice
             state.filterdProducts = [...state.products]
         },
         getProductsBegin: (state) => {
@@ -69,138 +70,63 @@ export const productsSlice = createSlice({
         },
         filteredProducts: (state, action) => {
             const object = action.payload.name
-            state[object] = action.payload[object]
+            state.filters[object] = action.payload[object]
 
-            /*
-      
-      let tempProducts = [...state.products];
-      if (state.category !== 'all') {
-        tempProducts = [
-          ...tempProducts.filter((p) => {
-            return p.category === state.category;
-          }),
-        ];
-      }
-      if (state.brand !== 'all') {
-        tempProducts = [
-          ...tempProducts.filter((p) => {
-            return p.brand == state.brand;
-          }),
-        ];
-      }
-      if (state.color !== 'all') {
-        tempProducts = [
-          ...tempProducts.filter((p) => {
-            return p.colors.includes(state.color);
-          }),
-        ];
-      }
-      state.filterdProducts = [...tempProducts];
-
-      */
-            // this above is the code i was talking about
-
-            // every thing bellow is the previous code
-
-            state.filterdProducts = [...state.products]
-
-            if (
-                state.category === 'all' &&
-                state.brand === 'all' &&
-                state.color === 'all'
-            ) {
-                state.filterdProducts = [...state.products]
-            } else if (
-                state.category === 'all' &&
-                state.color === 'all' &&
-                state.brand !== 'all'
-            ) {
-                state.filterdProducts = state.products.filter(
-                    (product) => product.brand === state.brand
-                )
-            } else if (
-                state.brand === 'all' &&
-                state.color === 'all' &&
-                state.category !== 'all'
-            ) {
-                state.filterdProducts = state.products.filter(
-                    (product) => product.category === state.category
-                )
-            } else if (
-                state.brand === 'all' &&
-                state.category === 'all' &&
-                state.color !== 'all'
-            ) {
-                state.filterdProducts = state.products.filter((product) =>
-                    product.colors.includes(state.color)
-                )
-            } else if (
-                state.category === 'all' &&
-                state.color !== 'all' &&
-                state.brand !== 'all'
-            ) {
-                state.filterdProducts = state.products.filter(
-                    (product) =>
-                        product.brand === state.brand &&
-                        product.colors.includes(state.color)
-                )
-            } else if (
-                state.brand === 'all' &&
-                state.color !== 'all' &&
-                state.category !== 'all'
-            ) {
-                state.filterdProducts = state.products.filter(
-                    (product) =>
-                        product.category === state.category &&
-                        product.colors.includes(state.color)
-                )
-            } else if (
-                state.color === 'all' &&
-                state.category !== 'all' &&
-                state.brand !== 'all'
-            ) {
-                state.filterdProducts = state.products.filter(
-                    (product) =>
-                        product.category === state.category &&
-                        product.brand === state.brand
-                )
-            } else {
-                state.filterdProducts = state.products.filter(
-                    (product) =>
-                        product.category === state.category &&
-                        product.brand === state.brand &&
-                        product.colors.includes(state.color)
-                )
+            let tempProducts = [...state.products]
+            if (state.filters.category !== 'all') {
+                tempProducts = [
+                    ...tempProducts.filter((p) => {
+                        return p.category === state.filters.category
+                    }),
+                ]
             }
+            if (state.filters.brand !== 'all') {
+                tempProducts = [
+                    ...tempProducts.filter((p) => {
+                        return p.brand == state.filters.brand
+                    }),
+                ]
+            }
+            if (state.filters.color !== 'all') {
+                tempProducts = [
+                    ...tempProducts.filter((p) => {
+                        return p.colors.includes(state.filters.color)
+                    }),
+                ]
+            }
+            if (state.filters.price !== state.filters.maxPrice) {
+                tempProducts = [
+                    ...tempProducts.filter((p) => {
+                        return p.price <= state.filters.price
+                    }),
+                ]
+            }
+
+            if (state.filters.searchText !== '') {
+                tempProducts = [
+                    ...tempProducts.filter((p) => {
+                        return p.name
+                            .toLowerCase()
+                            .includes(action.payload[object].toLowerCase())
+                    }),
+                ]
+            }
+            if (state.filters.freeShipping !== false) {
+                tempProducts = [
+                    ...tempProducts.filter((p) => {
+                        return p.freeShipping
+                    }),
+                ]
+            }
+            state.filterdProducts = [...tempProducts]
         },
-        searchProducts: (state, action) => {
-            action.payload.length !== 0
-                ? (state.filterdProducts = state.products.filter((product) =>
-                      product.name
-                          .toLowerCase()
-                          .includes(action.payload.toLowerCase())
-                  ))
-                : (state.filterdProducts = [...state.products])
-        },
-        toggleFreeShipping: (state, action) => {
-            action.payload === true
-                ? (state.filterdProducts = state.products.filter(
-                      (product) => product.freeShipping === true
-                  ))
-                : (state.filterdProducts = [...state.products])
-        },
-        priceChange: (state, action) => {
-            state.price = action.payload
-            state.filterdProducts = state.products.filter(
-                (product) => product.price <= action.payload
-            )
-        },
+
         clearFilters: (state, action) => {
             state.filterdProducts = [...state.products]
-            state.category = 'all'
-            state.brand = 'all'
-            state.color = 'all'
-            state.freeShipping = false
+            state.filters.category = 'all'
+            state.filters.brand = 'all'
+            state.filters.color = 'all'
+            state.filters.freeShipping = false
         },
     },
 })

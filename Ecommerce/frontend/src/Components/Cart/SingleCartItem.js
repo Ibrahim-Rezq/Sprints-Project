@@ -11,7 +11,7 @@ function SingleCartItem({ item: { id, amount, product } }) {
     const [itemAmount, setItemAmount] = useState(amount)
     const handleSetAmount = (num) => {
         let sum = itemAmount + num
-        if (sum > product.stock) sum = product.stock
+        if (sum > product.stockCount) sum = product.stockCount
         if (sum < 1) sum = 1
         setItemAmount(sum)
         toggleAmount(id, sum)

@@ -2,31 +2,45 @@
 
 ## Descrption
 
-An ecommerce website for all your gaming needs from consoles to accessories 
+An ecommerce website for all your gaming needs from consoles to accessories
 
 ## Softwares used
 
-- ### VSCode "IDE"
-- ### Github "Source control"
-- ### Trello "Tasks manager"
-- ### Slack "Communication"
-  
+-   ### VSCode "IDE"
+-   ### Github "Source control"
+-   ### Trello "Tasks manager"
+-   ### Slack "Communication"
+
 ## BackEnd
 
-### Built With 
+```
 
-- Django 'rest_framwork'
-- Sqllite3
+```
+
+#### For more info check the orginal team member **Ahmed** Repo
+
+-   https://github.com/Ahmed-Abdelgawad-Dev/Sprints_Online_Store.git
+
+#### The Steps are more Clear and Easy there
+
+```
+
+```
+
+### Built With
+
+-   Django 'rest_framwork'
+-   Sqllite3
 
 ### Run Project "Development"
 
 1. cd ./Ecommerce
 
-1. create venv file 
+1. create venv file
 
 1. start virtual env
 
-1. pip install -r requirments.py 
+1. pip install -r requirments.py
 
 1. python manage.py migrate
 
@@ -38,23 +52,21 @@ An ecommerce website for all your gaming needs from consoles to accessories
 
 1. python manage.py runserver
 
-
 ```
 go to 127.0.0.1:8000/admin -> then login with the prevoiusly created
-credentials to access admin dashboard 
+credentials to access admin dashboard
 
 and preferably add products before runing frontend for the full experience
 ```
 
-
 ## FrontEnd
 
-### Built With 
+### Built With
 
-- React.js
-- React-Router V6
-- ReduxToolkit
-- Bootstrap
+-   React.js
+-   React-Router V6
+-   ReduxToolkit
+-   Bootstrap
 
 ### Run Project "Development" (Run Backend First)
 
@@ -62,10 +74,9 @@ and preferably add products before runing frontend for the full experience
 
 1. npm i
 
-1. npm run start 
+1. npm run start
 
-
-### .env file in  ./Ecommerce
+### .env file in ./Ecommerce
 
 <code>SECRET_KEY = django-insecure-9kr=#(!7bp2n65^e4i!5vm6e_3ux3qd7nb0jc2j@i7jyhw)6qa
 </code>
@@ -75,9 +86,7 @@ and preferably add products before runing frontend for the full experience
 <code>REACT_APP_API_KEY= https://127.0.0.1:8000/
 </code>
 
-
 ## The E-commerce Project File Structure (frontend)
-
 
 ## SRC
 

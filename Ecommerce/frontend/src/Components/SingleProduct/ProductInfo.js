@@ -1,56 +1,72 @@
 import React from 'react'
-
+import { AddToCartButtons } from '../Products'
+import { ReviewsStars } from '.'
 import { formatPrice } from '../../Utils/Helpers'
+import { BsCheck, BsX } from 'react-icons/bs'
 
 const ProductInfo = ({ product }) => {
     const {
-        id,
+        _id: id,
         name,
-        images,
-        colors,
         price,
-        category,
-        company,
-        featured,
-        shipping,
+        brand,
+        freeShipping,
+        stockCount,
+        rating,
+        reviewsCount,
+        onSale,
+        saleNumber,
     } = product
+    console.log(stockCount)
     if (product)
         return (
-            <div className='product-text-side'>
-                <h2>{name} </h2>
-                <h4>{formatPrice(price)}</h4>
-                <p className='lead'>
+            <div className='product-text-side p-0 my-4 my-xl-0'>
+                <h2 className='fw-bold'>{name} </h2>
+                <ReviewsStars stars={rating} reviews={reviewsCount} />
+                <p className='fs-5 text-danger fw-bold'>
+                    {onSale ? (
+                        <>
+                            {formatPrice(price * (1 - saleNumber / 100))}
+                            <sup className='m-0 text-decoration-line-through'>
+                                {formatPrice(price)}
+                            </sup>
+                        </>
+                    ) : (
+                        <>{formatPrice(price)}</>
+                    )}
+                </p>
+                <p className='lead' style={{ maxWidth: '30rem' }}>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
                     blanditiis eaque veritatis aliquid! Corporis, eos?
                 </p>
                 <div className='d-flex justify-content-start align-items-center '>
-                    <h5 className=' me-4'>SKU : </h5>
-                    <p>{id}</p>
+                    <span className=' me-4 mb-2 fw-bold'>Available: </span>
+                    {stockCount > 0 ? 'In Stock' : 'Out of Stock'}
                 </div>
                 <div className='d-flex justify-content-start align-items-center '>
-                    <h5 className=' me-4'>Colors : </h5>
-                    <p>
-                        {colors.map((color) => {
-                            return (
-                                <button
-                                    className='btn mx-2 border-dark'
-                                    style={{
-                                        background: color,
-                                        borderRadius: '50%',
-                                        width: '15px',
-                                        height: '15px',
-                                        padding: 0,
-                                    }}
-                                ></button>
-                            )
-                        })}
-                    </p>
+                    <span className=' me-4 mb-2 fw-bold'>SKU: </span>
+                    {id}
                 </div>
                 <div className='d-flex justify-content-start align-items-center '>
-                    <h5 className=' me-4'>Brand: </h5>
-                    <p>{company}</p>
+                    <span className=' me-4 mb-2 fw-bold'>Brand: </span>
+                    {brand}
+                </div>
+                <div className='d-flex justify-content-start align-items-center '>
+                    <span className=' me-4 mb-2 fw-bold'>FreeShipping: </span>
+                    <span className='m-0 mb-2 fs-4 fw-bold'>
+                        {freeShipping ? (
+                            <BsCheck className='text-success' />
+                        ) : (
+                            <BsX className='text-danger' />
+                        )}
+                    </span>
                 </div>
                 <hr />
+                {stockCount > 0 ? (
+                    <AddToCartButtons product={product} />
+                ) : (
+                    'Out of Stock'
+                )}
             </div>
         )
     else return <></>
